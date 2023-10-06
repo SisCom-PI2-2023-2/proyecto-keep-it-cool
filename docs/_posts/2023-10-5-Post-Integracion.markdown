@@ -9,6 +9,6 @@ Creamos el device y añadimos los atributos que vamos a utilizar, luego creamos 
 
 Por ultimo creamos las rule chains para el control del 
 
-![root]([proyecto-keep-it-cool/docs/_posts/img/ruleChainRoot.PNG)
+![root]([img/ruleChainRoot.PNG)
 ![mail]([https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/main/docs/_posts/img/ruleChainMail.png)
 ![ventilador]([https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/main/docs/_posts/img/ruleChainVentilador.PNG)
