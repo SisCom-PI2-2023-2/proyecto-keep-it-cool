@@ -4,7 +4,11 @@ Avanzamos sobre las cadenas de reglas de thingsboard, teníamos un error de comp
 
 
 
-![dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard.PNG)
+![dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard10_10_23.PNG)
+
+
+
+![dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RootChain10-10-23.PNG)
 
 Tambien aprendimos a generar todos los envios/recepciones de informacion desde thingsBoard y arduino que necesitamos para el Mvp
 
