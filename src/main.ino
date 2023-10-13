@@ -9,7 +9,7 @@
 /* ========= CONSTANTES ========= */
 
 // Credenciales de la red WiFi
-const char* SSID = "HUAWEI-IoT";
+const char* ssid = "HUAWEI-IoT";
 const char* PASS = "ORTWiFiIoT";
 
 // Host de ThingsBoard
@@ -111,10 +111,10 @@ void setupWifi() {
     delay(10);
     Serial.println();
     Serial.print("Conectando a: ");
-    Serial.println(SSID);
+    Serial.println(ssid);
 
     WiFi.mode(WIFI_STA); // Declarar la ESP como STATION
-    WiFi.begin(SSID, PASS);
+    WiFi.begin(ssid, PASS);
 
     while (WiFi.status() != WL_CONNECTED) {
         delay(500);
@@ -155,16 +155,16 @@ void callback(char* topic, byte* payload, unsigned int length) {
         // Ejecutar una acción de acuerdo al método solicitado
         if(metodo ==  "comandoPuerta"){
             comandoPuerta(incoming_message["params"]);
-        } else if (metodo == "comandoVentilador")
+        } else if (metodo == "comandoVentilador") {
             comandoVentilador(incoming_message["params"]);
         }
     }
 
     // Actualizar el atributo relacionado
-    DynamicJsonDocument respuesta(256);
-    respuesta["estadoPuerta"] = estadoPuerta;
+    DynamicJsonDocument resp(256);
+     resp["estadoPuerta"] = estadoPuerta;
     char buffer[256];
-    serializeJson(respuesta, buffer);
+    serializeJson(resp, buffer);
     client.publish("v1/devices/me/attributes", buffer);  //Topico para actualizar atributos
     Serial.print("Publish message [attribute]: ");
     Serial.println(buffer);
@@ -175,7 +175,7 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect - client.connect(DEVICE_ID, TOKEN, TOKEN)
-    if (client.connect("NODEMCU Nuevo", token, token )) {
+    if (client.connect("NODEMCU Nuevo", DEVICE_TOKEN, DEVICE_TOKEN )) {
       Serial.println("connected");
       // Once connected, subscribe to rpc topic
       client.subscribe("v1/devices/me/rpc/request/+");
@@ -208,20 +208,20 @@ void report() {
   DynamicJsonDocument resp(256);	//TODO: CAPAZ QUE EL TAMAÑO DEL BUFFER NO DA, AHI HABRIA QUE CAMBIARLO
   
   // Leo temperatura y humedad
-  resp["temperatura1"] = random(0,50) // reportarTemperatura(dht_1]);
-  resp["humedad1"] = random(0, 25) // reportarHumedad(dht_1]);
+  resp["temperatura1"] = random(0,50); // reportarTemperatura(dht_1]);
+  resp["humedad1"] = random(0, 25); // reportarHumedad(dht_1]);
 
-  resp["temperatura2"] = random(0,50) // reportarTemperatura(dht_1]);
-  resp["humedad2"] = random(0, 25) // reportarHumedad(dht_1]);
+  resp["temperatura2"] = random(0,50); // reportarTemperatura(dht_1]);
+  resp["humedad2"] = random(0, 25); // reportarHumedad(dht_1]);
 
-  resp["temperatura2"] = random(0,50) // reportarTemperatura(dht_2]);
-  resp["humedad2"] = random(0, 25) // reportarHumedad(dht_2]);
+  resp["temperatura2"] = random(0,50); // reportarTemperatura(dht_2]);
+  resp["humedad2"] = random(0, 25); // reportarHumedad(dht_2]);
 
-  resp["temperatura3"] = random(0,50) // reportarTemperatura(dht_3]);
-  resp["humedad3"] = random(0, 25) // reportarHumedad(dht_3]);
+  resp["temperatura3"] = random(0,50); // reportarTemperatura(dht_3]);
+  resp["humedad3"] = random(0, 25); // reportarHumedad(dht_3]);
 
-  resp["temperatura4"] = random(0,50) // reportarTemperatura(dht_4]);
-  resp["humedad4"] = random(0, 25) // reportarHumedad(dht_4]);
+  resp["temperatura4"] = random(0,50); // reportarTemperatura(dht_4]);
+  resp["humedad4"] = random(0, 25); // reportarHumedad(dht_4]);
   
   char buffer[256];
   serializeJson(resp, buffer);
