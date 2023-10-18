@@ -21,14 +21,14 @@ const char* DEVICE_TOKEN = "LaGfzdODUTK1J51rtpO7";
 
 // Pines
 
-const int PIN_PUERTA = 0;    // pin que checkea el estado de si de verdad esta cerrada la puerta.
-const int PIN_VENTILADOR = 0;    // pin de control de la unidad de refrigeracion.
-const int PIN_SERVO = 0;
+const int PIN_PUERTA = 5;    // pin que checkea el estado de si de verdad esta cerrada la puerta. (blanco)
+const int PIN_VENTILADOR = 4;    // pin de control de la unidad de refrigeracion. (naranja)
+const int PIN_SERVO = 2;        // verde
 
-const int PIN_DHT_1 = 0;
-const int PIN_DHT_2 = 0;
-const int PIN_DHT_3 = 0;
-const int PIN_DHT_4 = 0;
+const int PIN_DHT_1 = 12; //azul
+const int PIN_DHT_2 = 13; // violeta
+const int PIN_DHT_3 = 15; // marron
+const int PIN_DHT_4 = 3; // amarillo
 
 const int CANT_SENSORES = 4;
 
@@ -48,10 +48,10 @@ char msg2[MSG_BUFFER_SIZE];
 // Objeto Json para recibir mensajes desde el servidor
 DynamicJsonDocument incoming_message(256);
 
-DHT dth_1(PIN_DHT_1, DHT22);
-DHT dth_2(PIN_DHT_2, DHT22);
-DHT dth_3(PIN_DHT_3, DHT22);
-DHT dth_4(PIN_DHT_4, DHT22);
+DHT dht_1(PIN_DHT_1, DHT22);
+DHT dht_2(PIN_DHT_2, DHT22);
+DHT dht_3(PIN_DHT_3, DHT22);
+DHT dht_4(PIN_DHT_4, DHT22);
 
 
 Servo servoPuerta;
@@ -65,7 +65,7 @@ bool estadoVentilador = false;
 
 // Sensores temperatura
 int reportarTemperatura(DHT sensor) {
-  return (float) sensor.readTemperature(false , false); // sin forzar releer y sin convertir a Farenheit
+  return sensor.readTemperature(false , false); // sin forzar releer y sin convertir a Farenheit
 }
 
 int reportarHumedad(DHT sensor) {
@@ -74,11 +74,14 @@ int reportarHumedad(DHT sensor) {
 
 // Puerta
 void actualizarEstadoPuerta(int pinPuerta) {
-  if (digitalRead(pinPuerta == HIGH) ){
+  if (digitalRead(pinPuerta) == HIGH){
     estadoPuerta = true;
+    Serial.print("La puerta esta abierta!");
   } else {
     estadoPuerta = false;
+    Serial.print("La puerta esta cerrada!");
   }
+  
 }
 
 void comandoPuerta(bool comando) {
@@ -198,6 +201,10 @@ void setup() {
                                                             
   client.setServer(MQTT_SERVER, MQTT_PORT);     // Establecer los datos para la conexión MQTT
   client.setCallback(callback);    // Establecer la función del callback para la llegada de mensajes en tópicos suscriptos
+
+  pinMode(PIN_PUERTA,INPUT);
+  pinMode(PIN_VENTILADOR, OUTPUT);
+  servoPuerta.attach(PIN_SERVO);
 }
 
 // LOOP
@@ -208,20 +215,24 @@ void report() {
   DynamicJsonDocument resp(256);	//TODO: CAPAZ QUE EL TAMAÑO DEL BUFFER NO DA, AHI HABRIA QUE CAMBIARLO
   
   // Leo temperatura y humedad
-  resp["temperatura1"] = random(0,50); // reportarTemperatura(dht_1]);
-  resp["humedad1"] = random(0, 25); // reportarHumedad(dht_1]);
+  resp["temperatura1"] = random(0, 10); // PARA PROBAR
 
-  resp["temperatura2"] = random(0,50); // reportarTemperatura(dht_1]);
-  resp["humedad2"] = random(0, 25); // reportarHumedad(dht_1]);
+  /* PROBLEMAS AL LEER DEL SENSOR DEBEMOS ESTAR USANDO LA LIBRERIA QUE NO ES O CAPAZ QUE NO RETORNA INT
+  resp["temperatura1"] = reportarTemperatura(dht_1);
+  resp["humedad1"] = reportarHumedad(dht_1);
 
-  resp["temperatura2"] = random(0,50); // reportarTemperatura(dht_2]);
-  resp["humedad2"] = random(0, 25); // reportarHumedad(dht_2]);
+  resp["temperatura2"] =reportarTemperatura(dht_1);
+  resp["humedad2"] = reportarHumedad(dht_1);
 
-  resp["temperatura3"] = random(0,50); // reportarTemperatura(dht_3]);
-  resp["humedad3"] = random(0, 25); // reportarHumedad(dht_3]);
+  resp["temperatura2"] = reportarTemperatura(dht_2);
+  resp["humedad2"] = reportarHumedad(dht_2);
 
-  resp["temperatura4"] = random(0,50); // reportarTemperatura(dht_4]);
-  resp["humedad4"] = random(0, 25); // reportarHumedad(dht_4]);
+  resp["temperatura3"] = reportarTemperatura(dht_3);
+  resp["humedad3"] = reportarHumedad(dht_3);
+
+  resp["temperatura4"] = reportarTemperatura(dht_4);
+  resp["humedad4"] = reportarHumedad(dht_4);
+  */
   
   char buffer[256];
   serializeJson(resp, buffer);
@@ -244,7 +255,7 @@ void loop() {
   unsigned long now = millis();
   if (now - lastMsg > 2000) {
     lastMsg = now;
-
+    
     report();
     estadoPuerta = actualizarEstadoPuerta;
   }
