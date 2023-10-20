@@ -19,3 +19,5 @@ problemas al intentar mandar la respuesta a Thingsboard.
 
 Aun asi se intento utilizar la funcion random para remplazar los sensores y se encotro que funciona todo correctamente menos el ventilador el cual aunque el relé se encienda correctamente este ultimo no se prende, 
 no pudimos encotrar el porque.
+
+Finalmente se solicito los componentes para ir trabajando en la solución estandar (RFID y buzzer)
