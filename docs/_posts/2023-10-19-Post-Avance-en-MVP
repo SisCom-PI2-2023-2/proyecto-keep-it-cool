@@ -15,4 +15,5 @@ Además notamos que no es posible manejar el servo y los DHTs usando los 3,3V de
 Normalmente es posible manejar el servo con los 3.3V de la placa pero al conectar los DHT los 3,3V caen lo suficiente como para que no puedan manejar al servo.
 
 
-
+Final del día:
+  Nos retiramos con todo funcionando (excluyendo al DHT22 que vino sin funcionar)
