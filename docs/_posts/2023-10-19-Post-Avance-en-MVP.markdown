@@ -18,6 +18,4 @@ Normalmente es posible manejar el servo con los 3.3V de la placa pero al conecta
 Final del día:
   Nos retiramos con todo funcionando (excluyendo al DHT22 que vino sin funcionar)
 
-![dashboard](docs/_posts/img/2023-10-19-pruebaMVP.jpeg)
-
-
+![mvp](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/2023-10-19-pruebaMVP.jpeg)
