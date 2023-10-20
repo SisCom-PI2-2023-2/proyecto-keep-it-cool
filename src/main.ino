@@ -25,10 +25,10 @@ const int PIN_PUERTA = 5;    // pin que checkea el estado de si de verdad esta c
 const int PIN_VENTILADOR = 4;    // pin de control de la unidad de refrigeracion. (naranja)
 const int PIN_SERVO = 2;        // verde
 
-const int PIN_DHT_1 = 12; //azul
-const int PIN_DHT_2 = 13; // violeta
-const int PIN_DHT_3 = 15; // marron
-const int PIN_DHT_4 = 3; // amarillo
+const int PIN_DHT_1 = 12; // azul
+const int PIN_DHT_2 = 13; // marron
+const int PIN_DHT_3 = 15; // amarillo
+const int PIN_DHT_4 = 14; // violeta
 
 const int CANT_SENSORES = 4;
 
@@ -69,7 +69,7 @@ int reportarTemperatura(DHT sensor) {
 }
 
 int reportarHumedad(DHT sensor) {
-  sensor.readHumidity(false);         // sin forzar relectura
+  return sensor.readHumidity(false);         // sin forzar relectura
 }
 
 // Puerta
@@ -205,6 +205,12 @@ void setup() {
   pinMode(PIN_PUERTA,INPUT);
   pinMode(PIN_VENTILADOR, OUTPUT);
   servoPuerta.attach(PIN_SERVO);
+
+  dht_1.begin();
+  dht_2.begin();
+  dht_3.begin();
+  dht_4.begin();
+  
 }
 
 // LOOP
