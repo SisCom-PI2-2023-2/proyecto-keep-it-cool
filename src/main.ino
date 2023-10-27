@@ -38,6 +38,8 @@ const int PIN_DHT_4 = 14; // violeta
 const int PIN_RESET = 9; // pines tentativos, hay que probarlos
 const int PIN_SS = 10;   // idem
 
+const int PIN_BUZZER = 0; // cambiar obviamente
+
 // const int CANT_SENSORES = 4;
 const int CANT_SENSORES = 0;
 
@@ -67,7 +69,10 @@ Servo servoPuerta;
 bool estadoPuerta = false;
 bool estadoVentilador = false;
 
+
 MFRC522  mfrc522(PIN_RESET, PIN_SS); // objeto mfrc522
+
+char* uidTarjeta[32] = "";
 
 
 /* ========= FUNCIONES ========= */
@@ -94,6 +99,17 @@ void comandoPuerta(bool comando) {
   }
 
   Serial.print("Cambie el estado de la puerta a ");
+  Serial.println(comando);
+}
+
+void comandoBuzzer(bool comando) {
+  if (comando == true){
+    digitalWrite(PIN_BUZZER, HIGH);
+  } else {
+    digitalWrite(PIN_BUZZER, LOW);
+  }
+
+  Serial.print("Cambie el estado del buzzer a ");
   Serial.println(comando);
 }
 
@@ -264,18 +280,24 @@ void byteArrayToString(byte array[], unsigned int len, char buffer[])
    buffer[len*2] = '\0';
 }
 
-void loop() {
 
+void leerTarjeta(){
+  
+  uidTarjeta = "";
   if ( ! mfrc522.PICC_IsNewCardPresent())  // si no hay una tarjeta presente
     return;                                // retorna al loop esperando por una tarjeta
   
   if ( ! mfrc522.PICC_ReadCardSerial())    // si no puede obtener datos de la tarjeta
     return;                                // retorna al loop esperando por otra tarjeta
-
-   char uidTarjeta[32] = "";
+  
    byteArrayToString(mfrc522.uid.uidByte, 4, uidTarjeta);
    Serial.println(uidTarjeta); // Imprimir codigo de la tarjeta
    mfrc522.PICC_HaltA();
+  }
+
+void loop() {
+
+  leerTarjeta();
   
   /* Conexión e intercambio de mensajes MQTT */
   if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
@@ -290,5 +312,14 @@ void loop() {
     
     report();
     actualizarEstadoPuerta();
+
+    // Actualizar tarjeta
+    DynamicJsonDocument resp(256);
+    resp["tarjetaEscaneada"] = uidTarjeta;
+    char buffer[256];
+    serializeJson(resp, buffer);
+    client.publish("v1/devices/me/attributes", buffer);  //Topico para actualizar atributos
+    Serial.print("Publish message [attribute]: ");
+    Serial.println(buffer);
   }
 }
