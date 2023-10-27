@@ -1,6 +1,9 @@
 #include <ESP8266WiFi.h>  // Biblioteca para generar la conexión a internet a través de WiFi
 #include <PubSubClient.h> // Biblioteca para generar la conexión MQTT con un servidor (Ej.: ThingsBoard)
 #include <ArduinoJson.h>  // Biblioteca para manejar Json en Arduino
+#include <SPI.h>      // incluye libreria bus SPI
+#include <MFRC522.h>      // incluye libreria especifica para MFRC522
+
 
 #include <Servo.h>
 #include <DHT.h>
@@ -19,18 +22,24 @@ const int MQTT_PORT = 1883;
 // Token del dispositivo en ThingsBoard
 const char* DEVICE_TOKEN = "LaGfzdODUTK1J51rtpO7";
 
-// Pines
+// Pines CAMBIAR PINES
 
 const int PIN_PUERTA = 5;    // pin que checkea el estado de si de verdad esta cerrada la puerta. (blanco)
 const int PIN_VENTILADOR = 4;    // pin de control de la unidad de refrigeracion. (naranja)
 const int PIN_SERVO = 2;        // verde
+
 
 const int PIN_DHT_1 = 12; // azul
 const int PIN_DHT_2 = 13; // marron
 const int PIN_DHT_3 = 15; // amarillo
 const int PIN_DHT_4 = 14; // violeta
 
-const int CANT_SENSORES = 4;
+
+const int PIN_RESET = 9; // pines tentativos, hay que probarlos
+const int PIN_SS = 10;   // idem
+
+// const int CANT_SENSORES = 4;
+const int CANT_SENSORES = 0;
 
 /* ========= VARIABLES ========= */
 
@@ -53,28 +62,21 @@ DHT dht_2(PIN_DHT_2, DHT22);
 DHT dht_3(PIN_DHT_3, DHT22);
 DHT dht_4(PIN_DHT_4, DHT22);
 
-
 Servo servoPuerta;
 
 bool estadoPuerta = false;
 bool estadoVentilador = false;
 
+MFRC522  mfrc522(PIN_RESET, PIN_SS); // objeto mfrc522
+
+
 /* ========= FUNCIONES ========= */
 
 /* FUNCIONES PARA LA CAMARA */
 
-// Sensores temperatura
-int reportarTemperatura(DHT sensor) {
-  return sensor.readTemperature(false , false); // sin forzar releer y sin convertir a Farenheit
-}
 
-int reportarHumedad(DHT sensor) {
-  return sensor.readHumidity(false);         // sin forzar relectura
-}
-
-// Puerta
-void actualizarEstadoPuerta(int pinPuerta) {
-  if (digitalRead(pinPuerta) == HIGH){
+void actualizarEstadoPuerta() {
+  if (digitalRead(PIN_PUERTA) == LOW){
     estadoPuerta = true;
     Serial.print("La puerta esta abierta!");
   } else {
@@ -86,7 +88,7 @@ void actualizarEstadoPuerta(int pinPuerta) {
 
 void comandoPuerta(bool comando) {
   if (comando == true){
-    servoPuerta.write(90);
+    servoPuerta.write(180);
   } else {
     servoPuerta.write(0);
   }
@@ -196,6 +198,8 @@ void setup() {
 
   // Conectividad
   Serial.begin(115200);    // Inicializar conexión Serie para utilizar el Monitor
+  SPI.begin();             // Inicializa el SPI
+  mfrc522.PCD_Init();      // Inicializa el modulo
   
   setupWifi();     // Establecer la conexión WiFi          
                                                             
@@ -210,6 +214,8 @@ void setup() {
   dht_2.begin();
   dht_3.begin();
   dht_4.begin();
+
+  servoPuerta.write(0);
   
 }
 
@@ -218,27 +224,24 @@ void setup() {
 void report() {
 
   // Enviar valores como telemetria
-  DynamicJsonDocument resp(256);	//TODO: CAPAZ QUE EL TAMAÑO DEL BUFFER NO DA, AHI HABRIA QUE CAMBIARLO
+  DynamicJsonDocument resp(256);  //TODO: CAPAZ QUE EL TAMAÑO DEL BUFFER NO DA, AHI HABRIA QUE CAMBIARLO
   
   // Leo temperatura y humedad
-  resp["temperatura1"] = random(0, 10); // PARA PROBAR
+ // resp["temperatura1"] = random(0, 10); // PARA PROBAR
+ 
+ 
+  resp["temperatura1"] =dht_1.readTemperature();
+  resp["humedad1"] = dht_1.readHumidity();
 
-  /* PROBLEMAS AL LEER DEL SENSOR DEBEMOS ESTAR USANDO LA LIBRERIA QUE NO ES O CAPAZ QUE NO RETORNA INT
-  resp["temperatura1"] = reportarTemperatura(dht_1);
-  resp["humedad1"] = reportarHumedad(dht_1);
+  resp["temperatura2"] = dht_2.readTemperature();
+  resp["humedad2"] = dht_2.readHumidity();
 
-  resp["temperatura2"] =reportarTemperatura(dht_1);
-  resp["humedad2"] = reportarHumedad(dht_1);
+  resp["temperatura3"] = dht_3.readTemperature();
+  resp["humedad3"] = dht_3.readHumidity();
 
-  resp["temperatura2"] = reportarTemperatura(dht_2);
-  resp["humedad2"] = reportarHumedad(dht_2);
+  resp["temperatura4"] = dht_4.readTemperature();
+  resp["humedad4"] = dht_4.readHumidity();
 
-  resp["temperatura3"] = reportarTemperatura(dht_3);
-  resp["humedad3"] = reportarHumedad(dht_3);
-
-  resp["temperatura4"] = reportarTemperatura(dht_4);
-  resp["humedad4"] = reportarHumedad(dht_4);
-  */
   
   char buffer[256];
   serializeJson(resp, buffer);
@@ -249,8 +252,31 @@ void report() {
   Serial.println(buffer);
 }
 
+void byteArrayToString(byte array[], unsigned int len, char buffer[])
+{
+   for (unsigned int i = 0; i < len; i++)
+   {
+      byte nib1 = (array[i] >> 4) & 0x0F;
+      byte nib2 = (array[i] >> 0) & 0x0F;
+      buffer[i*2+0] = nib1  < 0xA ? '0' + nib1  : 'A' + nib1  - 0xA;
+      buffer[i*2+1] = nib2  < 0xA ? '0' + nib2  : 'A' + nib2  - 0xA;
+   }
+   buffer[len*2] = '\0';
+}
+
 void loop() {
 
+  if ( ! mfrc522.PICC_IsNewCardPresent())  // si no hay una tarjeta presente
+    return;                                // retorna al loop esperando por una tarjeta
+  
+  if ( ! mfrc522.PICC_ReadCardSerial())    // si no puede obtener datos de la tarjeta
+    return;                                // retorna al loop esperando por otra tarjeta
+
+   char uidTarjeta[32] = "";
+   byteArrayToString(mfrc522.uid.uidByte, 4, uidTarjeta);
+   Serial.println(uidTarjeta); // Imprimir codigo de la tarjeta
+   mfrc522.PICC_HaltA();
+  
   /* Conexión e intercambio de mensajes MQTT */
   if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
     reconnect();              // Y recuperarla en caso de desconexión
@@ -259,10 +285,10 @@ void loop() {
   client.loop();              // Controlar si hay mensajes entrantes o para enviar al servidor
   
   unsigned long now = millis();
-  if (now - lastMsg > 2000) {
+  if (now - lastMsg > 5000) {
     lastMsg = now;
     
     report();
-    estadoPuerta = actualizarEstadoPuerta;
+    actualizarEstadoPuerta();
   }
 }
