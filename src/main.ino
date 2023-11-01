@@ -22,30 +22,31 @@ const int MQTT_PORT = 1883;
 // Token del dispositivo en ThingsBoard
 const char* DEVICE_TOKEN = "LaGfzdODUTK1J51rtpO7";
 
-// Pines CAMBIAR PINES
+// Pines TODO: CAMBIAR PINES
 
-const int PIN_PUERTA = 5;    // pin que checkea el estado de si de verdad esta cerrada la puerta. (blanco)
-const int PIN_VENTILADOR = 4;    // pin de control de la unidad de refrigeracion. (naranja)
-const int PIN_SERVO = 2;        // verde
-
-
-const int PIN_DHT_1 = 12; // azul
-const int PIN_DHT_2 = 13; // marron
-const int PIN_DHT_3 = 15; // amarillo
-const int PIN_DHT_4 = 14; // violeta
+const int PIN_PUERTA = 0;      // pin que checkea el estado de si de verdad esta cerrada la puerta.
+const int PIN_VENTILADOR = 0;    // pin de control de la unidad de refrigeracion.
+const int PIN_SERVO = 0;        
 
 
-const int PIN_RESET = 9; // pines tentativos, hay que probarlos
-const int PIN_SS = 10;   // idem
+const int PIN_DHT_1 = 0;
+const int PIN_DHT_2 = 0; 
+const int PIN_DHT_3 = 0; 
+const int PIN_DHT_4 = 0;
 
-const int PIN_BUZZER = 0; // cambiar obviamente
+
+const int PIN_RESET = 9; // Establecido por libreria
+const int PIN_SS = 10;   // Establecido por libreria
+
+const int PIN_BUZZER = 0;
 
 // const int CANT_SENSORES = 4;
 const int CANT_SENSORES = 0;
 
 /* ========= VARIABLES ========= */
 
-// Objetos de conexión 
+
+/* CONEXION */ 
 WiFiClient espClient;             // Objeto de conexión WiFi
 PubSubClient client(espClient);   // Objeto de conexión MQTT
 
@@ -59,26 +60,28 @@ char msg2[MSG_BUFFER_SIZE];
 // Objeto Json para recibir mensajes desde el servidor
 DynamicJsonDocument incoming_message(256);
 
+/* SENSORES DHT */
+
 DHT dht_1(PIN_DHT_1, DHT22);
 DHT dht_2(PIN_DHT_2, DHT22);
 DHT dht_3(PIN_DHT_3, DHT22);
 DHT dht_4(PIN_DHT_4, DHT22);
 
+/* SERVOMOTOR Y PUERTA */
 Servo servoPuerta;
-
 bool estadoPuerta = false;
+
+/* VENTILADOR */
 bool estadoVentilador = false;
 
+/* SISTEMA RFID */
 
-MFRC522  mfrc522(PIN_RESET, PIN_SS); // objeto mfrc522
-
-char* uidTarjeta[32] = "";
-
+MFRC522  mfrc522(PIN_RESET, PIN_SS);
+char uidTarjeta[16];
 
 /* ========= FUNCIONES ========= */
 
 /* FUNCIONES PARA LA CAMARA */
-
 
 void actualizarEstadoPuerta() {
   if (digitalRead(PIN_PUERTA) == LOW){
@@ -232,7 +235,6 @@ void setup() {
   dht_4.begin();
 
   servoPuerta.write(0);
-  
 }
 
 // LOOP
@@ -258,7 +260,6 @@ void report() {
   resp["temperatura4"] = dht_4.readTemperature();
   resp["humedad4"] = dht_4.readHumidity();
 
-  
   char buffer[256];
   serializeJson(resp, buffer);
   
@@ -268,36 +269,34 @@ void report() {
   Serial.println(buffer);
 }
 
-void byteArrayToString(byte array[], unsigned int len, char buffer[])
-{
-   for (unsigned int i = 0; i < len; i++)
-   {
-      byte nib1 = (array[i] >> 4) & 0x0F;
-      byte nib2 = (array[i] >> 0) & 0x0F;
-      buffer[i*2+0] = nib1  < 0xA ? '0' + nib1  : 'A' + nib1  - 0xA;
-      buffer[i*2+1] = nib2  < 0xA ? '0' + nib2  : 'A' + nib2  - 0xA;
-   }
-   buffer[len*2] = '\0';
-}
-
-
-void leerTarjeta(){
+void sistemaRFID(){
   
-  uidTarjeta = "";
-  if ( ! mfrc522.PICC_IsNewCardPresent())  // si no hay una tarjeta presente
-    return;                                // retorna al loop esperando por una tarjeta
-  
-  if ( ! mfrc522.PICC_ReadCardSerial())    // si no puede obtener datos de la tarjeta
-    return;                                // retorna al loop esperando por otra tarjeta
-  
-   byteArrayToString(mfrc522.uid.uidByte, 4, uidTarjeta);
-   Serial.println(uidTarjeta); // Imprimir codigo de la tarjeta
-   mfrc522.PICC_HaltA();
+  // Limpiar uidTarjeta
+  for (int i = 0; i < 16; i++) {
+    uidTarjeta[i] = 0;
   }
+  
+  // Revisamos si hay nuevas tarjetas  presentes
+  if ( mfrc522.PICC_IsNewCardPresent()) {    
+    Serial.println("Lectura del UID");
+
+    //Seleccionamos una tarjeta
+    if ( mfrc522.PICC_ReadCardSerial()) {
+
+        // Convertir array de bytes que representan el codigo hexadecimal a string.
+        sprintf(uidTarjeta, "%02x%02x%02x%02x", mfrc522.uid.uidByte[0], mfrc522.uid.uidByte[1], mfrc522.uid.uidByte[2], mfrc522.uid.uidByte[3]);
+        Serial.print("Se leyo una tarjeta con codigo:");
+        Serial.println(uidTarjeta);
+
+        // Terminamos la lectura de la tarjeta  actual
+        mfrc522.PICC_HaltA();    
+    }      
+  } 
+}
 
 void loop() {
 
-  leerTarjeta();
+  sistemaRFID();
   
   /* Conexión e intercambio de mensajes MQTT */
   if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
