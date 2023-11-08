@@ -28,20 +28,17 @@ const int PIN_PUERTA = 0;      // pin que checkea el estado de si de verdad esta
 const int PIN_VENTILADOR = 0;    // pin de control de la unidad de refrigeracion.
 const int PIN_SERVO = 0;        
 
-
 const int PIN_DHT_1 = 0;
 const int PIN_DHT_2 = 0; 
 const int PIN_DHT_3 = 0; 
 const int PIN_DHT_4 = 0;
 
+const int PIN_BUZZER = 0;
+
+const int PIN_HALL = A0;
 
 const int PIN_RESET = 9; // Establecido por libreria
 const int PIN_SS = 10;   // Establecido por libreria
-
-const int PIN_BUZZER = 0;
-
-// const int CANT_SENSORES = 4;
-const int CANT_SENSORES = 0;
 
 /* ========= VARIABLES ========= */
 
@@ -66,6 +63,10 @@ DHT dht_1(PIN_DHT_1, DHT22);
 DHT dht_2(PIN_DHT_2, DHT22);
 DHT dht_3(PIN_DHT_3, DHT22);
 DHT dht_4(PIN_DHT_4, DHT22);
+
+/* SENSORES EFECTO HALL */
+
+float potencia;
 
 /* SERVOMOTOR Y PUERTA */
 Servo servoPuerta;
@@ -116,8 +117,7 @@ void comandoBuzzer(bool comando) {
   Serial.println(comando);
 }
 
-void comandoVentilador(bool comando)
-{
+void comandoVentilador(bool comando) {
   if (comando == true){
     digitalWrite(PIN_VENTILADOR, HIGH);
   } else {
@@ -129,29 +129,6 @@ void comandoVentilador(bool comando)
 }
 
 /* FUNCIONES SETUP */
-
-void setupWifi() {
-
-    delay(10);
-    Serial.println();
-    Serial.print("Conectando a: ");
-    Serial.println(ssid);
-
-    WiFi.mode(WIFI_STA); // Declarar la ESP como STATION
-    WiFi.begin(ssid, PASS);
-
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
-    }
-
-    randomSeed(micros());
-
-    Serial.println("");
-    Serial.println("¡Conectado!");
-    Serial.print("Dirección IP asignada: ");
-    Serial.println(WiFi.localIP());
-}
 
 void callback(char* topic, byte* payload, unsigned int length) {
 
@@ -213,6 +190,29 @@ void reconnect() {
   }
 }
 
+void setupWifi() {
+
+    delay(10);
+    Serial.println();
+    Serial.print("Conectando a: ");
+    Serial.println(ssid);
+
+    WiFi.mode(WIFI_STA); // Declarar la ESP como STATION
+    WiFi.begin(ssid, PASS);
+
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+
+    randomSeed(micros());
+
+    Serial.println("");
+    Serial.println("¡Conectado!");
+    Serial.print("Dirección IP asignada: ");
+    Serial.println(WiFi.localIP());
+}
+
 void setup() {
 
   // Conectividad
@@ -227,6 +227,7 @@ void setup() {
 
   pinMode(PIN_PUERTA,INPUT);
   pinMode(PIN_VENTILADOR, OUTPUT);
+  pinMode(PIN_HALL, INPUT);
   servoPuerta.attach(PIN_SERVO);
 
   dht_1.begin();
@@ -239,37 +240,7 @@ void setup() {
 
 // LOOP
 
-void report() {
-
-  // Enviar valores como telemetria
-  DynamicJsonDocument resp(256);  //TODO: CAPAZ QUE EL TAMAÑO DEL BUFFER NO DA, AHI HABRIA QUE CAMBIARLO
-  
-  // Leo temperatura y humedad
- // resp["temperatura1"] = random(0, 10); // PARA PROBAR
- 
- 
-  resp["temperatura1"] =dht_1.readTemperature();
-  resp["humedad1"] = dht_1.readHumidity();
-
-  resp["temperatura2"] = dht_2.readTemperature();
-  resp["humedad2"] = dht_2.readHumidity();
-
-  resp["temperatura3"] = dht_3.readTemperature();
-  resp["humedad3"] = dht_3.readHumidity();
-
-  resp["temperatura4"] = dht_4.readTemperature();
-  resp["humedad4"] = dht_4.readHumidity();
-
-  char buffer[256];
-  serializeJson(resp, buffer);
-  
-  client.publish("v1/devices/me/telemetry", buffer);
-  
-  Serial.print("Publish message [telemetry]: ");
-  Serial.println(buffer);
-}
-
-void sistemaRFID(){
+void sistemaRFID() {
   
   // Limpiar uidTarjeta
   for (int i = 0; i < 16; i++) {
@@ -294,9 +265,59 @@ void sistemaRFID(){
   } 
 }
 
-void loop() {
+void sensorHall() {
 
-  sistemaRFID();
+    float voltaje = analogRead(PIN_SENSOR) * (3.3 / 1023.0);
+    float corriente = (voltaje - 1.69) / 0.185;
+    float potencia = voltaje * corriente;
+    Serial.print("Potencia utilizada: ");
+    Serial.println(potencia);
+}
+
+void report() {
+
+  // Enviar valores como telemetria
+  DynamicJsonDocument resp(256);  //TODO: CAPAZ QUE EL TAMAÑO DEL BUFFER NO DA, AHI HABRIA QUE CAMBIARLO
+ 
+  resp["temperatura1"] =dht_1.readTemperature();
+  resp["humedad1"] = dht_1.readHumidity();
+
+  resp["temperatura2"] = dht_2.readTemperature();
+  resp["humedad2"] = dht_2.readHumidity();
+
+  resp["temperatura3"] = dht_3.readTemperature();
+  resp["humedad3"] = dht_3.readHumidity();
+
+  resp["temperatura4"] = dht_4.readTemperature();
+  resp["humedad4"] = dht_4.readHumidity();
+
+  resp["potencia"] = potencia;
+
+  char buffer[256];
+  serializeJson(resp, buffer);
+  
+  client.publish("v1/devices/me/telemetry", buffer);
+  
+  Serial.print("Publish message [telemetry]: ");
+  Serial.println(buffer);
+
+  // Enviar valores como atriubto
+
+    // Actualizar tarjeta
+    DynamicJsonDocument resp(256);
+    
+    resp["tarjetaEscaneada"] = uidTarjeta;
+    
+    char buffer[256];
+    serializeJson(resp, buffer);
+    
+    client.publish("v1/devices/me/attributes", buffer);  //Topico para actualizar atributos
+    
+    Serial.print("Publish message [attribute]: ");
+    Serial.println(buffer);
+}
+
+void loop() {
   
   /* Conexión e intercambio de mensajes MQTT */
   if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
@@ -307,18 +328,13 @@ void loop() {
   
   unsigned long now = millis();
   if (now - lastMsg > 5000) {
-    lastMsg = now;
     
+    sensorHall();
+    sistemaRFID();
+
     report();
     actualizarEstadoPuerta();
 
-    // Actualizar tarjeta
-    DynamicJsonDocument resp(256);
-    resp["tarjetaEscaneada"] = uidTarjeta;
-    char buffer[256];
-    serializeJson(resp, buffer);
-    client.publish("v1/devices/me/attributes", buffer);  //Topico para actualizar atributos
-    Serial.print("Publish message [attribute]: ");
-    Serial.println(buffer);
+    lastMsg = now;
   }
 }
