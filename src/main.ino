@@ -4,10 +4,8 @@
 #include <SPI.h>      // incluye libreria bus SPI
 #include <MFRC522.h>      // incluye libreria especifica para MFRC522
 
-
 #include <Servo.h>
 #include <DHT.h>
-
 
 /* ========= CONSTANTES ========= */
 
@@ -20,7 +18,7 @@ const char* MQTT_SERVER = "demo.thingsboard.io";
 const int MQTT_PORT = 1883;
 
 // Token del dispositivo en ThingsBoard
-const char* DEVICE_TOKEN = "LaGfzdODUTK1J51rtpO7";
+const char* DEVICE_TOKEN = "1f28d6Q87ipYrgD2W1JY";
 
 // Pines TODO: CAMBIAR PINES
 
@@ -37,8 +35,8 @@ const int PIN_BUZZER = 0;
 
 const int PIN_HALL = A0;
 
-const int PIN_RESET = 9; // Establecido por libreria
-const int PIN_SS = 10;   // Establecido por libreria
+const int PIN_RESET = 0; // Establecido por libreria
+const int PIN_SS = 15;   // Establecido por libreria
 
 /* ========= VARIABLES ========= */
 
@@ -77,7 +75,7 @@ bool estadoVentilador = false;
 
 /* SISTEMA RFID */
 
-MFRC522  mfrc522(PIN_RESET, PIN_SS);
+MFRC522  mfrc522(PIN_SS, PIN_RESET);
 char uidTarjeta[16];
 
 /* ========= FUNCIONES ========= */
@@ -163,12 +161,17 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
     // Actualizar el atributo relacionado
     DynamicJsonDocument resp(256);
-     resp["estadoPuerta"] = estadoPuerta;
+    resp["estadoPuerta"] = estadoPuerta;
+    resp["tarjetaEscaneada"] = String(uidTarjeta);
     char buffer[256];
     serializeJson(resp, buffer);
     client.publish("v1/devices/me/attributes", buffer);  //Topico para actualizar atributos
     Serial.print("Publish message [attribute]: ");
     Serial.println(buffer);
+
+    for (int i = 0; i < 16; i++) {
+      uidTarjeta[i] = 0;
+    }
 }
 
 void reconnect() {
@@ -216,10 +219,8 @@ void setupWifi() {
 void setup() {
 
   // Conectividad
-  Serial.begin(115200);    // Inicializar conexión Serie para utilizar el Monitor
-  SPI.begin();             // Inicializa el SPI
-  mfrc522.PCD_Init();      // Inicializa el modulo
-  
+  Serial.begin(9600);    // Inicializar conexión Serie para utilizar el Monitor
+
   setupWifi();     // Establecer la conexión WiFi          
                                                             
   client.setServer(MQTT_SERVER, MQTT_PORT);     // Establecer los datos para la conexión MQTT
@@ -236,12 +237,15 @@ void setup() {
   dht_4.begin();
 
   servoPuerta.write(0);
+
+  SPI.begin();             // Inicializa el SPI
+  mfrc522.PCD_Init();      // Inicializa el modulo
 }
 
 // LOOP
 
-void sistemaRFID() {
-  
+bool sistemaRFID() {
+
   // Limpiar uidTarjeta
   for (int i = 0; i < 16; i++) {
     uidTarjeta[i] = 0;
@@ -260,14 +264,16 @@ void sistemaRFID() {
         Serial.println(uidTarjeta);
 
         // Terminamos la lectura de la tarjeta  actual
-        mfrc522.PICC_HaltA();    
+        mfrc522.PICC_HaltA();
+        return true;    
     }      
   } 
+  return false;
 }
 
 void sensorHall() {
 
-    float voltaje = analogRead(PIN_SENSOR) * (3.3 / 1023.0);
+    float voltaje = analogRead(PIN_HALL) * (3.3 / 1023.0);
     float corriente = (voltaje - 1.69) / 0.185;
     float potencia = voltaje * corriente;
     Serial.print("Potencia utilizada: ");
@@ -300,41 +306,33 @@ void report() {
   
   Serial.print("Publish message [telemetry]: ");
   Serial.println(buffer);
-
-  // Enviar valores como atriubto
-
-    // Actualizar tarjeta
-    DynamicJsonDocument resp(256);
-    
-    resp["tarjetaEscaneada"] = uidTarjeta;
-    
-    char buffer[256];
-    serializeJson(resp, buffer);
-    
-    client.publish("v1/devices/me/attributes", buffer);  //Topico para actualizar atributos
-    
-    Serial.print("Publish message [attribute]: ");
-    Serial.println(buffer);
 }
 
 void loop() {
   
-  /* Conexión e intercambio de mensajes MQTT */
-  if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
-    reconnect();              // Y recuperarla en caso de desconexión
-  }
-  
-  client.loop();              // Controlar si hay mensajes entrantes o para enviar al servidor
-  
   unsigned long now = millis();
+
+  SPI.begin();             // Inicializa el SPI
+  mfrc522.PCD_Init();      // Inicializa el modulo
+  bool escaneo = false;
+  while(millis() - now < 5000 && !escaneo) {
+    escaneo = sistemaRFID();
+  }
+
+  now = millis();
   if (now - lastMsg > 5000) {
     
+    /* Conexión e intercambio de mensajes MQTT */
+    if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
+      reconnect();              // Y recuperarla en caso de desconexión
+    }
+    
+    client.loop();              // Controlar si hay mensajes entrantes o para enviar al servidor
+
     sensorHall();
-    sistemaRFID();
 
     report();
     actualizarEstadoPuerta();
-
     lastMsg = now;
   }
 }
