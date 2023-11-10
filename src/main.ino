@@ -244,19 +244,13 @@ void setup() {
 
 // LOOP
 
-bool sistemaRFID() {
-
-  // Limpiar uidTarjeta
-  for (int i = 0; i < 16; i++) {
-    uidTarjeta[i] = 0;
-  }
-  
+void sistemaRFID() {
   // Revisamos si hay nuevas tarjetas  presentes
-  if ( mfrc522.PICC_IsNewCardPresent()) {    
+  if (mfrc522.PICC_IsNewCardPresent()) {    
     Serial.println("Lectura del UID");
 
     //Seleccionamos una tarjeta
-    if ( mfrc522.PICC_ReadCardSerial()) {
+    if (mfrc522.PICC_ReadCardSerial()) {
 
         // Convertir array de bytes que representan el codigo hexadecimal a string.
         sprintf(uidTarjeta, "%02x%02x%02x%02x", mfrc522.uid.uidByte[0], mfrc522.uid.uidByte[1], mfrc522.uid.uidByte[2], mfrc522.uid.uidByte[3]);
@@ -265,10 +259,8 @@ bool sistemaRFID() {
 
         // Terminamos la lectura de la tarjeta  actual
         mfrc522.PICC_HaltA();
-        return true;    
     }      
   } 
-  return false;
 }
 
 void sensorHall() {
@@ -309,14 +301,11 @@ void report() {
 }
 
 void loop() {
-  
   unsigned long now = millis();
-
-  SPI.begin();             // Inicializa el SPI
-  mfrc522.PCD_Init();      // Inicializa el modulo
-  bool escaneo = false;
-  while(millis() - now < 5000 && !escaneo) {
-    escaneo = sistemaRFID();
+  
+  if (uidTarjeta == "") { // Escaneo solo si ya se envio el escaneo anterior
+    // mfrc522.PCD_Init(); // Probar si se puede hacer sin meterle este tremendo parche 
+    sistemaRFID(); // Creo que ya no hace falta hacer el while pero capaz no funciona
   }
 
   now = millis();
