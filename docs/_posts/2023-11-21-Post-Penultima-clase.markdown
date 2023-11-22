@@ -24,4 +24,4 @@ Cámara
 
 El último trabajo en mandar una foto sacada desde la puerta para mejorar la seguridad, esta foto se debería tomar al pasar la tarjeta RDIF para corroborar quien entro. Esto se cumplió; el problema es que nos topamos con una limitación de la versión demo de ThingsBoard, solo podemos mandar por RPC un máximo de 1024 bytes, por lo tanto la imagen se ve de la siguiente manera:
 
-![Imagen-de_camara]()
+![Imagen-de_camara](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/2023-11-21-FotoDeCamara.png)
