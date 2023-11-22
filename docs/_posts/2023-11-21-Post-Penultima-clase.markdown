@@ -7,5 +7,4 @@ categories: posts
 
 
 
-En esta clase trabajamos los 3 en 3 cosas distintas, uno sobre la posible implementacion de un inventario SQL con thingsboard, otro continuo trabajando sobre el mapa de calor y el 
-último trabajó sobre el envío de imagenes a thingsboard para mayor seguridad en la puerta
+En esta clase trabajamos los 3 en 3 cosas distintas, uno sobre la posible implementacion de un inventario SQL con thingsboard ya se logro tener el servidor con el inventario pero todaví no se pudo implementar sobre thingsboard, otro continuo trabajando sobre el mapa de calor tratando de obtener los datos de temperatura dentro del widget para poder hacer el interpolado y el último trabajó sobre el envío de imagenes a thingsboard para mayor seguridad en la puerta
