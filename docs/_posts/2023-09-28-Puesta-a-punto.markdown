@@ -5,8 +5,6 @@ date:   2023-09-28
 categories: posts
 ---
 
-# Puesta a punto 
-
 Este post es para mencionar lo que se ha hecho los días anteriores en el proyecto.
 
 ## 2023-09-12 y 2023-09-14
