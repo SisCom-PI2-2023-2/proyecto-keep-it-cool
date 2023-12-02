@@ -57,3 +57,5 @@ Bitácora: 17/10/23
 Se utilizó Postman para realizar las primeras interacciones con la API para luego integrarla mediante una cadena de reglas a Thingsboard. Una vez obtenidos los datos de la temperatura del lugar los guardamos como telemetría.
 
 ![RuleChain](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RuleChainOpen.png)
+
+Bitácora: 26/10/23
