@@ -5,8 +5,6 @@ date:   2023-11-21
 categories: posts
 ---
 
-# Penultima Clase
-
 En esta clase nos dividimos el trabajo y cada uno trabajo solo en lo siguiente.
 
 ## Inventario SQL
