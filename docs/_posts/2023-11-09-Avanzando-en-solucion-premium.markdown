@@ -15,5 +15,14 @@ Además falta crear el método de llamado en el main para invocar el sacado de f
 ## Sistema RFID
 
 Por otro lado, trabajamos en el envio  de los datos de las tarjetas RFID a ThingsBoard logrando la verificación y adición de las tarjetas a una base de datos en ThingsBoard.
-La base de datos es un Json el cual contiene todas las tarjetas permitidas de la siguiente forma: "tartjetai" = "codigo de la tarjeta" y para poder añadir lo que hacemos es
-tener un atributo de servidor con la cantidad de tarjetas de dónde obtenemos el indice para agregarle al Json.
+La base de datos es un Json el cual contiene todas las tarjetas permitidas de la siguiente forma: 
+
+```js
+// i es un entero que empieza en 0 y aumenta por cada tarjeta añadida.
+"tarjeta0": "[codigo de la tarjeta]",
+"tarjeta1": "[codigo de la tarjeta]",
+"tarjeta2": "[codigo de la tarjeta]",
+...
+```
+
+Para poder añadir lo que hacemos es tener un atributo de servidor con la cantidad de tarjetas de dónde obtenemos el indice para agregarle al Json.
