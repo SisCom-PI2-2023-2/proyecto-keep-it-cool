@@ -25,7 +25,7 @@ email: proyectokic@outlook.es
 description: >- # this means to ignore newlines until "baseurl:"
   Trabajo realizado en el marco de la asignatura Proyecto Integrador 2, Universidad ORT Uruguay.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://siscom-pi2-2023-2.github.io/template_proyecto" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 #github_username:  jekyll
 
