@@ -4,6 +4,8 @@ title:  "Estandar por terminar"
 categories: posts
 ---
 
+## Estandar por Terminar
+
 Hoy se avanzo en gran medida con respecto al nivel estandard e incluso al premium. Se realizaron las pruebas de concepto que faltaban:
 
   - Para el sensor por efecto Hall donde se corroboro que funciona pero que debemos tener cuidado con corrientes muy pequeñas.
