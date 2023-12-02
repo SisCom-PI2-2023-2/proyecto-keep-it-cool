@@ -5,6 +5,8 @@ date:   2023-10-19
 categories: posts
 ---
 
+## Avance en MVP
+
 Continuamos con el intento de utilizar simultaneamente todos los componentes juntos para completar el MVP.
 
 Cambiamos la librería de los DHT a ´dht11esp8266´ pese a que usamos DHT22, la librería funciona correctamente con los DHT22.
