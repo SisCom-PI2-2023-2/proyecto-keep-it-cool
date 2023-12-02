@@ -1,4 +1,11 @@
-`Trabajo sobre ThingsBoard`
+---
+layout: post
+title:  "Trabajo con Thingsboard para el MVP"
+date:   2023-09-28 23:00:00 -0300
+categories: posts
+---
+
+## Trabajo sobre ThingsBoard
 
 Avanzamos sobre las cadenas de reglas de thingsboard, teníamos un error de comprension sobre como funcionan los atributos del servidor y como cambiarlos, ya logramos corregirlo.
 
@@ -10,7 +17,7 @@ Avanzamos sobre las cadenas de reglas de thingsboard, teníamos un error de comp
 
 ![dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RootChain10-10-23.png)
 
-Tambien aprendimos a generar todos los envios/recepciones de informacion desde thingsBoard y arduino que necesitamos para el Mvp
+Tambien aprendimos a generar todos los envios/recepciones de informacion desde thingsBoard y arduino que necesitamos para el MVP.
 
 En el codigo de Arduino se organizo el codigo en distintos archivos para serparar la logica y se subio por primera vez. Y se hicieron unos pequeños ajustes
 
