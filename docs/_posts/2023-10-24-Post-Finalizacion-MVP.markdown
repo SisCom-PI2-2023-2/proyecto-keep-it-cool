@@ -5,8 +5,6 @@ date:   2023-10-24
 categories: posts
 ---
 
-## Finalizacion MVP
-
 Continuamos probando lo unico que no pudimos verificar que fue el envio por mail ante una alerta, al intentar probar encotramos el error de que no estaba mandando el mail. Luego de probar varias cosas encotramos que el error es que cuando probamos
 mandar un mail lo hicimos con la cuenta de Thingboard que tiene mas funcionalidades pero ahora al intentar utilizar la version demo se debe hacer distinto. Tras investigar pudimos arreglar y correctamente enviar un mail pero se descubrio que no se pueden
 usar cuentas gmail para enviar la alerta y probando con alternativas encotramos que los correos de microsoft se pueden utilizar sin mucha dificultad, por lo que se deberia crear una cuenta outlook para enviar los correos del obligatorio.
@@ -22,7 +20,7 @@ Para esto empezamos con el mecanismo de verificar que el codigo enviado por la p
 tarjeta recibida. Para esto utilizamos originate attributes y un script en JS.
 
  
-```javascript
+```js
 let tar = JSON.parse(metadata.ss_tarjetasPermitidas);
 let esValida = false;
 
@@ -31,5 +29,4 @@ for (key in tar) {
     esValida = true;
 }
 return esValida;1
-
 ```
