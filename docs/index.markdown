@@ -14,14 +14,5 @@ Nuestro proyecto nace a raíz de un problema concreto que surgió en una cámara
 
 Dado este problema y la oportunidad de mejorar la experiencia del usuario en cámaras refrigeradas, hemos decidido emprender el proyecto "Keep It Cool" (KIC). Este proyecto, al estar basado en la nube, soluciona el problema de la falta de alertas relacionadas con la temperatura. Además, permite la implementación de alertas directas al usuario, así como alarmas locales. Además de la mejora en la alerta, KIC tiene como objetivo mejorar la experiencia del usuario mediante la incorporación de capacidades inteligentes, brindando a los usuarios un control total, sin importar su ubicación.
 
-
-## Otras páginas
-
-Creando archivos `.markdown` en la carpeta principal pueden agregar "tabs" de navegación a la página. Por ejemplo [la del equipo](proyecto-keep-it-cool/docs/equipo.markdown) y [otra de prueba](prueba.markdown)
-
-## Configuración del sitio
-
-El archivo `_config.yml` contiene la configuración básica del sitio. Edítenlo para ajustarlo a su proyecto.
-
 ## Bitácora
 
