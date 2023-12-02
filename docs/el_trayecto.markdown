@@ -24,3 +24,7 @@ Además de estas mejoras al hardware también se hicieron mejoras para el dashbo
 Dashboard modelo 2.0:
 
 ![Dashboard de modelo 2.0](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard.jpg)
+
+
+## Pruebas de concepto
+
