@@ -5,8 +5,6 @@ date:   2023-10-05
 categories: posts
 ---
 
-## Trabajo sobre ThingsBoard
-
 Empezamos la integración de las pruebas de conepto del MVP, para poder realizar el prototipo.
 
 Creamos el device y añadimos los atributos que vamos a utilizar, luego creamos el dashboard.
