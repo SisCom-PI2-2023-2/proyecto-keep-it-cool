@@ -1,4 +1,11 @@
-`Casi listos para el MVP`
+---
+layout: post
+title:  "Dashboard Final MVP"
+date:   2023-09-28 23:00:00 -0300
+categories: posts
+---
+
+# Casi listos para el MV
 
 En este día terminamos de hacer toda la lógica y visual del dashboard de Thingsboard del MVP
 Además dejamos completo el código del ESP8266 para poder, la próxima clase, hacer la prueba del prototipo
