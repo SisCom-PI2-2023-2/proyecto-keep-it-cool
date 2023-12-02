@@ -47,8 +47,10 @@ Bitácora: 29/09/23
 
 ### Sensor de la puerta
 
-Para el sensor de la puerta simplemente decidimos utilizar un pequeño circuito con los pines de la placa y una resistencia de 10kΩ. La idea es que mientras el circuito este abierto (Puerta abierta) el pin lea 0v y cuando el circuito está cerrado (Puerta cerrada) el pin lea 3v.
+Para el sensor de la puerta simplemente decidimos utilizar un pequeño circuito con los pines de la placa y una resistencia de 10kΩ. La idea es que mientras el circuito este abierto (Puerta abierta) el pin lea 0v y cuando el circuito está cerrado (Puerta cerrada) el pin lea 3,3v.
 
 
 
+
+![Circuito](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard10_10_23.png**)
 
