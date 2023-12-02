@@ -48,7 +48,7 @@ void loop() {
 
 ## Otras páginas
 
-Creando archivos `.markdown` en la carpeta principal pueden agregar "tabs" de navegación a la página. Por ejemplo [la del equipo](/equipo) y [otra de prueba](/prueba)
+Creando archivos `.markdown` en la carpeta principal pueden agregar "tabs" de navegación a la página. Por ejemplo [la del equipo](/docs/equipo.markdown) y [otra de prueba](/prueba)
 
 ## Configuración del sitio
 
