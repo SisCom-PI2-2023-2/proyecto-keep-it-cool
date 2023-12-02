@@ -18,11 +18,12 @@ Por otro lado, trabajamos en el envio  de los datos de las tarjetas RFID a Thing
 La base de datos es un Json el cual contiene todas las tarjetas permitidas de la siguiente forma: 
 
 ```js
-// i es un entero que empieza en 0 y aumenta por cada tarjeta añadida.
+{
 "tarjeta0": "[codigo de la tarjeta]",
 "tarjeta1": "[codigo de la tarjeta]",
 "tarjeta2": "[codigo de la tarjeta]",
 ...
+}
 ```
 
 Para poder añadir lo que hacemos es tener un atributo de servidor con la cantidad de tarjetas de dónde obtenemos el indice para agregarle al Json.
