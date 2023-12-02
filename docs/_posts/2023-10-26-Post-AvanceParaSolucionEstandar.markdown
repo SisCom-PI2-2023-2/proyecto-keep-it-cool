@@ -5,8 +5,6 @@ date:   2023-10-26
 categories: posts
 ---
 
-## Avance para Estandar
-
 Pese a que aun no contamos con los componentes que pedimos hace unas semanas nos encontramos trabajando en el desarrollo de la solución estandar.
 
 Entre lo que cumplimos hoy, aunque no probamos debido a lo mencionado es:
