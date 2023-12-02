@@ -45,4 +45,7 @@ Quotes
 
    > Cita o recuadro
 
+## Posts
+
+En la carpeta `_posts`` pueden poner posts para crear la bitácora del proyecto. En el primer post está cómo debe ser el formato para que les quede ordenado.
 
