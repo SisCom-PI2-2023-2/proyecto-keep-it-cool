@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Estado actual del proyecto"
-date:   2023-09-28 23:25:05
+date:   2023-09-28 23:25:05 -30
 categories: posts
 ---
 
