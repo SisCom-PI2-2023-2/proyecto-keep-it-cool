@@ -28,3 +28,11 @@ Dashboard modelo 2.0:
 
 ## Pruebas de concepto
 
+### Cooler
+
+La primer prueba de concepto fue el cooler, consistiendo en unir un ventilador de 12v  utilizado para refrigerar CPUs a un hielo y colocándolo dentro de un tupper, al cual también se le colocó un sensor de temperatura, se vió que al prender el ventilador la temperatura del tupper bajó más de 10°C lo cual es más que suficiente para mostrar el funcionamiento del proyecto, siendo este el objetivo de la prueba.  
+
+### Contol de puerta
+
+Controlar la puerta de la cámara desde un dashboard es una parte vital del proyecto, además de enseñarnos sobre el comportamiento de los RPC call. Está prueba no solo nos sirvió para poder tener el control de la puerta funcionando, si no que también comenzamos a comprender la comunicación entre Thingsboard y las placas.
+
