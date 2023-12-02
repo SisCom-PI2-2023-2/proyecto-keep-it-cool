@@ -11,7 +11,7 @@ usar cuentas gmail para enviar la alerta y probando con alternativas encotramos 
 
 Una vez arreglado este error podemos decir que (sin contar la maqueta) el MVP esta finalizado.
 
-'Estandar'
+## Estandar
 
 Luego de terminar y verificar todo de nuevo, empezamos a trabajar en el nivel estandar del projecto, investigando el uso de las tarjeta RFID y como implementarlas en el sistema. Luego de pensar decidimos que la base de datos con todas las tarjetas permitidas seria un JSON como atributo
 de servidor en Thingsboard, esto implica que el chequeo de la tarjeta y el guardado del historial de las mismas debe ser programado en Thingsboard. 
