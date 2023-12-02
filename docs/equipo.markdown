@@ -6,7 +6,7 @@ permalink: /equipo/
 
 ## Miembros del equipo
 
-  ### Acerca de nosotros
+### Acerca de nosotros
 
 Somos estudiantes en Ingeniería Electrónica actualmente cursando sexto semestre en la Facultad de Ingenieria ORT Uruguay. 
 
