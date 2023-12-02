@@ -5,13 +5,10 @@
 layout: home
 ---
 
-Esta es la página principal. La pueden ajustar a su gusto usando [markdown](https://www.markdownguide.org/basic-syntax/)
 
-## Ejemplo
+## Keep It Cool
 
-Así se agrega una imagen. En general se guardan en la carpeta `assets`:
-
-![mtstmichel](/assets/mtstmichel.jpg)
+Keep It Cool (KIC) es un sistema integral de control para habitaciones con temperatura controlada con la capacidad de añadir métodos para la restricción de entrada a personal no autorizado, con la habilidad de guardar información de la cámara en internet, con monitor de consumo eléctrico durante la operación de la habitación y con mapeado de temperatura de la misma.
 
 
 ## Código incluido
