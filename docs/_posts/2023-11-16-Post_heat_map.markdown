@@ -5,8 +5,6 @@ date:   2023-11-16
 categories: posts
 ---
 
-## Comienzo del Mapa de Calor
-
   Hoy trabajamos sobre el mapa de calor para las temperaturas de la camara, como tenemos cuatro sensores tenemos 
 que interpolar el resto de datos. Para lograr esto decidimos hacer una interpolación lineal, tomando la distancia 
 aproximada entre los sensores y su ubicación en la camara.
