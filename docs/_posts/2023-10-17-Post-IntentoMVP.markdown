@@ -5,8 +5,6 @@ date:   2023-10-17
 categories: posts
 ---
 
-# Intento de MVP
-
 Empezamos el desarrollo del MVP, intentando unir todos lo logrado hasta este punto:
  
   - Sensores DHT
