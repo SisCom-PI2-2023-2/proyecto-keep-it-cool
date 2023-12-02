@@ -35,6 +35,20 @@ La primer prueba de concepto fue el cooler, consistiendo en unir un ventilador d
 ### Contol de puerta
 
 Controlar la puerta de la cámara desde un dashboard es una parte vital del proyecto, además de enseñarnos sobre el comportamiento de los RPC call. Está prueba no solo nos sirvió para poder tener el control de la puerta funcionando, si no que también comenzamos a comprender la comunicación entre Thingsboard y las placas.
+
 Bitácora: 29/09/23
+
+
+### Termohigrómetros
+
+La utilización de sensores con capacidad para leer la temperatura de la cámara cumplía un rol muy importante dentro de nuestro proyecto por lo que lograr que los sensores lean la temperatura y generen el reporte a Thingsboard era otra de las partes vitales del proyecto. En esta prueba descubrimos que uno de los sensores que compramos estaba roto, de ahí el hecho que en la prueba del modelo base simplemente se utilicen tres sensores.
+
+Bitácora: 29/09/23
+
+### Sensor de la puerta
+
+Para el sensor de la puerta simplemente decidimos utilizar un pequeño circuito con los pines de la placa y una resistencia de 10kΩ. La idea es que mientras el circuito este abierto (Puerta abierta) el pin lea 0v y cuando el circuito está cerrado (Puerta cerrada) el pin lea 3v.
+
+
 
 
