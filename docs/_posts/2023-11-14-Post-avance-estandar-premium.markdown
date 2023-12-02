@@ -5,8 +5,6 @@ date:   2023-11-14
 categories: posts
 ---
 
-# Avance en Estandar y Premium
-
 Hoy se decidio avanzar en tanto el nivel Estandar como el Premium para aprovechar mejor el tiempo y ademas porque no necesitabamos 3 personas trabajando en el Estandar, por lo que mientras
 2 trabajaban en el Estandar el ultimo avanzo con el Premium.
 
