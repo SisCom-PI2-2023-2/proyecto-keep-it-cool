@@ -14,5 +14,11 @@ Nuestro proyecto nace a raíz de un problema concreto que surgió en una cámara
 
 Dado este problema y la oportunidad de mejorar la experiencia del usuario en cámaras refrigeradas, hemos decidido emprender el proyecto "Keep It Cool" (KIC). Este proyecto, al estar basado en la nube, soluciona el problema de la falta de alertas relacionadas con la temperatura. Además, permite la implementación de alertas directas al usuario, así como alarmas locales. Además de la mejora en la alerta, KIC tiene como objetivo mejorar la experiencia del usuario mediante la incorporación de capacidades inteligentes, brindando a los usuarios un control total, sin importar su ubicación.
 
+## Features
+
+  * Monitoreo y loggeo de temperatura, consumo de electricidad
+  * Control de ingreso usando tarjetas RFID, puerta motorizada y cámara de seguridad
+
+
 ## Bitácora
 
