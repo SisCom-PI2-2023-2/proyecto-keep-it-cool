@@ -6,7 +6,7 @@ layout: home
 ---
 
 
-## Keep It Cool
+## ¿ Qué es Keep It Cool ?
 
 Keep It Cool (KIC) es un sistema integral de control para habitaciones con temperatura controlada con la capacidad de añadir métodos para la restricción de entrada a personal no autorizado, con la habilidad de guardar información de la cámara en internet, con monitor de consumo eléctrico durante la operación de la habitación y con mapeado de temperatura de la misma.
 
@@ -51,6 +51,5 @@ Creando archivos `.markdown` en la carpeta principal pueden agregar "tabs" de na
 
 El archivo `_config.yml` contiene la configuración básica del sitio. Edítenlo para ajustarlo a su proyecto.
 
-## Posts
+## Bitácora
 
-En la carpeta `_posts`` pueden poner posts para crear la bitácora del proyecto. En el primer post está cómo debe ser el formato para que les quede ordenado.
