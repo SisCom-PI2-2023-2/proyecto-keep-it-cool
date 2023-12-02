@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Estandar por terminar"
+date:   2023-11-07
 categories: posts
 ---
 
