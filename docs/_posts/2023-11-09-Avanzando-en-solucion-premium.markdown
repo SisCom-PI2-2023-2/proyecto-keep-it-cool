@@ -5,8 +5,6 @@ date:   2023-11-09
 categories: posts
 ---
 
-# Avance en Premium
-
 ## Camara
 
 Se avanzo en el código de arduino para el manejo de la cámara, adaptando el código disponible en la documentación de Thingsboard. Falta probarlo en la placa y enviar a ThingsBoard.
