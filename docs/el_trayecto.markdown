@@ -54,8 +54,34 @@ Para el sensor de la puerta simplemente decidimos utilizar un pequeño circuito 
 Bitácora: 17/10/23
 
 ### API OpenWeather
+
 Se utilizó Postman para realizar las primeras interacciones con la API para luego integrarla mediante una cadena de reglas a Thingsboard. Una vez obtenidos los datos de la temperatura del lugar los guardamos como telemetría.
 
 ![RuleChain](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RuleChainOpen.png)
 
 Bitácora: 26/10/23
+
+### Buzzer
+
+La alarma local de la cámara decidimos que sea un buzzer activo, por lo que su funcionamiento es bastante sencillo, simplemente debemos conectarlo a un pin de la placa y ponerlo en alto cuando queremos que se prenda la alarma. La lógica de cuando prender la alarma ya estaba hecha para el envío de emails y se lo enviamos mediante un RPC call.
+
+Bitácora: 31/10/23
+
+### Monitoreo de eficiencia
+
+Debido al bajo consumo de la cámara, al ser un modelo, debemos monitorear el consumo de otro circuito. Utilizando un sensor de corriente por efecto hall, mediremos la corriente consumida por el circuito y como conocemos el voltaje al cual está sometido sabemos su consumo.
+
+Bitácora: 07/11/23
+
+### Sistema RFID
+
+Brahian escribí vos
+
+Bitácora: 07/11/23
+
+
+### Cámara de fotos
+
+Mauro
+
+### API restdb
