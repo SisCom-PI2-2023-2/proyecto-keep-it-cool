@@ -52,5 +52,5 @@ Para el sensor de la puerta simplemente decidimos utilizar un pequeño circuito 
 
 
 
-![Circuito](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard10_10_23.png**)
+![Circuito](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard10_10_23.png)
 
