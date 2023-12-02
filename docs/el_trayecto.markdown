@@ -35,4 +35,6 @@ La primer prueba de concepto fue el cooler, consistiendo en unir un ventilador d
 ### Contol de puerta
 
 Controlar la puerta de la cámara desde un dashboard es una parte vital del proyecto, además de enseñarnos sobre el comportamiento de los RPC call. Está prueba no solo nos sirvió para poder tener el control de la puerta funcionando, si no que también comenzamos a comprender la comunicación entre Thingsboard y las placas.
+Bitácora: 29/09/23
+
 
