@@ -5,6 +5,8 @@ date:   2023-10-31
 categories: posts
 ---
 
+## Estado
+
 Ya nos llegaron los componentes, avanzamos con código de Thingsboard y con código del ESP, no pudimos probar el código del la tarjeta
 ya que necesitamos soldarle los pines. El buzzer y servo funcionan correctamente.
 
