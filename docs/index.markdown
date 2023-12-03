@@ -45,7 +45,9 @@ actuadores en la cámara.
 </div>
 
 <div style='text-align: justify;'>
-  ThingsBoard es el principal panel de control de la cámara y reúne toda la información de la misma. El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes, por ejemplo solo el administrador puede cambiar los parámetros de threshold de la cámara o mirar los registros fotográficos de quien entra en la cámara, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento. 
+  El panel de control principal, dos dashboard de ThingsBoard, centraliza la información de la cámara con versiones de administrador y trabajador. El administrador tiene privilegios exclusivos, como ajustar parámetros de la cámara o revisar registros fotográficos, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento.
+
+  Esta mejora no solo resuelve problemas sino que también proporciona una experiencia mejorada, otorgando a los usuarios control total, sin importar su ubicación. 
 </div>
   
 ## Imagenes
