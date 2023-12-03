@@ -7,7 +7,7 @@ El trayecto de KIC tuvo sus altos y bajos, en el comienzo la introducción a la 
 
 ## Prototipos
 
-Comenzaremos explicando las dos pruebas de integración grandes que tuvo el proyecto, para luego proceder a las pequeñas pruebas específicas con sus desafíos particulares.
+<center>Comenzaremos explicando las dos pruebas de integración grandes que tuvo el proyecto, para luego proceder a las pequeñas pruebas específicas con sus desafíos particulares.</center>
 
 Se tuvieron dos prototipos el modelo base y el modelo 2.0.
 
