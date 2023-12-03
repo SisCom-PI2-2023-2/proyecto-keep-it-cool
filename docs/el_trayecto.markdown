@@ -1,6 +1,6 @@
 ---
 layout: page
-title: El trayecto
+title: El Trayecto
 permalink: /el_trayecto/
 ---
 El trayecto de KIC tuvo sus altos y bajos, en el comienzo la introducción a la nueva metodología de trabajo, nuevo software para desarrollo y la inexperiencia del equipo trabajando sobre soluciones de IoT, probaron ser obstáculos en el camino del proyecto. Estos obstáculos inesperados por parte del equipo de desarrollo generaron atrasos sobre la planificación previa del proyecto, pero gracias a la perseverancia del equipo se lograron los objetivos.
