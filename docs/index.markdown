@@ -29,7 +29,7 @@ actuadores en la cámara.
 <br>
 
 <div style="display:inline;text-align:left; ">
-   <img src="https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Diagrama.png" alt="diagrama" width=500 border="0"/>
+   <img src="https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Diagrama.png" alt="diagrama" width=400 border="0"/>
   <div style="float: right">
   <ol>
     <li>Puerta controlada por Servomotor</li>
