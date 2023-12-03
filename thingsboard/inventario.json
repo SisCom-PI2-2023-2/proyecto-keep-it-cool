@@ -1,0 +1,21 @@
+{
+  "fqn": "inventario",
+  "name": "Inventario",
+  "deprecated": false,
+  "image": null,
+  "description": null,
+  "descriptor": {
+    "type": "latest",
+    "sizeX": 7.5,
+    "sizeY": 3,
+    "resources": [],
+    "templateHtml": "<div style=\"position: relative;\">\n    Inventario\n    <div id = contenedorTabla>    \n        <table id=tabla>\n            <tr>\n                <th>Producto</th>\n                <th>Cantidad</th>\n            </tr>\n        </table>\n    </div>\n</div>",
+    "templateCss": "#container {\n    overflow: auto;\n}\n\n.tbDatasource-container {\n    margin: 5px;\n    padding: 8px;\n}\n\n.tbDatasource-title {\n    font-size: 1.200rem;\n    font-weight: 500;\n    padding-bottom: 10px;\n}\n\n.tbDatasource-table {\n    width: 100%;\n    box-shadow: 0 0 10px #ccc;\n    border-collapse: collapse;\n    white-space: nowrap;\n    font-size: 1.000rem;\n    color: #757575;\n}\n\n.tbDatasource-table td {\n    position: relative;\n    border-top: 1px solid rgba(0, 0, 0, 0.12);\n    border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n    padding: 0px 18px;\n    box-sizing: border-box;\n}\n\ntr,td, table, th{\n  border: 1px solid black;\n  border-collapse: collapse;\n  padding: 5px;\n  text-align: center;\n  font-family: sans-serif;\n  font-size: 20px;\n}",
+    "controllerScript": "var tabla;\n\n\nself.onInit = function() {\n    \n    self.ctx.hideTitlePanel = true;\n    self.ctx.$scope.datasources = self.ctx.defaultSubscription.datasources; // Definir datasources igual al de la defaultSubscription\n    self.ctx.$scope.data = self.ctx.defaultSubscription.data; // Definir data igual al de la defaultSubscription\n    \n    self.ctx.$scope.datasourceData = [];\n    \n    var currentDatasource = null;\n    var currentDatasourceIndex = -1;\n    \n    for (var i=0;i<self.ctx.$scope.data.length;i++) {\n        var dataKeyData = self.ctx.$scope.data[i];\n        if (dataKeyData.datasource != currentDatasource) {\n            currentDatasource = dataKeyData.datasource\n            currentDatasourceIndex++;\n            self.ctx.$scope.datasourceData[currentDatasourceIndex] = [];\n            \n        } \n        self.ctx.$scope.datasourceData[currentDatasourceIndex].push(dataKeyData);\n    }\n    self.ctx.updateWidgetParams();\n  \n    self.onResize();\n    \n    actualizarTabla(self.ctx.data);\n}\n\nself.onDataUpdated = function() {\n    actualizarTabla(self.ctx.data)\n}\n\nself.onResize = function() {\n    \n}\n\nself.onDestroy = function() {\n}\n\nfunction actualizarTabla(datos) {\n    \n    // Datos es un JSON tal que {id, producto, cantidad}\n    for (item in datos)\n    {\n        let producto = item.producto;\n        let cantidad = item.cantidad;\n    }\n}\n\n\n\n\n\n\n",
+    "settingsSchema": "{}",
+    "dataKeySettingsSchema": "{}\n",
+    "defaultConfig": "{\"datasources\":[{\"type\":\"function\",\"name\":\"function\",\"dataKeys\":[{\"name\":\"f(x)\",\"type\":\"function\",\"label\":\"Random\",\"color\":\"#2196f3\",\"settings\":{},\"_hash\":0.15479322438769105,\"funcBody\":\"var value = prevValue + Math.random() * 100 - 50;\\nvar multiplier = Math.pow(10, 2 || 0);\\nvar value = Math.round(value * multiplier) / multiplier;\\nif (value < -1000) {\\n\\tvalue = -1000;\\n} else if (value > 1000) {\\n\\tvalue = 1000;\\n}\\nreturn value;\"}]}],\"timewindow\":{\"realtime\":{\"timewindowMs\":60000}},\"showTitle\":true,\"backgroundColor\":\"#fff\",\"color\":\"rgba(0, 0, 0, 0.87)\",\"padding\":\"8px\",\"settings\":{},\"title\":\"Attributes card\"}"
+  },
+  "externalId": null,
+  "tags": null
+}
