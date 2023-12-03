@@ -61,7 +61,7 @@ Aquí simplemente se muestra la lista de todos los productos en la cámara, esto
 
 #### Configuracion (solo admin)
 
-![Configuración](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Consumo.png)
+![Configuración](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Configuracion.png)
 
 Panel solamente habilitado para administradores, permite cambiar parámetros de la cámara, como las temperaturas threshold, el tiempo entre chequeos. También es el lugar desde el cual se le indica al sensor RFID que registre nuevas tarjetas.
 
