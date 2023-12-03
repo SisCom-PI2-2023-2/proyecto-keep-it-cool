@@ -7,8 +7,9 @@ El trayecto de KIC tuvo sus altos y bajos, en el comienzo la introducción a la 
 
 ## Prototipos
 
-Comenzaremos explicando las dos pruebas de integración grandes que tuve el proyecto, para luego proceder a las pequeñas pruebas específicas con sus desafíos particulares.
-Se tuvieron dos prototipos el modelo base y el modelo 2.0
+Comenzaremos explicando las dos pruebas de integración grandes que tuvo el proyecto, para luego proceder a las pequeñas pruebas específicas con sus desafíos particulares.
+
+Se tuvieron dos prototipos el modelo base y el modelo 2.0.
 
 ### Modelo base
 
@@ -49,9 +50,11 @@ Dashboard modelo 2.0:
 
 ## Pruebas de concepto
 
+En esta sección hablaremos de las pruebas específicas sobre cada uno de los elementos y sus obstáculos.
+
 ### Cooler
 
-La primer prueba de concepto fue el cooler, consistiendo en unir un ventilador de 12v  utilizado para refrigerar CPUs a un hielo y colocándolo dentro de un tupper, al cual también se le colocó un sensor de temperatura, se vió que al prender el ventilador la temperatura del tupper bajó más de 10°C lo cual es más que suficiente para mostrar el funcionamiento del proyecto, siendo este el objetivo de la prueba.  
+La primer prueba de concepto fue el cooler, consistiendo en unir un ventilador de 12v utilizado para refrigerar CPUs a un hielo y colocándolo dentro de un tupper, al cual también se le colocó un sensor de temperatura, se vió que al prender el ventilador la temperatura del tupper bajó más de 10°C lo cual es más que suficiente para mostrar el funcionamiento del proyecto, siendo este el objetivo de la prueba.  
 
 ### Contol de puerta
 
@@ -62,9 +65,13 @@ Bitácora: 29/09/23
 
 ### Termohigrómetros
 
-La utilización de sensores con capacidad para leer la temperatura de la cámara cumplía un rol muy importante dentro de nuestro proyecto por lo que lograr que los sensores lean la temperatura y generen el reporte a Thingsboard era otra de las partes vitales del proyecto. En esta prueba descubrimos que uno de los sensores que compramos estaba roto, de ahí el hecho que en la prueba del modelo base simplemente se utilicen tres sensores.
+La utilización de sensores con capacidad para leer la temperatura de la cámara cumplía un rol muy importante dentro de nuestro proyecto por lo que lograr que los sensores lean la temperatura y generen el reporte a Thingsboard era otra de las partes vitales del proyecto. En esta prueba descubrimos que uno de los sensores que compramos estaba roto, de ahí el hecho que en la prueba del modelo base simplemente se utilicen tres sensores. 
+
+Gracias al uso de bibliotecas leer la temperatura y humedad en una placa se resumió a un ejecutar un comando sobre el pin al cual estaba conectado el sensor y simplemente lo enviamos como telemetría a la nube.
 
 Bitácora: 29/09/23
+
+link a código de prueba : https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/Prueba%20Sensor%20Temperatura.ino
 
 ### Sensor de la puerta
 
