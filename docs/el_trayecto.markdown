@@ -45,7 +45,7 @@ Fotos del prototipo:
 
 Video de puerta: 
 
-![Video Puerta](https://youtu.be/F3nZ_RjiW-k)
+![Video de puerta](https://img.youtube.com/vi/F3nZ_RjiW-k/0.jpg)](https://www.youtube.com/watch?v=F3nZ_RjiW-k)
 
 
 Dashboard modelo 2.0:
