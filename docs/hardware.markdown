@@ -22,7 +22,7 @@ permalink: /hardware/
 
 * Módulo ESP32 wifi+bluetooth con cámara
   
-  (https://www.electronica.com.uy/robotica/modulos-comunicacion/m%C3%B3dulo-esp-32-wifi-bluetooth-con-c%C3%A1mara-detalle.html)
+  <https://www.electronica.com.uy/robotica/modulos-comunicacion/m%C3%B3dulo-esp-32-wifi-bluetooth-con-c%C3%A1mara-detalle.html>
   
 * Módulo ESP8266 NodeMcu V3 WiFi
   
