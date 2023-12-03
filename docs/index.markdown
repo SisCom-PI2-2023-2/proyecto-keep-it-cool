@@ -24,17 +24,22 @@ layout: home
   KIC consta de dos partes principales: los módulos físicos y la lógica en la nube. Los
 sensores en la cámara recopilan información sobre las condiciones, que luego se procesa
 en la nube. Esta información se utiliza para tomar decisiones y enviar instrucciones a los
-actuadores en la cámara. Las acciones posibles incluyen:
+actuadores en la cámara.
 </div>
 
-* Monitoreo de temperatura y humedad en la cámara.
-* Sistema RFID para añadir seguridad a la puerta.
-* Alertas por mail y buzzer ante emergencias.
-* Permite incorporarse a una base de datos existente.
-* Registro Fotográfico de quien entra.
+![diagrama](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Diagrama.png)
+
+1. Puerta controlada por Servomotor
+2. Sensor de estado de la puerta
+3. Camara para registro fotográfico
+4. Sistema RFID para acceder
+5. Sensor de Temperatura y Humedad
+6. Sistema de Refrigeración
+7. Buzzer activado ante emergencias
+8. Comunicacion con la nube 
 
 <div style='text-align: justify;'>
-  Todas estas acciones se llevan a cabo a través de ThingsBoard el cual es el principal panel de control de la cámara y reúne toda la información de la misma.  El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes, por ejemplo solo el administrador puede cambiar los parámetros de threshold de la cámara o mirar los registros fotográficos de quien entra en la cámara, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento. 
+  ThingsBoard es el principal panel de control de la cámara y reúne toda la información de la misma. El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes, por ejemplo solo el administrador puede cambiar los parámetros de threshold de la cámara o mirar los registros fotográficos de quien entra en la cámara, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento. 
 </div>
   
 ## Imagenes
@@ -50,7 +55,7 @@ Dashboard para Administradores
 
 
 <div style='text-align: justify;'>
-  Pueden explorar las diferentes pestañas para conocer mas del proyecto y de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/equipo/">nosotros</a>. La pestaña de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/hardware/">Hardware</a> como su nombre indica detalla los componentes utilizados mientras que la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/dashboard/">Dashboard</a> explica el uso del nombrado para el control y uso de la camara. Tambien esta la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/el_trayecto/">El Trayecto</a> en la cual se indica como fue se fue desarrollando el proyecto y nuestras conclusiones, errores, aprendizajes y mejoras que podemos decir en esta etapa final del proyecto.
+  Pueden explorar las diferentes pestañas para conocer mas del proyecto y de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/equipo/">nosotros</a>. La pestaña de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/hardware/">Hardware</a> como su nombre indica detalla los componentes utilizados mientras que la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/dashboard/">Dashboard</a> explica el uso del nombrado para el control y uso de la camara. Tambien esta la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/el_trayecto/">El Trayecto</a> en la cual se indica como fue se fue desarrollando el proyecto y nuestras conclusiones, errores, aprendizajes y mejoras que podemos decir ahora mirando atras del proyecto.
 </div>
 
 
