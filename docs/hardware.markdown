@@ -4,4 +4,6 @@ title: Hardware
 permalink: /hardware/
 ---
 
-hola
+### Lista de componentes utilizados:
+
+### Referencias
