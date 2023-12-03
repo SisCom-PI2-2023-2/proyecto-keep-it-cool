@@ -3,14 +3,19 @@ layout: page
 title: El trayecto
 permalink: /el_trayecto/
 ---
+El trayecto de KIC tuvo sus altos y bajos, en el comienzo la introducción a la nueva metodología de trabajo, nuevo software para desarrollo y la inexperiencia del equipo trabajando sobre soluciones de IoT, probaron ser obstáculos en el camino del proyecto. Estos obstáculos inesperados por parte del equipo de desarrollo generaron atrasos sobre la planificación previa del proyecto, pero gracias a la perseverancia del equipo se lograron los objetivos.
 
 ## Prototipos
+
+Comenzaremos explicando las dos pruebas de integración grandes que tuve el proyecto, para luego proceder a las pequeñas pruebas específicas con sus desafíos particulares.
 Se tuvieron dos prototipos el modelo base y el modelo 2.0
 
 ### Modelo base
 
-El modelo base fue la unión de las pruebas de las primeras concepto, obteniendo los datos de tres sensores de temperatura, 
-el sensor de la puerta, además de su servomotor, el cooler y el sistema de alarmas vía mail.
+El modelo base fue la unión de las primeras pruebas de concepto, obteniendo los datos de tres sensores de temperatura, 
+el sensor de la puerta, además de controlar su servomotor, el cooler y el sistema de alarmas vía mail.
+
+Este primer prototipo armo los cimientos sobre los cuales el proyecto se mantendría, enseñándonos como interactuar con actuadores y con sensores, y como reportar toda esa información en Thingsboard. Para este prototipo todavía no se había armado la maqueta, por lo que su prueba resulto menos visual, pero práctica.
 
 Dashboard de modelo base:
 
