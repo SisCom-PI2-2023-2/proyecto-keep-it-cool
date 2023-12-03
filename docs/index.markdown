@@ -2,6 +2,12 @@
 layout: home
 ---
 
+<style>
+body {
+  background-image: url('https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/maquetaSinTerminar.jpg');
+}
+</style>
+
 <div style='text-align: justify;'>
   Keep It Cool (KIC) es un sistema integral de control para habitaciones con temperatura controlada. Dentro de sus capacidades incluye métodos para restringir la entrada a personal no autorizado, así como la habilidad de almacenar información de la habitación en la nube. Además, integra un monitor de consumo eléctrico durante la operación de la habitación y un mapeado de temperatura.
  
@@ -52,10 +58,9 @@ actuadores en la cámara.
 Dashboard para Administradores
 ![Dashboard Admin](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard%20(admin).PNG)
 
-
 <div style='text-align: justify;'>
   Pueden explorar las diferentes pestañas para conocer mas del proyecto y de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/equipo/">nosotros</a>. La pestaña de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/hardware/">Hardware</a> como su nombre indica detalla los componentes utilizados mientras que la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/dashboard/">Dashboard</a> explica el uso del nombrado para el control y uso de la camara. Tambien esta la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/el_trayecto/">El Trayecto</a> en la cual se indica como fue se fue desarrollando el proyecto y nuestras conclusiones, errores, aprendizajes y mejoras que podemos decir ahora mirando atras del proyecto.
 </div>
 
-
+## Bitacora
 
