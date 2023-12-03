@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hardware
+title: Dashboard
 permalink: /dashboard/
 ---
 
