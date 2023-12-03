@@ -27,8 +27,17 @@ Dashboard de modelo base:
 
 ### Modelo 2.0
 
-El modelo 2.0 agrega una alarma en el sitio, una api para monitorear la temperatura exterior, telemetría sobre el consumo de la cámara y la utilización de RFID para entrar a la cámara.
-Además de estas mejoras al hardware también se hicieron mejoras para el dashboard.
+El modelo 2.0 agrega una alarma en el sitio, mediante la utilización de un buzzer, una api para monitorear la temperatura exterior, telemetría sobre el consumo de la cámara gracias a y la utilización de RFID para entrar a la cámara.
+Este modelo resulto tener más avances sobre el software que sobre el hardware, ya que gracias a la utilización de bibliotecas y ayuda de pares, implementar la lectura de tarjetas RFID no tuvo mayores complicaciones.
+El otro gran progreso de este prototipo fue el hecho de que se logró avanzar sobre la construcción de la maqueta, por lo que la prueba resulto un poco un poco más visual que la anterior, pero todavía con camino para avanzar. 
+
+
+Fotos del prototipo:
+
+![Foto puerta](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/puerta.jpg)
+
+
+![Foto Sensores](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/FotoSensores.jpg)
 
 Dashboard modelo 2.0:
 
