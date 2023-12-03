@@ -26,17 +26,22 @@ sensores en la cámara recopilan información sobre las condiciones, que luego s
 en la nube. Esta información se utiliza para tomar decisiones y enviar instrucciones a los
 actuadores en la cámara.
 </div>
-
-![diagrama](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Diagrama.png)
-
-1. Puerta controlada por Servomotor
-2. Sensor de estado de la puerta
-3. Camara para registro fotográfico
-4. Sistema RFID para acceder
-5. Sensor de Temperatura y Humedad
-6. Sistema de Refrigeración
-7. Buzzer activado ante emergencias
-8. Comunicacion con la nube 
+<br>
+<div style="display:inline;text-align:left; "><a href="sites.google.com/site/hpcmobilerobotics/team/…" imageanchor="1">
+   <img src="https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Diagrama.png" alt="diagrama" width=500 border="0"/>
+  <div style="float: right">
+  <ol>
+    <li>Puerta controlada por Servomotor</li>
+    <li>Sensor de estado de la puerta</li>
+    <li>Camara para registro fotográfico</li>
+    <li>Sistema RFID para acceder</li>
+    <li>Sensor de Temperatura y Humedad</li>
+    <li>Sistema de Refrigeración</li>
+    <li>Buzzer activado ante emergencias</li>
+    <li>Comunicacion con la nube </li>
+  </ol>
+  </div>
+</div>
 
 <div style='text-align: justify;'>
   ThingsBoard es el principal panel de control de la cámara y reúne toda la información de la misma. El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes, por ejemplo solo el administrador puede cambiar los parámetros de threshold de la cámara o mirar los registros fotográficos de quien entra en la cámara, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento. 
