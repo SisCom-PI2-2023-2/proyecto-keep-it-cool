@@ -60,4 +60,4 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-background-image: "../assets/maquetaSinTerminar.jpg"
+background-image: "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/maquetaSinTerminar.jpg"
