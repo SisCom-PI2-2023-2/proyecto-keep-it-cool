@@ -50,7 +50,7 @@ Dashboard para Administradores
 
 
 <div style='text-align: justify;'>
-  Pueden explorar las diferentes pestañas para conocer mas del proyecto y de [nosotros](equipo.markdown). La pestaña de [Hardware](hardware.markdown) como su nombre indica detalla los componentes utilizados mientras que la pestaña [Dashboard](dashboard.markdown) explica el uso del nombrado para el control y uso de la camara. Tambien esta la pestaña [El Trayecto](el_trayecto.markdown) en la cual se indica como fue se fue desarrollando el proyecto y nuestras conclusiones, errores, aprendizajes y mejoras que podemos decir en esta etapa final del proyecto.
+  Pueden explorar las diferentes pestañas para conocer mas del proyecto y de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/equipo/">nosotros</a>. La pestaña de <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/hardware/">Hardware</a> como su nombre indica detalla los componentes utilizados mientras que la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/dashboard/">Dashboard</a> explica el uso del nombrado para el control y uso de la camara. Tambien esta la pestaña <a href="https://siscom-pi2-2023-2.github.io/proyecto-keep-it-cool/el_trayecto/">El Trayecto</a> en la cual se indica como fue se fue desarrollando el proyecto y nuestras conclusiones, errores, aprendizajes y mejoras que podemos decir en esta etapa final del proyecto.
 </div>
 
 
