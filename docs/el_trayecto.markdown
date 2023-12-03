@@ -71,7 +71,9 @@ Gracias al uso de bibliotecas leer la temperatura y humedad en una placa se resu
 
 Bitácora: 29/09/23
 
-link a código de prueba : https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/Prueba%20Sensor%20Temperatura.ino
+link a código de prueba : 
+
+<https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/Prueba%20Sensor%20Temperatura.ino>
 
 ### Sensor de la puerta
 
