@@ -83,7 +83,7 @@ Bitácora: 17/10/23
 
 ### API OpenWeather
 
-Se utilizó Postman para realizar las primeras interacciones con la API para luego integrarla mediante una cadena de reglas a Thingsboard. Una vez obtenidos los datos de la temperatura del lugar los guardamos como telemetría.
+Se utilizó Postman para realizar las primeras interacciones con la API para luego integrarla mediante una cadena de reglas a Thingsboard. Una vez obtenidos los datos de la temperatura de la ubicación de la cámara los guardamos como telemetría.
 
 ![RuleChain](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RuleChainOpen.png)
 
