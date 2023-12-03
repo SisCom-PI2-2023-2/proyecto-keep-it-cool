@@ -28,7 +28,7 @@ actuadores en la cámara. Las acciones posibles incluyen
 
 Todas estas acciones se llevan a cabo a través de ThingsBoard el cual es el principal panel de control de la cámara y reúne toda la información de la misma.  El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes como el acceso a la configuración de la cámara, un registro fotográfico de todos los que entran, panel con el consumo de la cámara según el clima utilizando una API. De esta forma se separan los privilegios y se logra que solo el encargado de la cámara pueda cambiar parámetros que podrían poner la cámara en peligro si no se tiene cuidado.
 
-![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Panel%20de%20Control.PNG)
+![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard.PNG)
 
 ### Dashboard
 
@@ -36,9 +36,9 @@ Todas estas acciones se llevan a cabo a través de ThingsBoard el cual es el pri
 
 ![Panel Principal](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Panel%20de%20Control.PNG)
 
-En el panel principal se muestra toda la información principal:
+En el panel principal se muestra toda la información principal y necesaria:
 
-* Una gráfica para la temperatura y una para la humedad
+* Graficas para la temperatura y humedad promedio actual en la camara.
 * Botón sincronizado con la puerta de la cámara.
 
 #### Alarmas
