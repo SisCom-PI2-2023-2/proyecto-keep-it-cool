@@ -17,6 +17,10 @@ el sensor de la puerta, además de controlar su servomotor, el cooler y el siste
 
 Este primer prototipo armo los cimientos sobre los cuales el proyecto se mantendría, enseñándonos como interactuar con actuadores y con sensores, y como reportar toda esa información en Thingsboard. Para este prototipo todavía no se había armado la maqueta, por lo que su prueba resulto menos visual, pero práctica.
 
+Testeo del prototipo:
+
+![Testeo MVP](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/2023-10-19-pruebaMVP.jpeg)
+
 Dashboard de modelo base:
 
 ![Dashboard de modelo base](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard10_10_23.png)
