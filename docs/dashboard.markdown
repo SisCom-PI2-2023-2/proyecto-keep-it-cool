@@ -4,8 +4,11 @@ title: Dashboard
 permalink: /dashboard/
 ---
 
-![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard.jpg)
-![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard%20(admin).PNG)
+Trabajador                                                                                                              |  Administrador
+:----------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------:
+![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard.jpg)  |  ![Dashboard Admin](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard%20(admin).PNG)
+
+
 
 El dashboard es el centro de trabajo de KIC, desde el se puede acceder a toda la informacion de la camara y actuar en base a ellas. A continuacion de profundiza cada seccion del mismo.
 
