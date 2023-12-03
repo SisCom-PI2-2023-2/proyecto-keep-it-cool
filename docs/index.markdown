@@ -1,6 +1,7 @@
 ---
 layout: home
 ---
+![Foto Maqueta](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/maquetaSinTerminar.jpg)
 
 <div style='text-align: justify;'>
   
@@ -50,14 +51,6 @@ actuadores en la cámara.
   Esta mejora no solo resuelve problemas sino que también proporciona una experiencia mejorada, otorgando a los usuarios control total, sin importar su ubicación. 
 </div>
   
-## Imagenes
-
-Maqueta
-![Maqueta](upsnohaymaquetaxd.png)
-
-Dashboard
-![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard.jpg)
-
 Dashboard para Administradores
 ![Dashboard Admin](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard%20(admin).PNG)
 
