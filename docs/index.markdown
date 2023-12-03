@@ -3,17 +3,18 @@ layout: home
 ---
 
 <div style='text-align: justify;'>
-  Keep It Cool (KIC) es un sistema integral de control para habitaciones con temperatura controlada con la capacidad de añadir métodos para la restricción de entrada a personal no autorizado, con la habilidad de guardar información de la cámara en internet, con monitor de consumo eléctrico durante  la operación de la habitación y con mapeado de temperatura de la misma.
+  
+  Keep It Cool (KIC) es un sistema integral de control para habitaciones con temperatura controlada. Dentro de sus capacidades incluye métodos para restringir la entrada a personal no autorizado, así como la habilidad de almacenar información de la habitación en la nube. Además, integra un monitor de consumo eléctrico durante la operación de la habitación y un mapeado de temperatura.
+ 
 </div>
 
 
 ## Origen del proyecto
 
 <div style='text-align: justify;'>
-
-  Nuestro proyecto nace a raíz de un problema concreto que surgió en una cámara frigorífica en la práctica. Los sistemas actuales de control de temperatura en cámaras frigoríficas carecen de sistemas de alerta, lo que puede dar lugar a situaciones problemáticas, como el descuido de los empleados al dejar la puerta de la cámara refrigerada abierta. Esto puede resultar en una pérdida significativa de temperatura y, en un caso en concreto, estuvo a punto de causar una pérdida de aproximadamente $U 100,000 en mercancía, si no fuera por la rápida intervención del guardia de seguridad.
   
-  Dado este problema y la oportunidad de mejorar la experiencia del usuario en cámaras refrigeradas, hemos decidido emprender el proyecto "Keep It Cool" (KIC). Este proyecto, al estar basado en la nube, soluciona el problema de la falta de alertas relacionadas con la temperatura. Además, permite la implementación de alertas directas al usuario, así como alarmas locales. Además de la mejora en la alerta, KIC tiene como objetivo mejorar la experiencia del usuario mediante la incorporación de capacidades inteligentes, brindando a los usuarios un control total, sin importar su ubicación.
+  Nuestra iniciativa nació de un problema concreto en una cámara frigorífica. Los sistemas actuales carecen de alertas, lo que puede resultar en situaciones problemáticas, como el descuido de los empleados al dejar la puerta abierta, generando pérdidas significativas. Nuestra solución, "Keep It Cool," basada en la nube, resuelve este problema y mejora la experiencia del usuario en cámaras frigoríficas.
+
 </div>
 
 
@@ -25,7 +26,6 @@ sensores en la cámara recopilan información sobre las condiciones, que luego s
 en la nube. Esta información se utiliza para tomar decisiones y enviar instrucciones a los
 actuadores en la cámara.
 </div>
-
 <br>
 
 <div style="display:inline;text-align:left; ">
