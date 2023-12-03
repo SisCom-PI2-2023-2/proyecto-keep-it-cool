@@ -6,6 +6,7 @@ layout: home
 body {
   background-image: url('https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/maquetaSinTerminar.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
 
