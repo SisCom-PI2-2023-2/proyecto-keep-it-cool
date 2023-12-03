@@ -1,7 +1,7 @@
 ---
 layout: home
 ---
-<div style='text-align: justify;'>
+
 Keep It Cool (KIC) es un sistema integral de control para habitaciones con temperatura controlada con la capacidad de añadir métodos para la restricción de entrada a personal no autorizado, con la habilidad de guardar información de la cámara en internet, con monitor de consumo eléctrico durante la operación de la habitación y con mapeado de temperatura de la misma.
 
 ## Origen del proyecto
@@ -35,10 +35,6 @@ Dashboard
 ![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard.PNG)
 
 Pueden explorar las diferentes pestañas para conocer mas del proyecto y de [nosotros](equipo.markdown). La pestaña de [Hardware](hardware.markdown) como su nombre indica detalla los componentes utilizados mientras que la pestaña [Dashboard](dashboard.markdown) explica el uso del nombrado para el control y uso de la camara. Tambien esta la pestaña [El Trayecto](el_trayecto.markdown) en la cual se indica como fue se fue desarrollando el proyecto y nuestras conclusiones, errores, aprendizajes y mejoras que podemos decir en esta etapa final del proyecto.
-
-</div>
-
-
 
 ## Bitácora
 
