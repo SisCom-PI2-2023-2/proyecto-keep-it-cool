@@ -125,3 +125,11 @@ Mauro
 Para simular el inventario previo del cliente se utilizó una base de datos que se actualiza mediante una API, esto es debido a que Thingsboard no ofrece una solución gratuita para integrar un dashboard con SQL. Creando una cadena de reglas que se ejecuta cada vez que se acciona un botón de refrescar, se pide el inventario de la base de datos y al hacer el comando desde el dashboard para retirar/agregar un objeto del inventario se ejecuta otra cadena de reglas con la finalidad de editar el inventario.
 
 Bitácora: 23/11/23
+
+## Conclusión
+
+El proyecto KIC a nivel de software cumplió con todos objetivos planteados en el anteproyecto de forma correcta, con excepción del registro fotográfico, para el cual no logramos tener el tiempo suficiente para investigarlo y desarrollarlo correctamente. También cabe destacar el hecho de que no existe un inventario previo al cual acceder como “inventario de la cámara”, por lo que tuvimos que simularlo. Para esto utilizamos la página web < https://restdb.io>  ya que nos permitía alterar la base de datos directamente con el uso de APIs.
+
+Sobre la maqueta uno de los mayores problemas es la puerta, ya que no tenemos el suficiente espacio para controlarla directamente con un servo motor, se podría mejorar utilizando alguna mejor construcción para transmitir el movimiento del motor a movimiento de la puerta. Otro punto para destacar sobre la maqueta es el problema del cooler, el cual debido a su tamaño se decidió colocar todo dentro la “cámara”, lo cual no es muy conveniente a la hora de recargar los hielos. Esto al nivel industrial no sería un problema ya que la unidad utilizada para refrigerar ya esta diseñada para caber dentro de la cámara de forma correcta.
+
+Además, también tenemos el problema de la cámara de fotos, la cual no logramos enviar fotos completas, ya que el tamaño máximo de envío a Thingsboard no es suficiente. Nuevamente a nivel industrial esto no sería un problema, ya que la versión paga de Thingsboard permite el envío de archivos más grandes.
