@@ -5,5 +5,6 @@ permalink: /hardware/
 ---
 
 ### Lista de componentes utilizados:
+* hola
 
 ### Referencias
