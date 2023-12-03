@@ -45,7 +45,7 @@ Fotos del prototipo:
 
 Video de puerta: 
 
-![Video Puerta](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Puerta.mp4)
+![Video Puerta](https://youtu.be/F3nZ_RjiW-k)
 
 
 Dashboard modelo 2.0:
