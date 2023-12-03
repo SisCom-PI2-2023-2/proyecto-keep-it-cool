@@ -43,6 +43,11 @@ Fotos del prototipo:
 
 ![Foto cooler](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/cooler1.jpg)
 
+Video de puerta: 
+
+![VideoPuerta](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Puerta.mp4)
+
+
 Dashboard modelo 2.0:
 
 ![Dashboard de modelo 2.0](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/Dashboard.jpg)
