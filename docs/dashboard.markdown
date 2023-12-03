@@ -10,7 +10,7 @@ Trabajador                                                                      
 
 
 
-El dashboard es el centro de trabajo de KIC, desde el se puede acceder a toda la informacion de la camara y actuar en base a ellas. A continuacion de profundiza cada seccion del mismo.
+El dashboard es el centro de trabajo de KIC, desde el se puede acceder a toda la informacion y actuadores de la camara. A continuacion se profundiza cada seccion del mismo.
 
 ####  Panel Principal
 
