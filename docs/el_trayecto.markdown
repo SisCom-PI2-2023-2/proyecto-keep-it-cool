@@ -111,7 +111,7 @@ Bitácora: 07/11/23
 
 ### Sistema RFID
 
-Brahian escribí vos
+La primera prueba fue probar si el módulo RFID podía leer correctamente una tarjeta, para esto se utilizó una librería de Arduino donde se logró confirmar que el módulo leía correctamente. Luego de esto lo siguiente fue intentar mandar el codigo de la tarjeta como texto hacia Thingsboard, y aquí estuvo el problema pues no había forma fácil de obtener el código como texto en la librería por lo que tuvimos que utilizar código extra que pasa el codigo leido en bytes a string. Una vez que hicimos esto nos surgió otro problema y es que no se estaba logrando que leyera la tarjeta, después de debuggear descubrimos que probablemente el módulo se estaba desactivando en el loop debido a otra librería por lo que simplemente hicimos que se activará el módulo en el loop, con poner un poco más de código se logró finalmente la total funcionalidad del módulo RFC y su comunicación con Thingsboard.
 
 Bitácora: 07/11/23
 
