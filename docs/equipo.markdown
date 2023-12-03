@@ -8,7 +8,7 @@ permalink: /equipo/
 
 ### Acerca de nosotros
 
-Somos estudiantes en Ingeniería Electrónica actualmente cursando sexto semestre en la Facultad de Ingenieria ORT Uruguay. 
+Somos estudiantes en Ingeniería Electrónica actualmente cursando sexto semestre en la Facultad de Ingenieria ORT Uruguay. Esta tarea es para la asignatura Proyecto Integrador 2.
 
 #### Brahian Suberbie - 272629
 
