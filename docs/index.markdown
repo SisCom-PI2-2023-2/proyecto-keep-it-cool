@@ -21,12 +21,12 @@ en la nube. Esta información se utiliza para tomar decisiones y enviar instrucc
 actuadores en la cámara. Las acciones posibles incluyen
 
 * Monitoreo de temperatura y humedad en la cámara.
-* Sistema RFID para la puerta de la cámara.
-* Registro Fotográfico de quien entra.
+* Sistema RFID para añadir seguridad a la puerta.
 * Alertas por mail y buzzer ante emergencias.
 * Permite incorporarse a una base de datos existente.
-
-Todas estas acciones se llevan a cabo a través de ThingsBoard el cual es el principal panel de control de la cámara y reúne toda la información de la misma.  El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes como el acceso a la configuración de la cámara, un registro fotográfico de todos los que entran, panel con el consumo de la cámara según el clima utilizando una API. De esta forma se separan los privilegios y se logra que solo el encargado de la cámara pueda cambiar parámetros que podrían poner la cámara en peligro si no se tiene cuidado.
+* Registro Fotográfico de quien entra.
+  
+Todas estas acciones se llevan a cabo a través de ThingsBoard el cual es el principal panel de control de la cámara y reúne toda la información de la misma.  El dashboard tiene dos versiones: una de administrador y otra para trabajadores. La versión de administrador añade los privilegios correspondientes, por ejemplo solo el administrador puede cambiar los parámetros de threshold de la cámara o mirar los registros fotográficos de quien entra en la cámara, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento. 
 
 ![Dashboard](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard.PNG)
 
