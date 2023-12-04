@@ -136,7 +136,7 @@ Gantt Original:
 
 Gantt Final:
 
-![Gantt Final](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Segundo_Gantt.jpg.png)
+![Gantt Final](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Segundo_Gantt.png)
 
 ## Conclusión
 
