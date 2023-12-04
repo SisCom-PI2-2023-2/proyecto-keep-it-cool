@@ -132,11 +132,11 @@ Al comparar el cronograma inicial delineado en el Gantt para el Anteproyecto con
 
 Gantt Original:
 
-![Gantt Original](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Primer Gantt.jpg)
+![Gantt Original](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Primer_Gantt.jpg)
 
 Gantt Final:
 
-![Gantt Final](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Segundo Gantt.jpg.png)
+![Gantt Final](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Segundo_Gantt.jpg.png)
 
 ## Conclusión
 
