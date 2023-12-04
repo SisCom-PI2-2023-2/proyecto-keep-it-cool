@@ -24,7 +24,6 @@ el sensor de la puerta, además de controlar su servomotor, el cooler y el siste
 Este primer prototipo armo los cimientos sobre los cuales el proyecto se mantendría, enseñándonos como interactuar con actuadores y con sensores, y como reportar toda esa información en Thingsboard. Para este prototipo todavía no se había armado la maqueta, por lo que su prueba resulto menos       visual, pero práctica.
 </div>
 
-
 Testeo del prototipo:
 
 ![Testeo MVP](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/2023-10-19-pruebaMVP.jpeg)
@@ -137,15 +136,14 @@ Bitácora: 07/11/23
 ### Cámara de fotos
 
 <div style='text-align: justify;'>
-  //TODO: Mauro
+//TODO: Mauro
 </div>
 
 ### Inventario previo (API restdb)
 
 <div style='text-align: justify;'>
-Para simular el inventario previo del cliente se utilizó una<a href=https://restdb.io/>base de datos</a> que se actualiza mediante una API, esto es debido a que Thingsboard no ofrece una solución gratuita para integrar un dashboard con SQL. Creando una cadena de reglas que se ejecuta cada vez que se acciona un botón de refrescar, se pide el inventario de la base de datos y al hacer el comando desde el dashboard para retirar/agregar un objeto del inventario se ejecuta otra cadena de reglas con la finalidad de editar el inventario.
+Para simular el inventario previo del cliente se utilizó una <a href="https://restdb.io"/>base de datos</a> que se actualiza mediante una API, esto es debido a que Thingsboard no ofrece una solución gratuita para integrar un dashboard con SQL. Creando una cadena de reglas que se ejecuta cada vez que se acciona un botón de refrescar, se pide el inventario de la base de datos y al hacer el comando desde el dashboard para retirar/agregar un objeto del inventario se ejecuta otra cadena de reglas con la finalidad de editar el inventario.
 </div>
-
 
 Bitácora: 23/11/23
 
