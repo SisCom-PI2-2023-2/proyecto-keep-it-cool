@@ -77,7 +77,7 @@ Fuente utilizada para dar energía a toda la lógica del proyecto, principalment
 Fuente utilizada para dar energía al ventilador del cooler.
 
 
-### Costo:
+## Costo:
 
 * Módulo ESP32 wifi+bluetooth con cámara, $ 1025
 * Módulo ESP8266 NodeMcu V3 WiFi, $ 395
@@ -91,7 +91,7 @@ Fuente utilizada para dar energía al ventilador del cooler.
 * HELADERA ESPUMA 39X29X14 15,84 LTS, $ 321
 #### Total: $ 5226
 
-### Referencias a espicificaciones:
+## Referencias a espicificaciones:
 
 * Módulo ESP32 wifi+bluetooth con cámara
   
