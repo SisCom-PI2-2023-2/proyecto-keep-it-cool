@@ -3,7 +3,7 @@ layout: page
 title: Hardware
 permalink: /hardware/
 ---
-Módulo ESP32 cam
+### Módulo ESP32 cam
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/ESP32Cam.png" width="15%" height="15%">
@@ -12,7 +12,7 @@ Módulo ESP32 cam
 
 Utilizada para tomar las fotos para el registro fotográfico, además de ser la responsable de enviar los datos de temperatura en la versión final.
 
-Módulo ESP8266
+### Módulo ESP8266
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Esp8266.jpg" width="15%" height="15%">
@@ -20,7 +20,7 @@ Módulo ESP8266
 
 Principal módulo del proyecto, encargado de todo el envío y recepción de datos con Thingsboard, sin contar el registro fotográfico ni los datos de temperatura y humedad en la versión final.
 
-DHT22
+### DHT22
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/dht22.jpg" width="15%" height="15%">
@@ -28,7 +28,7 @@ DHT22
 
 Sensor de temperatura y humedad, también conocido como termohigrómetro, utilizado para tomar mediciones de la habitación.
 
-Servo motor SG90
+### Servo motor SG90
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/servo.jpg" width="15%" height="15%">
@@ -36,7 +36,7 @@ Servo motor SG90
 
 Motor encargado del control de la puerta de la habitación.
 
-Módulo RFID
+### Módulo RFID
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/rfid.jpg" width="15%" height="15%">
@@ -44,7 +44,7 @@ Módulo RFID
 
 Lector de RFID encargado de leer las tarjetas RFID y enviarlas a la ESP8266.
 
-Buzzer
+### Buzzer
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/buzzer.jpg" width="15%" height="15%">
@@ -52,7 +52,7 @@ Buzzer
 
 Simulador de alarma local.
 
-Sensor de corriente por efecto hall
+### Sensor de corriente por efecto hall
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/sensorCorriente.jpg" width="15%" height="15%">
@@ -60,7 +60,7 @@ Sensor de corriente por efecto hall
 
 Sensor de corriente utilizado para medir el consumo de la habitación.
 
-Fuente 5v
+### Fuente 5v
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/fuente5.jpg" width="15%" height="15%">
@@ -68,7 +68,7 @@ Fuente 5v
 
 Fuente utilizada para dar energía a toda la lógica del proyecto, principalmente las dos placas y el motor.
 
-Fuente 12v
+### Fuente 12v
 
 <figure>
     <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/fuente12.jpg" width="15%" height="15%">
