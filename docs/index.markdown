@@ -47,9 +47,10 @@ actuadores en la cámara.
   El panel de control principal, dos dashboard de ThingsBoard, centraliza la información de la cámara con versiones de administrador y trabajador. El administrador tiene privilegios exclusivos, como ajustar parámetros de la cámara o revisar registros fotográficos, esto permite un control eficiente y seguro de la cámara donde solamente personas designadas tienen control avanzado acerca de su funcionamiento.
 
   Esta mejora no solo resuelve problemas sino que también proporciona una experiencia mejorada, otorgando a los usuarios control total, sin importar su ubicación. 
+  
 </div>
   
-Dashboard para Administradores
+Dashboard para Administradores:
 ![Dashboard Admin](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Dashboard%20(admin).PNG)
 
 <div style='text-align: justify;'>
