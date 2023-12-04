@@ -6,10 +6,9 @@ permalink: /hardware/
 Módulo ESP32 cam
 
 <figure>
-    <img src= "assets/ESP32Cam.png" width="200" height="100">
+    <img src= "assets/ESP32Cam.png" width="10%" height="10%">
 </figure>
 
-![ESP32](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/
 
 Utilizada para tomar las fotos para el registro fotográfico, además de ser la responsable de enviar los datos de temperatura en la versión final.
 
