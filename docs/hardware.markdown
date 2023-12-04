@@ -15,7 +15,7 @@ Utilizada para tomar las fotos para el registro fotográfico, además de ser la 
 ### Módulo ESP8266
 
 <div>
-    <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Esp8266.jpg" width="15%" height="15%">
+    <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Esp8266.jpg" width="20%" height="20%">
     <span>Principal módulo del proyecto, encargado de todo el envío y recepción de datos con Thingsboard, sin contar el registro fotográfico ni los datos de temperatura y humedad en la versión final.</span>
 </div>
 
