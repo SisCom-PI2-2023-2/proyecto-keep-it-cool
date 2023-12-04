@@ -45,7 +45,7 @@ Aquí simplemente se muestra la lista de todos los productos en la cámara, esto
 
 Panel solamente habilitado para administradores, permite cambiar parámetros de la cámara, como las temperaturas threshold, el tiempo entre chequeos. También es el lugar desde el cual se le indica al sensor RFID que registre nuevas tarjetas.
 
-#### Personal (solo admin)
+#### Personal (solo admin) (En desarrollo)
 
 ![Personal](img.png)
 
