@@ -37,7 +37,7 @@ En este panel se muestra con más profundidad la temperatura de la cámara, se t
 
 ![Inventario](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Inventario.png)
 
-Aquí simplemente se muestra la lista de todos los productos en la cámara, estos deben ser registrados manualmente por el personal con un QR.
+Aquí simplemente se muestra la lista de todos los productos en la cámara, estos deben ser registrados manualmente por el personal.
 
 #### Configuracion (solo admin)
 
