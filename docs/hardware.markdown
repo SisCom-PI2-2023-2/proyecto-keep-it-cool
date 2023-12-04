@@ -6,7 +6,7 @@ permalink: /hardware/
 Módulo ESP32 cam
 
 <figure>
-    <img src= "assets/ESP32Cam.png" width="10%" height="10%">
+    <img src= "assets/ESP32Cam.png" width="15%" height="15%">
 </figure>
 
 
@@ -14,13 +14,17 @@ Utilizada para tomar las fotos para el registro fotográfico, además de ser la 
 
 Módulo ESP8266
 
-![ESP8266](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Esp8266.jpg)
+<figure>
+    <img src= "assets/Esp8266.jpg" width="15%" height="15%">
+</figure>
 
 Principal módulo del proyecto, encargado de todo el envío y recepción de datos con Thingsboard, sin contar el registro fotográfico ni los datos de temperatura y humedad en la versión final.
 
 DHT22
 
-![dht22](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/dht22.jpg)
+<figure>
+    <img src= "assets/dht22.jpg" width="15%" height="15%">
+</figure>
 
 Sensor de temperatura y humedad, también conocido como termohigrómetro, utilizado para tomar mediciones de la habitación.
 
