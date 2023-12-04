@@ -3,8 +3,62 @@ layout: page
 title: Hardware
 permalink: /hardware/
 ---
+Módulo ESP32 cam
 
-### Lista de componentes utilizados:
+![ESP32](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/ESP32Cam.png)
+
+Utilizada para tomar las fotos para el registro fotográfico, además de ser la responsable de enviar los datos de temperatura en la versión final.
+
+Módulo ESP8266
+
+![ESP8266](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Esp8266.jpg)
+
+Principal módulo del proyecto, encargado de todo el envío y recepción de datos con Thingsboard, sin contar el registro fotográfico ni los datos de temperatura y humedad en la versión final.
+
+DHT22
+
+![dht22](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/dht22.jpg)
+
+Sensor de temperatura y humedad, también conocido como termohigrómetro, utilizado para tomar mediciones de la habitación.
+
+Servo motor SG90
+
+![SG90](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/servo.jpg)
+
+Motor encargado del control de la puerta de la habitación.
+
+Módulo RFID
+
+![RFID](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/rfid.jpg)
+
+Lector de RFID encargado de leer las tarjetas RFID y enviarlas a la ESP8266.
+
+Buzzer
+
+![buzzer](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/buzzer.jpg)
+
+Simulador de alarma local.
+
+Sensor de corriente por efecto hall
+
+![hall](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/sensorCorriente.jpg)
+
+Sensor de corriente utilizado para medir el consumo de la habitación.
+
+Fuente 5v
+
+![Fuente 5v](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/fuente5.jpg)
+
+Fuente utilizada para dar energía a toda la lógica del proyecto, principalmente las dos placas y el motor.
+
+Fuente 12v
+
+![Fuente 12v](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/fuente12.jpg)
+
+Fuente utilizada para dar energía al ventilador del cooler.
+
+
+### Costo:
 
 * Módulo ESP32 wifi+bluetooth con cámara, $ 1025
 * Módulo ESP8266 NodeMcu V3 WiFi, $ 395
