@@ -30,37 +30,49 @@ Sensor de temperatura y humedad, también conocido como termohigrómetro, utiliz
 
 Servo motor SG90
 
-![SG90](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/servo.jpg)
+<figure>
+    <img src= "assets/servo.jpg" width="15%" height="15%">
+</figure>
 
 Motor encargado del control de la puerta de la habitación.
 
 Módulo RFID
 
-![RFID](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/rfid.jpg)
+<figure>
+    <img src= "assets/rfid.jpg" width="15%" height="15%">
+</figure>
 
 Lector de RFID encargado de leer las tarjetas RFID y enviarlas a la ESP8266.
 
 Buzzer
 
-![buzzer](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/buzzer.jpg)
+<figure>
+    <img src= "assets/buzzer.jpg" width="15%" height="15%">
+</figure>
 
 Simulador de alarma local.
 
 Sensor de corriente por efecto hall
 
-![hall](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/sensorCorriente.jpg)
+<figure>
+    <img src= "assets/sensorCorriente.jpg" width="15%" height="15%">
+</figure>
 
 Sensor de corriente utilizado para medir el consumo de la habitación.
 
 Fuente 5v
 
-![Fuente 5v](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/fuente5.jpg)
+<figure>
+    <img src= "assets/fuente5.jpg" width="15%" height="15%">
+</figure>
 
 Fuente utilizada para dar energía a toda la lógica del proyecto, principalmente las dos placas y el motor.
 
 Fuente 12v
 
-![Fuente 12v](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/fuente12.jpg)
+<figure>
+    <img src= "assets/fuente12.jpg" width="15%" height="15%">
+</figure>
 
 Fuente utilizada para dar energía al ventilador del cooler.
 
