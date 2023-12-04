@@ -126,6 +126,18 @@ Para simular el inventario previo del cliente se utilizó una base de datos que 
 
 Bitácora: 23/11/23
 
+## Comparación entre planificación y ejecución
+
+Al comparar el cronograma inicial delineado en el Gantt para el Anteproyecto con el cronograma actual, construido a partir de la bitácora, se evidencian notables discrepancias entre ambas planificaciones. La modificación más significativa se refiere a la maqueta, originalmente programada como la primera tarea, pero que experimentó un considerable retraso y se completó meses después de lo previsto. Además, observamos que el desarrollo del MVP demandó 20 días más de lo inicialmente estimado. Este retraso se atribuye principalmente a dificultades encontradas con Thingsboard y las librerías de Arduino. Aunque en un principio estas tareas parecían relativamente sencillas, surgieron complicaciones durante la implementación que requirieron una investigación exhaustiva y debugging. Otra variación notable es que se inició la fase de nivel Premium antes de completar la fase Estándar. Esta decisión se basó en la consideración de que permitir a un miembro del equipo avanzar en el nivel Premium mientras otros finalizaban el Estándar optimizaría el progreso general del proyecto. Esta estrategia resultó beneficiosa y facilitó un avance más rápido del proyecto, de no haberla adoptado, nos habría sido difícil cumplir con los plazos establecidos para la fase Premium antes de la entrega del proyecto.
+
+Gantt Original:
+
+![Gantt Original](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RuleChainOpen.png)
+
+Gantt Final:
+
+![Gantt Final](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/_posts/img/RuleChainOpen.png)
+
 ## Conclusión
 
 El proyecto KIC a nivel de software cumplió con todos objetivos planteados en el anteproyecto de forma correcta, con excepción del registro fotográfico, para el cual no logramos tener el tiempo suficiente para investigarlo y desarrollarlo correctamente. También cabe destacar el hecho de que no existe un inventario previo al cual acceder como “inventario de la cámara”, por lo que tuvimos que simularlo. Para esto utilizamos la página web <https://restdb.io>  ya que nos permitía alterar la base de datos directamente con el uso de APIs.
