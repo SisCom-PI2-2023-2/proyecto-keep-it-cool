@@ -31,7 +31,7 @@ Dashboard de modelo base:
 El modelo 2.0 agrega una alarma en el sitio, mediante la utilización de un buzzer, una api para monitorear la temperatura exterior, telemetría sobre el consumo energetico de la cámara gracias al uso de un sensor de corriente y la utilización de RFID para entrar a la cámara.
 
 Este modelo resulto tener más avances sobre el software que sobre el hardware, ya que gracias a la utilización de bibliotecas y ayuda de pares, implementar la lectura de tarjetas RFID no tuvo mayores complicaciones.
-El otro gran progreso de este prototipo fue el hecho de que se logró avanzar sobre la construcción de la maqueta, por lo que la prueba resulto un poco un poco más visual que la anterior, pero todavía con camino para avanzar. 
+El otro gran progreso de este prototipo fue el hecho de que se logró avanzar sobre la construcción de la maqueta, por lo que la prueba resulto un poco más visual que la anterior, pero todavía con camino para avanzar. 
 
 
 Fotos del prototipo:
