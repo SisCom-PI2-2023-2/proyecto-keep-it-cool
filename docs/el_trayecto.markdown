@@ -142,7 +142,7 @@ Bitácora: 07/11/23
 ### Inventario previo (API restdb)
 
 <div style='text-align: justify;'>
-Para simular el inventario previo del cliente se utilizó una <a href="https://restdb.io">base de datos</a> que se actualiza mediante una API, esto es debido a que Thingsboard no ofrece una solución gratuita para integrar un dashboard con SQL. Creando una cadena de reglas que se ejecuta cada vez que se acciona un botón de refrescar, se pide el inventario de la base de datos y al hacer el comando desde el dashboard para retirar/agregar un objeto del inventario se ejecuta otra cadena de reglas con la finalidad de editar el inventario.
+Para simular el inventario previo del cliente se utilizó una  <a href="https://restdb.io/">base de datos</a> que se actualiza mediante una API, esto es debido a que Thingsboard no ofrece una solución gratuita para integrar un dashboard con SQL. Creando una cadena de reglas que se ejecuta cada vez que se acciona un botón de refrescar, se pide el inventario de la base de datos y al hacer el comando desde el dashboard para retirar/agregar un objeto del inventario se ejecuta otra cadena de reglas con la finalidad de editar el inventario.
 </div>
 
 Bitácora: 23/11/23
