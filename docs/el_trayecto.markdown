@@ -130,11 +130,11 @@ Bitácora: 23/11/23
 
 Al comparar el cronograma inicial delineado en el Gantt para el Anteproyecto con el cronograma actual, construido a partir de la bitácora, se evidencian notables discrepancias entre ambas planificaciones. La modificación más significativa se refiere a la maqueta, originalmente programada como la primera tarea, pero que experimentó un considerable retraso y se completó meses después de lo previsto. Además, observamos que el desarrollo del MVP demandó 20 días más de lo inicialmente estimado. Este retraso se atribuye principalmente a dificultades encontradas con Thingsboard y las librerías de Arduino. Aunque en un principio estas tareas parecían relativamente sencillas, surgieron complicaciones durante la implementación que requirieron una investigación exhaustiva y debugging. Otra variación notable es que se inició la fase de nivel Premium antes de completar la fase Estándar. Esta decisión se basó en la consideración de que permitir a un miembro del equipo avanzar en el nivel Premium mientras otros finalizaban el Estándar optimizaría el progreso general del proyecto. Esta estrategia resultó beneficiosa y facilitó un avance más rápido del proyecto, de no haberla adoptado, nos habría sido difícil cumplir con los plazos establecidos para la fase Premium antes de la entrega del proyecto.
 
-[Gantt Original:](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Primer_Gantt.gan)
+[Gantt Original:](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt)
 
 ![Gantt Original](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Primer_Gantt.jpg)
 
-[Gantt Final:](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Segundo_Gantt.gan)
+[Gantt Final:](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt)
 
 ![Gantt Final](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/gantt/Segundo_Gantt.png)
 
