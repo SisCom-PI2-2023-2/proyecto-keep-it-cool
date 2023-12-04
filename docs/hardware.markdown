@@ -6,7 +6,7 @@ permalink: /hardware/
 Módulo ESP32 cam
 
 <figure>
-    <img src= "assets/ESP32Cam.png" width="15%" height="15%">
+    <img src= "https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/ESP32Cam.png" width="15%" height="15%">
 </figure>
 
 
