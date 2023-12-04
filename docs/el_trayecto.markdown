@@ -138,9 +138,9 @@ Bitácora: 07/11/23
 <div style='text-align: justify;'>
 En cuanto a la cámara, nos topamos con una diversa cantidad de problemas y limitaciones.
 La primera de ellas fue que las librerías de prueba para testear el funcionamiento de la cámara no funcionaban correctamente en las computadoras del laboratorio, entonces era necesario programarlo desde una laptop o programarlo en nuestras casas.
-
+<br>
 Después de un día entero probando para hacer que funcionara, lo logramos, pudimos hacer que el ejemplo de prueba corriera sin ningún problema en la placa. Luego de esto pasamos a probar el ejemplo dado por ThingsBoard, el cual no estaba pensado para el AI-Thinker, así que tuvimos que asignar los pines para nuestra placa y poder utilizarlo.
-
+<br>
 Finalmente nos topamos con una limitación de la versión demo de ThingsBoard, la cual nos limita a 1024 bytes por llamada de RPC, por lo tanto no podemos mandar la imagen completa y nos impide poder intentar hacer reconocimiento facial como habíamos pensado inicialmente
 </div>
 
