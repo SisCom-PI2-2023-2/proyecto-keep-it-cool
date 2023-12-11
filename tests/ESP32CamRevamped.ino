@@ -1,4 +1,4 @@
-#include <Arduino_MQTT_Client.h>
+//#include <Arduino_MQTT_Client.h>
 #include "esp_camera.h"
 #include <WiFi.h>
 #include "soc/soc.h"
@@ -12,7 +12,7 @@
 #define THINGSBOARD_ENABLE_DYNAMIC 1
 #define DEMO_MODE 1
 
-#include <ThingsBoard.h>
+//#include <ThingsBoard.h>
 #include <esp_heap_caps.h>
 
 extern "C" {
@@ -61,38 +61,39 @@ constexpr uint32_t SERIAL_DEBUG_BAUD = 115200U;
 
 #define LED_BUILTIN 4  // LUZ DE LA CAMARA
 
-// pines para los DHTs 22
+// Pines para los DHTs 22
 
 const int PIN_DHT_1 = 12;
 const int PIN_DHT_2 = 13; 
 const int PIN_DHT_3 = 15; 
 const int PIN_DHT_4 = 14;
 
+// Objetos DHT
+DHT dht_1(PIN_DHT_1, DHT22);
+DHT dht_2(PIN_DHT_2, DHT22);
+DHT dht_3(PIN_DHT_3, DHT22);
+DHT dht_4(PIN_DHT_4, DHT22);
 
 // Objeto para la conexion al internet
 WiFiClient wifiClient;
 // Inicializar cliente para el MQTT
 PubSubClient client(wifiClient);
 
-/*
-Arduino_MQTT_Client mqttClient(wifiClient);
-
-// Inicializa instancia para comunicarse con Thingsboard, usando los 1024 bytes de informacion
-ThingsBoard tb(mqttClient, MAX_MESSAGE_SIZE);
-*/
-
 // Valores para el envio de telemetria
-constexpr int16_t telemetrySendInterval = 2000U;
-uint32_t previousDataSend;
+constexpr int16_t intervaloEntreMensajes = 5000U;
+uint32_t lastMsg;
 
 // Buffer para la foto
 char *imageBuffer;
+
+// Objeto Json para recibir mensajes desde el servidor
+DynamicJsonDocument incoming_message(256);
 
 /// @brief Initalizes WiFi connection,
 // will endlessly delay until a connection has been successfully established
 
 void InitWiFi() {
-  Serial.println("Connecting ...");
+  Serial.println("Conectando...");
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);  // Espero a que se conecte
@@ -103,8 +104,6 @@ void InitWiFi() {
   Serial.println("Conectado");
 }
 
-/// @brief Reconnects the WiFi uses InitWiFi if the connection has been removed
-/// @return Returns true as soon as a connection has been established again
 const bool reconnect() {
   if (WiFi.status() == WL_CONNECTED) {
     return true;
@@ -162,24 +161,118 @@ bool initCamera() {
   return true;
 }
 
-/*
-RPC_Response processTakePicture(const RPC_Data &data) {
-  Serial.println("Received the take picture RPC method");
-
-  if (!captureImage()) {
-    return RPC_Response("error", "Cannot take a picture!");
+// Metodos
+// Camara
+bool comandoFoto(bool param) {
+  if (param == true) {
+    camera_fb_t *fb = NULL;    // vacia el buffer de la camara
+    fb = esp_camera_fb_get();  // saca la foto
+    if (!fb) {
+      return false;  // si no logra sacar la foto, devuelve false
+    }
+    encode((uint8_t *)fb->buf, fb->len);  // codifica a base 64
+    esp_camera_fb_return(fb);             //return the frame buffer back to the driver for reuse
+    return true;
+  } else {
+    return false;
   }
+}
 
-  sendPicture = true;
+// Encode a base 64
+void encode(const uint8_t *data, size_t length) {
+  if (DEMO_MODE == 1) {
+    length = 756;
+  }
+  size_t size = base64_encode_expected_len(length) + 1;
+  base64_encodestate _state;
+  base64_init_encodestate(&_state);
+  int len = base64_encode_block((char *)&data[0], length, &imageBuffer[0], &_state);
+  len = base64_encode_blockend((imageBuffer + len), &_state);
+}
 
-  // Returning current mode
-  return RPC_Response("size", strlen(imageBuffer));
+/*
+// Leer temperaturas de los dhts
+leerTemp(DHT dht) {
+  return dht.readTempeature(false, false);
+}
+
+// Leer humedad de los dhts
+leerHum(DHT dht) {
+  return dht.readHumidity(false, false);
 }
 */
 
-const Shared_Attribute_Callback attributes_callback(&processSharedAttributes, SHARED_ATTRIBUTES_LIST.cbegin(), SHARED_ATTRIBUTES_LIST.cend());
-const Attribute_Request_Callback attribute_shared_request_callback(&processSharedAttributes, SHARED_ATTRIBUTES_LIST.cbegin(), SHARED_ATTRIBUTES_LIST.cend());
-const Attribute_Request_Callback attribute_client_request_callback(&processClientAttributes, CLIENT_ATTRIBUTES_LIST.cbegin(), CLIENT_ATTRIBUTES_LIST.cend());
+// callback
+void callback(char *topic, byte *payload, unsigned int length) {
+
+  // Log en Monitor Serie
+  Serial.print("Mensaje recibido [");
+  Serial.print(topic);
+  Serial.print("]: ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+
+  // En el nombre del tópico agrega un identificador del mensaje que queremos extraer para responder solicitudes
+  String _topic = String(topic);
+
+  // Detectar de qué tópico viene el "mensaje"
+  if (_topic.startsWith("v1/devices/me/rpc/request/")) {  // El servidor "me pide que haga algo" (RPC)
+    // Obtener el número de solicitud (request number)
+    String _request_id = _topic.substring(26);
+
+    // Leer el objeto JSON (Utilizando ArduinoJson)
+    deserializeJson(incoming_message, payload);  // Interpretar el cuerpo del mensaje como Json
+    String metodo = incoming_message["method"];  // Obtener del objeto Json, el método RPC solicitado
+
+    // Ejecutar una acción de acuerdo al método solicitado
+    if (metodo == "comandoFoto") {
+      bool status = comandoFoto(incoming_message["params"]);
+      if (status == true) { // NO ESTOY SEGURO DE ESTO HABRIA QUE VER BIEN
+        
+        DynamicJsonDocument bufferRPC(MAX_MESSAGE_SIZE);
+        bufferRPC["largoFoto"] = strlen(imageBuffer);
+        bufferRPC["foto"] = imageBuffer;
+
+        char buffer[MAX_MESSAGE_SIZE];
+        serializeJson(bufferRPC, buffer);
+        /*
+        String publish = "v1/devices/me/rpc/response/" + _request_id;
+        client.publish(publish, buffer); // PUEDE QUE ESTE MAL LA SINTAXIS
+        */
+        client.publish("v1/devices/me/telemetry", buffer);
+      }
+    }
+  }
+}
+
+// Funcion de envio de telemetria
+void report() {
+  // Enviar valores como telemetria
+  DynamicJsonDocument resp(256);  
+ 
+  resp["temperatura1"] = dht_1.readTemperature();
+  resp["humedad1"] = dht_1.readHumidity();
+
+  resp["temperatura2"] = dht_2.readTemperature();
+  resp["humedad2"] = dht_2.readHumidity();
+
+  resp["temperatura3"] = dht_3.readTemperature();
+  resp["humedad3"] = dht_3.readHumidity();
+
+  resp["temperatura4"] = dht_4.readTemperature();
+  resp["humedad4"] = dht_4.readHumidity();
+
+  char buffer[256];
+  serializeJson(resp, buffer);
+  
+  client.publish("v1/devices/me/telemetry", buffer);
+  
+  Serial.print("Publish message [telemetry]: ");
+  Serial.println(buffer);
+}
+
 
 void setup() {
   WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
@@ -198,13 +291,10 @@ void setup() {
   delay(1000);
   InitWiFi();
 
+  client.setServer(THINGSBOARD_SERVER, THINGSBOARD_PORT);     // Establecer los datos para la conexión MQTT
+  client.setCallback(callback);    // Establecer la función del callback para la llegada de mensajes en tópicos suscriptos
 
 
-  tb.connect(THINGSBOARD_SERVER, TOKEN, THINGSBOARD_PORT);
-  tb.RPC_Subscribe(callbacks.cbegin(), callbacks.cend());
-  tb.Shared_Attributes_Subscribe(attributes_callback);
-  tb.Shared_Attributes_Request(attribute_shared_request_callback);
-  tb.Client_Attributes_Request(attribute_client_request_callback);
 }
 
 void loop() {
@@ -214,124 +304,11 @@ void loop() {
     return;
   }
 
-  if (!tb.connected()) {
-    // Connect to the ThingsBoard
-    Serial.print("Connecting to: ");
-    Serial.print(THINGSBOARD_SERVER);
-    Serial.print(" with token ");
-    Serial.println(TOKEN);
-    if (!tb.connect(THINGSBOARD_SERVER, TOKEN, THINGSBOARD_PORT)) {
-      Serial.println("Failed to connect");
-      return;
-    }
-    Serial.println("Connection to server successful");
-    // Sending a MAC address as an attribute
-    tb.sendAttributeData("macAddress", WiFi.macAddress().c_str());
+  client.loop();    //revisa si tenemos mensajes entrantes o salientes para el servidor
 
-    Serial.println("Subscribing for RPC...");
-    // Perform a subscription. All consequent data processing will happen in
-    // processSetLedState() and processSetLedMode() functions,
-    // as denoted by callbacks array.
-    if (!tb.RPC_Subscribe(callbacks.cbegin(), callbacks.cend())) {
-      Serial.println("Failed to subscribe for RPC");
-      return;
-    }
-
-    if (!tb.Shared_Attributes_Subscribe(attributes_callback)) {
-      Serial.println("Failed to subscribe for shared attribute updates");
-      return;
-    }
-
-    Serial.println("Subscribe done");
-
-    // Request current states of shared attributes
-    if (!tb.Shared_Attributes_Request(attribute_shared_request_callback)) {
-      Serial.println("Failed to request for shared attributes");
-      return;
-    }
-
-    // Request current states of client attributes
-    if (!tb.Client_Attributes_Request(attribute_client_request_callback)) {
-      Serial.println("Failed to request for client attributes");
-      return;
-    }
-
-
-
-
-
-
-    // Sending telemetry every telemetrySendInterval time
-    if (millis() - previousDataSend > telemetrySendInterval) {
-    }
-
-
-
-
-
-
-    // Metodos
-
-
-
-    // CAMBIAR
-    /*
-  if (sendPicture) {
-    tb.sendTelemetryData(PICTURE_ATTR, imageBuffer);
-    sendPicture = false;
+  // Envia telemetria cada vez que pasa tanto tiempo como dicta la variable intervaloEntreMensajes
+  if (millis() - lastMsg > intervaloEntreMensajes) {
+    lastMsg = millis();
+    report();
   }
-*/
-    // Camara
-    bool comandoFoto() {
-      camera_fb_t *fb = NULL;    // vacia el buffer de la camara
-      fb = esp_camera_fb_get();  // saca la foto
-      if (!fb) {
-        return false;  // si no logra sacar la foto, devuelve false
-      }
-      encode((uint8_t *)fb->buf, fb->len);  // codifica a base 64
-      esp_camera_fb_return(fb);             //return the frame buffer back to the driver for reuse
-      return true;
-    }
-
-    // Encode a base 64
-    void encode(const uint8_t *data, size_t length) {
-      if (DEMO_MODE == 1) {
-        length = 756;
-      }
-      size_t size = base64_encode_expected_len(length) + 1;
-      base64_encodestate _state;
-      base64_init_encodestate(&_state);
-      int len = base64_encode_block((char *)&data[0], length, &imageBuffer[0], &_state);
-      len = base64_encode_blockend((imageBuffer + len), &_state);
-    }
-
-    // callback
-    void callback(char *topic, byte *payload, unsigned int length) {
-
-      // Log en Monitor Serie
-      Serial.print("Mensaje recibido [");
-      Serial.print(topic);
-      Serial.print("]: ");
-      for (int i = 0; i < length; i++) {
-        Serial.print((char)payload[i]);
-      }
-      Serial.println();
-
-      // En el nombre del tópico agrega un identificador del mensaje que queremos extraer para responder solicitudes
-      String _topic = String(topic);
-
-      // Detectar de qué tópico viene el "mensaje"
-      if (_topic.startsWith("v1/devices/me/rpc/request/")) {  // El servidor "me pide que haga algo" (RPC)
-        // Obtener el número de solicitud (request number)
-        String _request_id = _topic.substring(26);
-
-        // Leer el objeto JSON (Utilizando ArduinoJson)
-        deserializeJson(incoming_message, payload);  // Interpretar el cuerpo del mensaje como Json
-        String metodo = incoming_message["method"];  // Obtener del objeto Json, el método RPC solicitado
-
-        // Ejecutar una acción de acuerdo al método solicitado
-        if (metodo == "comandoFoto") {
-          comandoFoto(incoming_message["params"]);
-        }
-      }
-    }
+}
