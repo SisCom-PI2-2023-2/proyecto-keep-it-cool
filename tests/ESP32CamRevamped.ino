@@ -19,6 +19,7 @@ extern "C" {
 #include "libb64/cencode.h"
 }
 
+bool valor = true;
 
 // Valores para la conexion a internet
 constexpr char WIFI_SSID[] = "HUAWEI-IoT";
@@ -105,9 +106,26 @@ void InitWiFi() {
 }
 
 const bool reconnect() {
+  // Loop until we're reconnected
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    // Attempt to connect - client.connect(DEVICE_ID, TOKEN, TOKEN)
+    if (client.connect("NODEMCU Nuevo", TOKEN, TOKEN )) {
+      Serial.println("connected");
+      // Once connected, subscribe to rpc topic
+      client.subscribe("v1/devices/me/rpc/request/+");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
   if (WiFi.status() == WL_CONNECTED) {
     return true;
   }
+  
 
   // If we aren't establish a new connection to the given WiFi network
   InitWiFi();
@@ -227,8 +245,8 @@ void callback(char *topic, byte *payload, unsigned int length) {
     String metodo = incoming_message["method"];  // Obtener del objeto Json, el método RPC solicitado
 
     // Ejecutar una acción de acuerdo al método solicitado
-    if (metodo == "comandoFoto") {
-      bool status = comandoFoto(incoming_message["params"]);
+    if (metodo == "takePicture") {
+      bool status = comandoFoto(true);
       if (status == true) { // NO ESTOY SEGURO DE ESTO HABRIA QUE VER BIEN
         
         DynamicJsonDocument bufferRPC(MAX_MESSAGE_SIZE);
@@ -237,10 +255,14 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
         char buffer[MAX_MESSAGE_SIZE];
         serializeJson(bufferRPC, buffer);
-        /*
-        String publish = "v1/devices/me/rpc/response/" + _request_id;
-        client.publish(publish, buffer); // PUEDE QUE ESTE MAL LA SINTAXIS
-        */
+        
+        char toPublish[128];
+        ("v1/devices/me/rpc/response/"+_request_id).toCharArray(toPublish,128);
+
+        //Serial.println(toPublish);
+        //Serial.println(buffer);
+        //client.publish(toPublish, buffer); // PUEDE QUE ESTE MAL LA SINTAXIS
+        
         client.publish("v1/devices/me/telemetry", buffer);
       }
     }
@@ -299,7 +321,14 @@ void setup() {
 
 void loop() {
   //delay(10);
-
+  if (valor == true) {
+    comandoFoto(true);
+    valor = false;
+    Serial.println(imageBuffer);
+    Serial.println(imageBuffer+1);
+  }
+  
+  
   if (!reconnect()) {
     return;
   }
