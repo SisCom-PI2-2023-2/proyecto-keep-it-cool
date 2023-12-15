@@ -250,14 +250,14 @@ void callback(char *topic, byte *payload, unsigned int length) {
       if (status == true) { // NO ESTOY SEGURO DE ESTO HABRIA QUE VER BIEN
         
         DynamicJsonDocument bufferRPC(MAX_MESSAGE_SIZE);
-        bufferRPC["largoFoto"] = strlen(imageBuffer);
-        bufferRPC["foto"] = imageBuffer;
+        // bufferRPC["largoFoto"] = strlen(imageBuffer);
+        bufferRPC["photo"] = imageBuffer;
 
         char buffer[MAX_MESSAGE_SIZE];
         serializeJson(bufferRPC, buffer);
         
-        char toPublish[128];
-        ("v1/devices/me/rpc/response/"+_request_id).toCharArray(toPublish,128);
+        //char toPublish[128];
+        //("v1/devices/me/rpc/response/"+_request_id).toCharArray(toPublish,128);
 
         //Serial.println(toPublish);
         //Serial.println(buffer);
