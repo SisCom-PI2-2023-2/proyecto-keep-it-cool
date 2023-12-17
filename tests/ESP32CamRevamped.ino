@@ -20,11 +20,11 @@ extern "C" {
 }
 
 // Valores para la conexion a internet
-constexpr char WIFI_SSID[] = "HUAWEI-IoT";
-constexpr char WIFI_PASSWORD[] = "ORTWiFiIoT";
+constexpr char WIFI_SSID[] = "FIBRA";
+constexpr char WIFI_PASSWORD[] = "superman02";
 
 // Token del dispositivo
-constexpr char TOKEN[] = "5qowMiecw1GxvyI9l8cu";
+constexpr char TOKEN[] = "yFcJpMSJC2ol6yQ43Lt6";
 
 // Servidor MQTT de ThingsBoard
 constexpr char THINGSBOARD_SERVER[] = "demo.thingsboard.io";
@@ -37,7 +37,7 @@ constexpr size_t MAX_MESSAGE_SIZE = 100U * 1024;
 
 // Baud rate for the debugging serial connection.
 // If the Serial output is mangled, ensure to change the monitor speed accordingly to this variable
-constexpr uint32_t SERIAL_DEBUG_BAUD = 115200U;
+constexpr uint32_t SERIAL_DEBUG_BAUD = 9600U;
 
 // Pines para la camara del ESP32 Cam - AI Thinker
 #define PWDN_GPIO_NUM 32
@@ -62,16 +62,16 @@ constexpr uint32_t SERIAL_DEBUG_BAUD = 115200U;
 
 // Pines para los DHTs 22
 
-const int PIN_DHT_1 = 12;
-const int PIN_DHT_2 = 13; 
-const int PIN_DHT_3 = 15; 
-const int PIN_DHT_4 = 14;
+const int PIN_DHT_1 = 12; //violeta  
+const int PIN_DHT_2 = 13; //blanco
+const int PIN_DHT_3 = 15; //verde
+const int PIN_DHT_4 = 14; //azul
 
 // Objetos DHT
-DHT dht_1(PIN_DHT_1, DHT22);
-DHT dht_2(PIN_DHT_2, DHT22);
-DHT dht_3(PIN_DHT_3, DHT22);
-DHT dht_4(PIN_DHT_4, DHT22);
+DHT dht_1(PIN_DHT_1, 22);
+DHT dht_2(PIN_DHT_2, 22);
+DHT dht_3(PIN_DHT_3, 22);
+DHT dht_4(PIN_DHT_4, 22);
 
 // Objeto para la conexion al internet
 WiFiClient wifiClient;
@@ -306,6 +306,11 @@ void setup() {
     Serial.println("Camera initialization failed!");
     ESP.restart();
   }
+
+  dht_1.begin();
+  dht_2.begin();
+  dht_3.begin();
+  dht_4.begin();
 
   pinMode(LED_BUILTIN, OUTPUT);
   delay(1000);
