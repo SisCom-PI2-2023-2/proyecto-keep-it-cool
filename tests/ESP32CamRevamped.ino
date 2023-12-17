@@ -19,8 +19,6 @@ extern "C" {
 #include "libb64/cencode.h"
 }
 
-bool valor = true;
-
 // Valores para la conexion a internet
 constexpr char WIFI_SSID[] = "HUAWEI-IoT";
 constexpr char WIFI_PASSWORD[] = "ORTWiFiIoT";
@@ -261,7 +259,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
         //Serial.println(toPublish);
         //Serial.println(buffer);
-        //client.publish(toPublish, buffer); // PUEDE QUE ESTE MAL LA SINTAXIS
+        //client.publish(toPublish, buffer); 
         
         client.publish("v1/devices/me/telemetry", buffer);
       }
@@ -321,13 +319,6 @@ void setup() {
 
 void loop() {
   //delay(10);
-  if (valor == true) {
-    comandoFoto(true);
-    valor = false;
-    Serial.println(imageBuffer);
-    Serial.println(imageBuffer+1);
-  }
-  
   
   if (!reconnect()) {
     return;
