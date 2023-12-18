@@ -156,9 +156,11 @@ Después de un día entero probando para hacer que funcionara, lo logramos, pudi
 Finalmente nos topamos con una limitación de la versión demo de ThingsBoard, la cual nos limita a 1024 bytes por llamada de RPC, por lo tanto no podemos mandar la imagen completa y nos impide poder intentar hacer reconocimiento facial como habíamos pensado inicialmente
 </div>
 
+Bitácora: 23/11/23
+
 link a código de prueba : 
 
-https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/FotoESP32Adaptada.ino
+<https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/FotoESP32Adaptada.ino>
 
 ### Inventario previo (API restdb)
 
