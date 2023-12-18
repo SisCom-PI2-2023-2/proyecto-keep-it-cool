@@ -23,7 +23,7 @@ const int PIN_PUERTA = 16;  // D0 - Pin que checkea el estado de si de verdad es
 const int PIN_VENTILADOR = 4;  // D2 - Pin de control de la unidad de refrigeracion.
 const int PIN_SERVO = 5; // D1 - Pin para el servomotor de la puerta.
 
-const int PIN_BUZZER = 0; // D3 - Pin para encender buzzer
+const int PIN_BUZZER = 2; // D4 - Pin para encender buzzer
 
 const int PIN_HALL = A0;
 
@@ -80,9 +80,18 @@ void actualizarEstadoPuerta() {
 
 void comandoPuerta(bool comando) {
   if (comando == true){
-    servoPuerta.write(180);
+   for (int pos = 40; pos <= 180; pos += 1) { 
+  
+    servoPuerta.write(pos);              
+    delay(15);                       
+    }
   } else {
-    servoPuerta.write(0);
+    for (int pos = 180; pos >= 95; pos -= 1) { 
+    servoPuerta.write(pos);              
+    delay(15);                       
+  }
+
+  servoPuerta.write(40);
   }
 
   Serial.print("Cambie el estado de la puerta a ");
@@ -139,6 +148,8 @@ void callback(char* topic, byte* payload, unsigned int length) {
         if(metodo ==  "comandoPuerta"){
             comandoPuerta(incoming_message["params"]);
         } else if (metodo == "comandoVentilador") {
+            comandoVentilador(incoming_message["params"]);
+        }else if (metodo == "comandoBuzzer") {
             comandoVentilador(incoming_message["params"]);
         }
     }
@@ -202,8 +213,9 @@ void setupWifi() {
 
 void setup() {
 
-  // Conectividad
   Serial.begin(9600);    // Inicializar conexión Serie para utilizar el Monitor
+  SPI.begin();             // Inicializa el SPI
+ // mfrc522.PCD_Init();      // Inicializa el modulo
 
   setupWifi();     // Establecer la conexión WiFi          
                                                             
@@ -213,12 +225,11 @@ void setup() {
   pinMode(PIN_PUERTA,INPUT);
   pinMode(PIN_VENTILADOR, OUTPUT);
   pinMode(PIN_HALL, INPUT);
-  servoPuerta.attach(PIN_SERVO);
+  servoPuerta.attach(PIN_SERVO,500,2400);
 
-  servoPuerta.write(0);
+  servoPuerta.write(40);
 
-  SPI.begin();             // Inicializa el SPI
-  mfrc522.PCD_Init();      // Inicializa el modulo
+
 }
 
 // LOOP
@@ -244,7 +255,7 @@ void sistemaRFID() {
 
 void sensorHall() {
     float voltaje = analogRead(PIN_HALL) * (3.3 / 1023.0);
-    float corriente = (voltaje - 1.69) / 0.185;
+    float corriente = (voltaje - 1.69) / 0.185;//Correcion de la lectura del sensor
     float potencia = voltaje * corriente;
     Serial.print("Potencia utilizada: ");
     Serial.println(potencia);
@@ -267,25 +278,26 @@ void report() {
 }
 
 void loop() {
-  unsigned long now = millis();
   
-  if (uidTarjeta == "") { // Escaneo solo si ya se envio el escaneo anterior
-    mfrc522.PCD_Init();
-    sistemaRFID();
-  }
 
-  now = millis();
-  if (now - lastMsg > 5000) {
-    
-    /* Conexión e intercambio de mensajes MQTT */
+/* Conexión e intercambio de mensajes MQTT */
     if (!client.connected()) {  // Controlar en cada ciclo la conexión con el servidor
       reconnect();              // Y recuperarla en caso de desconexión
     }
     
     client.loop();              // Controlar si hay mensajes entrantes o para enviar al servidor
 
-    sensorHall();
+unsigned long now = millis();
+unsigned long loopRFID = millis();
+while ((now - loopRFID) < 1000)  { // Loop para no perder lecturas de tarjetas
+    mfrc522.PCD_Init();
+    sistemaRFID();
+    now = millis();
+ }
 
+  now = millis();
+  if (now - lastMsg > 3000) {
+    sensorHall();
     report();
     actualizarEstadoPuerta();
     lastMsg = now;
