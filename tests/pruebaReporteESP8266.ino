@@ -9,8 +9,8 @@
 /* ========= CONSTANTES ========= */
 
 // Credenciales de la red WiFi
-const char* ssid = "HUAWEI-IoT";
-const char* PASS = "ORTWiFiIoT";
+const char* ssid = "PEPE";
+const char* PASS = "12345678u";
 
 // Host de ThingsBoard
 const char* MQTT_SERVER = "demo.thingsboard.io";
@@ -87,7 +87,6 @@ void comandoPuerta(bool comando) {
     Serial.println("Cerrando la puerta..."); 
     estadoPuerta = false;              
     }
-  }
 
   Serial.print("Cambie el estado de la puerta a ");
   Serial.println(comando);
@@ -241,7 +240,6 @@ void sistemaRFID() {
 }
 
 void sensorHall() {
-    float potencia = 0;
     if (estadoVentilador) {
       potencia = 50;
     } else {
@@ -286,7 +284,7 @@ while ((now - loopRFID) < 1000)  { // Loop para no perder lecturas de tarjetas
  }
 
   now = millis();
-  if (now - lastMsg > 3000) {
+  if (now - lastMsg > 5000) {
     sensorHall();
     report();
     actualizarEstadoPuerta();
