@@ -106,8 +106,10 @@ void comandoBuzzer(bool comando) {
 void comandoVentilador(bool comando) {
   if (comando == true){
     Serial.println("Ventilador encendido"); 
+    estadoVentilador = true;
   } else {
     Serial.println("Ventilador apagado"); 
+    estadoVentilador = false;
   }
 
   Serial.print("Cambie el estado del ventilador a ");
@@ -144,7 +146,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
         } else if (metodo == "comandoVentilador") {
             comandoVentilador(incoming_message["params"]);
         }else if (metodo == "comandoBuzzer") {
-            comandoVentilador(incoming_message["params"]);
+            comandoBuzzer(incoming_message["params"]);
         }
     }
 
