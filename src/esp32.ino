@@ -18,8 +18,8 @@
 
 
 // Valores para la conexion a internet
-constexpr char WIFI_SSID[] = "FIBRA";
-constexpr char WIFI_PASSWORD[] = "superman02";
+constexpr char WIFI_SSID[] = "HUAWEI-IoT";
+constexpr char WIFI_PASSWORD[] = "ORTWiFiIoT";
 
 // Token del dispositivo
 constexpr char TOKEN[] = "yFcJpMSJC2ol6yQ43Lt6";
