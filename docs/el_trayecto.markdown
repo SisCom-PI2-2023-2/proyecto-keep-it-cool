@@ -119,6 +119,10 @@ La alarma local de la cámara decidimos que sea un buzzer activo, por lo que su 
 
 Bitácora: 31/10/23
 
+link a código de prueba : 
+
+<https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/Prueba_Buzzer.ino>
+
 ### Monitoreo de eficiencia
 <div style='text-align: justify;'>
 Debido al bajo consumo de la cámara, al ser un modelo, debemos monitorear el consumo de otro circuito. Utilizando un sensor de corriente por efecto hall, mediremos la corriente consumida por el circuito y como conocemos el voltaje al cual está sometido sabemos su consumo.
@@ -126,12 +130,20 @@ Debido al bajo consumo de la cámara, al ser un modelo, debemos monitorear el co
 
 Bitácora: 07/11/23
 
+link a código de prueba : 
+
+<https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/Prueba_Sensor_Corriente.ino>
+
 ### Sistema RFID
 <div style='text-align: justify;'>
 La primera prueba fue probar si el módulo RFID podía leer correctamente una tarjeta, para esto se utilizó una librería de Arduino donde se logró confirmar que el módulo leía correctamente. Luego de esto lo siguiente fue intentar mandar el codigo de la tarjeta como texto hacia Thingsboard, y aquí estuvo el problema pues no había forma fácil de obtener el código como texto en la librería por lo que tuvimos que utilizar código extra que pasa el codigo leido en bytes a string. Una vez que hicimos esto nos surgió otro problema y es que no se estaba logrando que leyera la tarjeta, después de debuggear descubrimos que probablemente el módulo se estaba desactivando en el loop debido a otra librería por lo que simplemente hicimos que se activará el módulo en el loop, con poner un poco más de código se logró finalmente la total funcionalidad del módulo RFID y su comunicación con Thingsboard.
 </div>
 
 Bitácora: 07/11/23
+
+link a código de prueba : 
+
+<https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/Prueba%20Lectura%20RFID.ino>
 
 ### Cámara de fotos
 
@@ -143,6 +155,10 @@ Después de un día entero probando para hacer que funcionara, lo logramos, pudi
 <br><br>
 Finalmente nos topamos con una limitación de la versión demo de ThingsBoard, la cual nos limita a 1024 bytes por llamada de RPC, por lo tanto no podemos mandar la imagen completa y nos impide poder intentar hacer reconocimiento facial como habíamos pensado inicialmente
 </div>
+
+link a código de prueba : 
+
+https://github.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/blob/pruebas-de-concepto/tests/FotoESP32Adaptada.ino
 
 ### Inventario previo (API restdb)
 
