@@ -119,12 +119,12 @@
       {
         "additionalInfo": {
           "description": "",
-          "layoutX": 1106,
-          "layoutY": 157
+          "layoutX": 1263,
+          "layoutY": 136
         },
         "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
         "name": "enviar comando",
-        "debugMode": false,
+        "debugMode": true,
         "singletonMode": false,
         "configurationVersion": 0,
         "configuration": {
@@ -157,8 +157,8 @@
       {
         "additionalInfo": {
           "description": null,
-          "layoutX": 1141,
-          "layoutY": 334
+          "layoutX": 1139,
+          "layoutY": 322
         },
         "type": "org.thingsboard.rule.engine.mail.TbSendEmailNode",
         "name": "SendMail SMTP",
@@ -180,6 +180,81 @@
           "proxyPassword": null,
           "username": "proyectokic@outlook.es",
           "password": "ProyectoI2"
+        },
+        "externalId": null
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 832,
+          "layoutY": 17
+        },
+        "type": "org.thingsboard.rule.engine.action.TbCreateAlarmNode",
+        "name": "Alarma temperatura",
+        "debugMode": true,
+        "singletonMode": false,
+        "configurationVersion": 0,
+        "configuration": {
+          "scriptLang": "JS",
+          "alarmDetailsBuildJs": "var details = {};\nif (metadata.prevAlarmDetails) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    delete metadata.prevAlarmDetails;\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+          "alarmDetailsBuildTbel": "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+          "useMessageAlarmData": false,
+          "overwriteAlarmDetails": false,
+          "alarmType": "General Alarm",
+          "severity": "CRITICAL",
+          "propagate": false,
+          "relationTypes": [],
+          "propagateToOwner": false,
+          "propagateToTenant": false,
+          "dynamicSeverity": false
+        },
+        "externalId": null
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 603,
+          "layoutY": 14
+        },
+        "type": "org.thingsboard.rule.engine.action.TbClearAlarmNode",
+        "name": "Limpiar alarma temperatura",
+        "debugMode": true,
+        "singletonMode": false,
+        "configurationVersion": 0,
+        "configuration": {
+          "scriptLang": "JS",
+          "alarmDetailsBuildJs": "var details = {};\nif (metadata.prevAlarmDetails) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    delete metadata.prevAlarmDetails;\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+          "alarmDetailsBuildTbel": "var details = {};\nif (metadata.prevAlarmDetails != null) {\n    details = JSON.parse(metadata.prevAlarmDetails);\n    //remove prevAlarmDetails from metadata\n    metadata.remove('prevAlarmDetails');\n    //now metadata is the same as it comes IN this rule node\n}\n\n\nreturn details;",
+          "alarmType": "General Alarm"
+        },
+        "externalId": null
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1022,
+          "layoutY": 148
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbChangeOriginatorNode",
+        "name": "Cambiar Device",
+        "debugMode": true,
+        "singletonMode": false,
+        "configurationVersion": 0,
+        "configuration": {
+          "originatorSource": "ENTITY",
+          "entityType": "DEVICE",
+          "entityNamePattern": "ESP8266",
+          "relationsQuery": {
+            "direction": "FROM",
+            "maxLevel": 1,
+            "filters": [
+              {
+                "relationType": "Contains",
+                "entityTypes": []
+              }
+            ],
+            "fetchLastLevelOnly": false
+          }
         },
         "externalId": null
       }
@@ -206,23 +281,38 @@
         "type": "False"
       },
       {
+        "fromIndex": 1,
+        "toIndex": 8,
+        "type": "True"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 9,
+        "type": "False"
+      },
+      {
         "fromIndex": 2,
         "toIndex": 6,
         "type": "Success"
       },
       {
         "fromIndex": 3,
-        "toIndex": 5,
+        "toIndex": 10,
         "type": "Success"
       },
       {
         "fromIndex": 4,
-        "toIndex": 5,
+        "toIndex": 10,
         "type": "Success"
       },
       {
         "fromIndex": 6,
         "toIndex": 7,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 10,
+        "toIndex": 5,
         "type": "Success"
       }
     ],
