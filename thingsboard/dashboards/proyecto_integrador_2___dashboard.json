@@ -394,739 +394,6 @@
         "col": 0,
         "id": "cd917784-5e61-2ea0-004d-4bf463b5b8cd"
       },
-      "2d1b055c-2b48-577b-82b5-00777b75d5d8": {
-        "typeFullFqn": "system.indoor_temperature_chart_card",
-        "type": "timeseries",
-        "sizeX": 4.5,
-        "sizeY": 3.5,
-        "config": {
-          "datasources": [
-            {
-              "type": "device",
-              "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
-              "dataKeys": [
-                {
-                  "name": "TemperaturaPromedio",
-                  "type": "timeseries",
-                  "label": "TemperaturaPromedio",
-                  "color": "rgba(0, 0, 0, 0.87)",
-                  "settings": {},
-                  "_hash": 0.4151035192139918,
-                  "units": "°C",
-                  "decimals": 0
-                }
-              ],
-              "alarmFilterConfig": {
-                "statusList": [
-                  "ACTIVE"
-                ]
-              },
-              "latestDataKeys": [
-                {
-                  "name": "TemperaturaPromedio",
-                  "type": "timeseries",
-                  "label": "Latest",
-                  "color": "#4caf50",
-                  "settings": {
-                    "position": "center",
-                    "font": {
-                      "size": 52,
-                      "sizeUnit": "px",
-                      "family": "Roboto",
-                      "weight": "500",
-                      "style": "normal",
-                      "lineHeight": "1"
-                    },
-                    "color": {
-                      "type": "range",
-                      "color": "rgba(0, 0, 0, 0.87)",
-                      "rangeList": [
-                        {
-                          "from": null,
-                          "to": 18,
-                          "color": "#234CC7"
-                        },
-                        {
-                          "from": 18,
-                          "to": 24,
-                          "color": "#3FA71A"
-                        },
-                        {
-                          "from": 24,
-                          "to": null,
-                          "color": "#D81838"
-                        }
-                      ],
-                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
-                    },
-                    "showArrow": false
-                  },
-                  "_hash": 0.6748650288786731,
-                  "units": "°C",
-                  "decimals": 0,
-                  "aggregationType": "NONE"
-                },
-                {
-                  "name": "TemperaturaPromedio",
-                  "type": "timeseries",
-                  "label": "Delta percent",
-                  "color": "#f44336",
-                  "settings": {
-                    "position": "rightTop",
-                    "font": {
-                      "size": 14,
-                      "sizeUnit": "px",
-                      "family": "Roboto",
-                      "weight": "500",
-                      "style": "normal",
-                      "lineHeight": "20px"
-                    },
-                    "color": {
-                      "type": "range",
-                      "color": "rgba(0, 0, 0, 0.38)",
-                      "rangeList": [
-                        {
-                          "from": null,
-                          "to": 0,
-                          "color": "#198038"
-                        },
-                        {
-                          "from": 0,
-                          "to": 0,
-                          "color": "rgba(0, 0, 0, 0.87)"
-                        },
-                        {
-                          "from": 0,
-                          "to": null,
-                          "color": "#D12730"
-                        }
-                      ],
-                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
-                    },
-                    "showArrow": true
-                  },
-                  "_hash": 0.26288985888774263,
-                  "units": "%",
-                  "decimals": 0,
-                  "aggregationType": "AVG",
-                  "comparisonEnabled": true,
-                  "timeForComparison": "previousInterval",
-                  "comparisonResultType": "DELTA_PERCENT"
-                },
-                {
-                  "name": "TemperaturaPromedio",
-                  "type": "timeseries",
-                  "label": "Delta absolute",
-                  "color": "#ffc107",
-                  "settings": {
-                    "position": "rightBottom",
-                    "font": {
-                      "size": 11,
-                      "sizeUnit": "px",
-                      "family": "Roboto",
-                      "weight": "400",
-                      "style": "normal",
-                      "lineHeight": "16px"
-                    },
-                    "color": {
-                      "type": "constant",
-                      "color": "rgba(0, 0, 0, 0.38)",
-                      "rangeList": [],
-                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
-                    },
-                    "showArrow": false
-                  },
-                  "_hash": 0.397844531245403,
-                  "units": "°C",
-                  "decimals": 1,
-                  "aggregationType": "AVG",
-                  "comparisonEnabled": true,
-                  "timeForComparison": "previousInterval",
-                  "comparisonResultType": "DELTA_ABSOLUTE"
-                }
-              ]
-            }
-          ],
-          "timewindow": {
-            "selectedTab": 1,
-            "history": {
-              "historyType": 2,
-              "quickInterval": "CURRENT_MONTH_SO_FAR"
-            },
-            "aggregation": {
-              "type": "AVG",
-              "interval": 43200000,
-              "limit": 5000
-            }
-          },
-          "showTitle": true,
-          "backgroundColor": "rgba(0, 0, 0, 0)",
-          "color": null,
-          "padding": "0",
-          "settings": {
-            "stack": false,
-            "fontSize": 10,
-            "fontColor": "#545454",
-            "showTooltip": true,
-            "tooltipIndividual": false,
-            "tooltipCumulative": false,
-            "hideZeros": false,
-            "grid": {
-              "verticalLines": true,
-              "horizontalLines": true,
-              "outlineWidth": 1,
-              "color": "#545454",
-              "backgroundColor": null,
-              "tickColor": "#DDDDDD"
-            },
-            "xaxis": {
-              "title": null,
-              "showLabels": true,
-              "color": "#545454"
-            },
-            "yaxis": {
-              "min": null,
-              "max": null,
-              "title": null,
-              "showLabels": true,
-              "color": "#545454",
-              "tickSize": null,
-              "tickDecimals": 0,
-              "ticksFormatter": ""
-            },
-            "shadowSize": 4,
-            "smoothLines": false,
-            "comparisonEnabled": false,
-            "xaxisSecond": {
-              "axisPosition": "top",
-              "title": null,
-              "showLabels": true
-            },
-            "showLegend": true,
-            "legendConfig": {
-              "direction": "column",
-              "position": "bottom",
-              "sortDataKeys": false,
-              "showMin": false,
-              "showMax": false,
-              "showAvg": true,
-              "showTotal": false,
-              "showLatest": false
-            },
-            "customLegendEnabled": false,
-            "showSubtitle": false,
-            "subtitle": "${entityName}",
-            "subtitleFont": {
-              "family": "Roboto",
-              "size": 12,
-              "sizeUnit": "px",
-              "style": "normal",
-              "weight": "400",
-              "lineHeight": "16px"
-            },
-            "subtitleColor": "rgba(0, 0, 0, 0.38)",
-            "showDate": true,
-            "dateFormat": {
-              "format": null,
-              "lastUpdateAgo": true,
-              "custom": false
-            },
-            "dateFont": {
-              "family": "Roboto",
-              "size": 12,
-              "sizeUnit": "px",
-              "style": "normal",
-              "weight": "400",
-              "lineHeight": "16px"
-            },
-            "dateColor": "rgba(0, 0, 0, 0.38)",
-            "showChart": true,
-            "chartColor": "rgba(0, 0, 0, 0.87)",
-            "background": {
-              "type": "color",
-              "color": "#fff",
-              "overlay": {
-                "enabled": false,
-                "color": "rgba(255,255,255,0.72)",
-                "blur": 3
-              }
-            },
-            "autoScale": true
-          },
-          "title": "Temperatura",
-          "dropShadow": true,
-          "enableFullscreen": false,
-          "titleStyle": {
-            "fontSize": "16px",
-            "fontWeight": 400
-          },
-          "configMode": "basic",
-          "actions": {},
-          "showTitleIcon": true,
-          "titleIcon": "device_thermostat",
-          "iconColor": "rgba(0, 0, 0, 0.87)",
-          "titleFont": {
-            "size": 16,
-            "sizeUnit": "px",
-            "family": "Roboto",
-            "weight": "500",
-            "style": "normal",
-            "lineHeight": "24px"
-          },
-          "iconSize": "24px",
-          "titleTooltip": "",
-          "widgetStyle": {},
-          "widgetCss": "",
-          "pageSize": 1024,
-          "noDataDisplayMessage": "",
-          "useDashboardTimewindow": false,
-          "displayTimewindow": true,
-          "decimals": 0,
-          "timewindowStyle": {
-            "showIcon": true,
-            "iconSize": "24px",
-            "icon": null,
-            "iconPosition": "left",
-            "font": {
-              "size": 12,
-              "sizeUnit": "px",
-              "family": "Roboto",
-              "weight": "400",
-              "style": "normal",
-              "lineHeight": "16px"
-            },
-            "color": "rgba(0, 0, 0, 0.38)",
-            "displayTypePrefix": false
-          },
-          "titleColor": "rgba(0, 0, 0, 0.87)",
-          "borderRadius": null
-        },
-        "row": 0,
-        "col": 0,
-        "id": "2d1b055c-2b48-577b-82b5-00777b75d5d8"
-      },
-      "0e1e36f3-ccb6-3aa4-d17c-43719e80ad3d": {
-        "typeFullFqn": "system.indoor_humidity_chart_card",
-        "type": "timeseries",
-        "sizeX": 4.5,
-        "sizeY": 3.5,
-        "config": {
-          "datasources": [
-            {
-              "type": "device",
-              "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
-              "dataKeys": [
-                {
-                  "name": "HumedadPromedio",
-                  "type": "timeseries",
-                  "label": "HumedadPromedio",
-                  "color": "rgba(0, 0, 0, 0.87)",
-                  "settings": {},
-                  "_hash": 0.5663467097758572,
-                  "units": "%",
-                  "decimals": 0
-                }
-              ],
-              "alarmFilterConfig": {
-                "statusList": [
-                  "ACTIVE"
-                ]
-              },
-              "latestDataKeys": [
-                {
-                  "name": "HumedadPromedio",
-                  "type": "timeseries",
-                  "label": "Latest",
-                  "color": "#4caf50",
-                  "settings": {
-                    "position": "center",
-                    "font": {
-                      "size": 52,
-                      "sizeUnit": "px",
-                      "family": "Roboto",
-                      "weight": "500",
-                      "style": "normal",
-                      "lineHeight": "1"
-                    },
-                    "color": {
-                      "type": "range",
-                      "color": "rgba(0, 0, 0, 0.87)",
-                      "rangeList": [
-                        {
-                          "from": null,
-                          "to": 30,
-                          "color": "#FFA600"
-                        },
-                        {
-                          "from": 30,
-                          "to": 60,
-                          "color": "#3FA71A"
-                        },
-                        {
-                          "from": 60,
-                          "to": null,
-                          "color": "#D81838"
-                        }
-                      ],
-                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
-                    },
-                    "showArrow": false
-                  },
-                  "_hash": 0.2597851810327506,
-                  "units": "%",
-                  "decimals": 0,
-                  "aggregationType": "NONE"
-                },
-                {
-                  "name": "HumedadPromedio",
-                  "type": "timeseries",
-                  "label": "Delta percent",
-                  "color": "#f44336",
-                  "settings": {
-                    "position": "rightTop",
-                    "font": {
-                      "size": 14,
-                      "sizeUnit": "px",
-                      "family": "Roboto",
-                      "weight": "500",
-                      "style": "normal",
-                      "lineHeight": "20px"
-                    },
-                    "color": {
-                      "type": "range",
-                      "color": "rgba(0, 0, 0, 0.38)",
-                      "rangeList": [
-                        {
-                          "from": null,
-                          "to": 0,
-                          "color": "#198038"
-                        },
-                        {
-                          "from": 0,
-                          "to": 0,
-                          "color": "rgba(0, 0, 0, 0.87)"
-                        },
-                        {
-                          "from": 0,
-                          "to": null,
-                          "color": "#D12730"
-                        }
-                      ],
-                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
-                    },
-                    "showArrow": true
-                  },
-                  "_hash": 0.8497188265626263,
-                  "units": "%",
-                  "decimals": 0,
-                  "aggregationType": "AVG",
-                  "comparisonEnabled": true,
-                  "timeForComparison": "previousInterval",
-                  "comparisonResultType": "DELTA_PERCENT"
-                },
-                {
-                  "name": "HumedadPromedio",
-                  "type": "timeseries",
-                  "label": "Delta absolute",
-                  "color": "#ffc107",
-                  "settings": {
-                    "position": "rightBottom",
-                    "font": {
-                      "size": 11,
-                      "sizeUnit": "px",
-                      "family": "Roboto",
-                      "weight": "400",
-                      "style": "normal",
-                      "lineHeight": "16px"
-                    },
-                    "color": {
-                      "type": "constant",
-                      "color": "rgba(0, 0, 0, 0.38)",
-                      "rangeList": [],
-                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
-                    },
-                    "showArrow": false
-                  },
-                  "_hash": 0.8581545976938547,
-                  "units": "%",
-                  "decimals": 1,
-                  "aggregationType": "AVG",
-                  "comparisonEnabled": true,
-                  "timeForComparison": "previousInterval",
-                  "comparisonResultType": "DELTA_ABSOLUTE"
-                }
-              ]
-            }
-          ],
-          "timewindow": {
-            "selectedTab": 1,
-            "history": {
-              "historyType": 2,
-              "quickInterval": "CURRENT_MONTH_SO_FAR"
-            },
-            "aggregation": {
-              "type": "AVG",
-              "interval": 43200000,
-              "limit": 5000
-            }
-          },
-          "showTitle": true,
-          "backgroundColor": "rgba(0, 0, 0, 0)",
-          "color": null,
-          "padding": "0",
-          "settings": {
-            "stack": false,
-            "fontSize": 10,
-            "fontColor": "#545454",
-            "showTooltip": true,
-            "tooltipIndividual": false,
-            "tooltipCumulative": false,
-            "hideZeros": false,
-            "grid": {
-              "verticalLines": true,
-              "horizontalLines": true,
-              "outlineWidth": 1,
-              "color": "#545454",
-              "backgroundColor": null,
-              "tickColor": "#DDDDDD"
-            },
-            "xaxis": {
-              "title": null,
-              "showLabels": true,
-              "color": "#545454"
-            },
-            "yaxis": {
-              "min": null,
-              "max": null,
-              "title": null,
-              "showLabels": true,
-              "color": "#545454",
-              "tickSize": null,
-              "tickDecimals": 0,
-              "ticksFormatter": ""
-            },
-            "shadowSize": 4,
-            "smoothLines": false,
-            "comparisonEnabled": false,
-            "xaxisSecond": {
-              "axisPosition": "top",
-              "title": null,
-              "showLabels": true
-            },
-            "showLegend": true,
-            "legendConfig": {
-              "direction": "column",
-              "position": "bottom",
-              "sortDataKeys": false,
-              "showMin": false,
-              "showMax": false,
-              "showAvg": true,
-              "showTotal": false,
-              "showLatest": false
-            },
-            "customLegendEnabled": false,
-            "showSubtitle": false,
-            "subtitle": "${entityName}",
-            "subtitleFont": {
-              "family": "Roboto",
-              "size": 12,
-              "sizeUnit": "px",
-              "style": "normal",
-              "weight": "400",
-              "lineHeight": "16px"
-            },
-            "subtitleColor": "rgba(0, 0, 0, 0.38)",
-            "showDate": true,
-            "dateFormat": {
-              "format": null,
-              "lastUpdateAgo": true,
-              "custom": false
-            },
-            "dateFont": {
-              "family": "Roboto",
-              "size": 12,
-              "sizeUnit": "px",
-              "style": "normal",
-              "weight": "400",
-              "lineHeight": "16px"
-            },
-            "dateColor": "rgba(0, 0, 0, 0.38)",
-            "showChart": true,
-            "chartColor": "rgba(0, 0, 0, 0.87)",
-            "background": {
-              "type": "color",
-              "color": "#fff",
-              "overlay": {
-                "enabled": false,
-                "color": "rgba(255,255,255,0.72)",
-                "blur": 3
-              }
-            },
-            "autoScale": true
-          },
-          "title": "Humedad",
-          "dropShadow": true,
-          "enableFullscreen": false,
-          "titleStyle": {
-            "fontSize": "16px",
-            "fontWeight": 400
-          },
-          "configMode": "basic",
-          "actions": {},
-          "showTitleIcon": true,
-          "titleIcon": "mdi:water-percent",
-          "iconColor": "rgba(0, 0, 0, 0.87)",
-          "titleFont": {
-            "size": 16,
-            "sizeUnit": "px",
-            "family": "Roboto",
-            "weight": "500",
-            "style": "normal",
-            "lineHeight": "24px"
-          },
-          "iconSize": "24px",
-          "titleTooltip": "",
-          "widgetStyle": {},
-          "widgetCss": "",
-          "pageSize": 1024,
-          "noDataDisplayMessage": "",
-          "useDashboardTimewindow": false,
-          "displayTimewindow": true,
-          "decimals": 0,
-          "timewindowStyle": {
-            "showIcon": true,
-            "iconSize": "24px",
-            "icon": null,
-            "iconPosition": "left",
-            "font": {
-              "size": 12,
-              "sizeUnit": "px",
-              "family": "Roboto",
-              "weight": "400",
-              "style": "normal",
-              "lineHeight": "16px"
-            },
-            "color": "rgba(0, 0, 0, 0.38)",
-            "displayTypePrefix": false
-          },
-          "titleColor": "rgba(0, 0, 0, 0.87)",
-          "borderRadius": null
-        },
-        "row": 0,
-        "col": 0,
-        "id": "0e1e36f3-ccb6-3aa4-d17c-43719e80ad3d"
-      },
-      "40ef0d36-0fa1-00af-582e-d3200cc529d6": {
-        "typeFullFqn": "system.cards.timeseries_table",
-        "type": "timeseries",
-        "sizeX": 8,
-        "sizeY": 6.5,
-        "config": {
-          "datasources": [
-            {
-              "type": "device",
-              "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
-              "entityAliasId": null,
-              "filterId": null,
-              "dataKeys": [
-                {
-                  "name": "temperatura1",
-                  "type": "timeseries",
-                  "label": "Temperatura 1",
-                  "color": "#2196f3",
-                  "settings": {},
-                  "_hash": 0.26106406257334314,
-                  "units": "°C",
-                  "decimals": 0
-                },
-                {
-                  "name": "temperatura2",
-                  "type": "timeseries",
-                  "label": "Temperatura 2",
-                  "color": "#4caf50",
-                  "settings": {},
-                  "_hash": 0.35624688121888737,
-                  "units": "°C",
-                  "decimals": 0
-                },
-                {
-                  "name": "temperatura3",
-                  "type": "timeseries",
-                  "label": "Temperatura 3",
-                  "color": "#f44336",
-                  "settings": {},
-                  "_hash": 0.3418933142842585,
-                  "units": "°C",
-                  "decimals": 0
-                },
-                {
-                  "name": "temperatura4",
-                  "type": "timeseries",
-                  "label": "Temperatura 4",
-                  "color": "#ffc107",
-                  "settings": {},
-                  "_hash": 0.3376705901618876,
-                  "units": "°C",
-                  "decimals": 0
-                }
-              ],
-              "alarmFilterConfig": {
-                "statusList": [
-                  "ACTIVE"
-                ]
-              },
-              "latestDataKeys": []
-            }
-          ],
-          "timewindow": {
-            "realtime": {
-              "interval": 1000,
-              "timewindowMs": 60000
-            },
-            "aggregation": {
-              "type": "NONE",
-              "limit": 200
-            }
-          },
-          "showTitle": true,
-          "backgroundColor": "rgb(255, 255, 255)",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "padding": "8px",
-          "settings": {
-            "showTimestamp": true,
-            "displayPagination": true,
-            "defaultPageSize": 10,
-            "enableSearch": true,
-            "enableSelectColumnDisplay": true
-          },
-          "title": "Historial de temperaturas",
-          "dropShadow": true,
-          "enableFullscreen": true,
-          "titleStyle": {
-            "fontSize": "16px",
-            "fontWeight": 400,
-            "padding": "5px 10px 5px 10px"
-          },
-          "useDashboardTimewindow": false,
-          "showLegend": false,
-          "widgetStyle": {},
-          "actions": {},
-          "showTitleIcon": false,
-          "iconColor": "rgba(0, 0, 0, 0.87)",
-          "iconSize": "24px",
-          "displayTimewindow": true,
-          "configMode": "basic",
-          "titleFont": null,
-          "titleColor": null,
-          "titleIcon": null
-        },
-        "row": 0,
-        "col": 0,
-        "id": "40ef0d36-0fa1-00af-582e-d3200cc529d6"
-      },
       "f673b51a-fb48-2107-f595-f6ad7eeba264": {
         "typeFullFqn": "system.navigation_widgets.navigation_card",
         "type": "static",
@@ -1409,14 +676,28 @@
         "sizeY": 6.5,
         "config": {
           "timewindow": {
-            "realtime": {
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 1,
+            "history": {
+              "historyType": 2,
+              "timewindowMs": 86400000,
               "interval": 1000,
-              "timewindowMs": 86400000
+              "fixedTimewindow": {
+                "startTimeMs": 1702335242311,
+                "endTimeMs": 1702421642311
+              },
+              "quickInterval": "CURRENT_YEAR"
             },
             "aggregation": {
               "type": "NONE",
               "limit": 200
-            }
+            },
+            "timezone": null
           },
           "showTitle": false,
           "backgroundColor": "rgb(255, 255, 255)",
@@ -1550,10 +831,23 @@
           "actions": {},
           "configMode": "basic",
           "alarmFilterConfig": {
-            "statusList": [],
-            "severityList": [],
+            "statusList": [
+              "ACTIVE",
+              "CLEARED",
+              "ACK",
+              "UNACK"
+            ],
+            "severityList": [
+              "CRITICAL",
+              "MAJOR",
+              "MINOR",
+              "WARNING",
+              "INDETERMINATE"
+            ],
             "typeList": [],
-            "searchPropagatedAlarms": false
+            "searchPropagatedAlarms": false,
+            "assignedToCurrentUser": false,
+            "assigneeId": null
           },
           "datasources": [],
           "titleFont": null,
@@ -1608,7 +902,883 @@
         "col": 0,
         "id": "39441cb4-fb38-a33a-a255-c2cb14db4a1d"
       },
-      "93f5bc99-d7b7-25f1-6e6f-ee091a4fac2a": {
+      "b37f7ab1-7340-6415-0904-90648e2e6e5d": {
+        "typeFullFqn": "tenant.inventario",
+        "type": "latest",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "dataKeys": [
+                {
+                  "name": "inventario",
+                  "type": "attribute",
+                  "label": "inventario",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.5466978343659356
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              }
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 1701557988741,
+                "endTimeMs": 1701644388741
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {},
+          "title": "Attributes card",
+          "useDashboardTimewindow": true,
+          "displayTimewindow": true
+        },
+        "row": 0,
+        "col": 0,
+        "id": "b37f7ab1-7340-6415-0904-90648e2e6e5d"
+      },
+      "3e968964-db36-e5c1-bcbb-ec38e110a7d1": {
+        "typeFullFqn": "system.input_widgets.update_multiple_attributes",
+        "type": "latest",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "dataKeys": [
+                {
+                  "name": "nombreProductoModificar",
+                  "type": "attribute",
+                  "label": "Nombre",
+                  "color": "#2196f3",
+                  "settings": {
+                    "dataKeyHidden": false,
+                    "dataKeyType": "server",
+                    "dataKeyValueType": "string",
+                    "required": true,
+                    "isEditable": "editable",
+                    "disabledOnDataKey": "",
+                    "appearance": "fill",
+                    "subscriptSizing": "fixed",
+                    "slideToggleLabelPosition": "after",
+                    "selectOptions": [],
+                    "step": 1,
+                    "minValue": null,
+                    "maxValue": null,
+                    "requiredErrorMessage": "Ingresar nombre del producto",
+                    "minValueErrorMessage": "",
+                    "maxValueErrorMessage": "",
+                    "invalidDateErrorMessage": "",
+                    "invalidJsonErrorMessage": "",
+                    "dialogTitle": "",
+                    "saveButtonLabel": "",
+                    "cancelButtonLabel": "",
+                    "useCustomIcon": false,
+                    "icon": "",
+                    "customIcon": "",
+                    "useGetValueFunction": false,
+                    "getValueFunctionBody": "",
+                    "useSetValueFunction": false,
+                    "setValueFunctionBody": ""
+                  },
+                  "_hash": 0.10188456848141725,
+                  "aggregationType": null,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "cantProductoModificar",
+                  "type": "attribute",
+                  "label": "Cantidad",
+                  "color": "#4caf50",
+                  "settings": {
+                    "dataKeyHidden": false,
+                    "dataKeyType": "server",
+                    "dataKeyValueType": "string",
+                    "required": true,
+                    "isEditable": "editable",
+                    "disabledOnDataKey": "",
+                    "appearance": "fill",
+                    "subscriptSizing": "fixed",
+                    "slideToggleLabelPosition": "after",
+                    "selectOptions": [],
+                    "step": 1,
+                    "minValue": null,
+                    "maxValue": null,
+                    "requiredErrorMessage": "Ingrese la cantidad del producto.",
+                    "minValueErrorMessage": "",
+                    "maxValueErrorMessage": "",
+                    "invalidDateErrorMessage": "",
+                    "invalidJsonErrorMessage": "",
+                    "dialogTitle": "",
+                    "saveButtonLabel": "",
+                    "cancelButtonLabel": "",
+                    "useCustomIcon": false,
+                    "icon": "",
+                    "customIcon": "",
+                    "useGetValueFunction": false,
+                    "getValueFunctionBody": "",
+                    "useSetValueFunction": false,
+                    "setValueFunctionBody": ""
+                  },
+                  "_hash": 0.6338649304499824,
+                  "aggregationType": null,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              }
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 1702259004937,
+                "endTimeMs": 1702345404937
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "widgetTitle": "Modificación de Inventario",
+            "showResultMessage": true,
+            "showActionButtons": true,
+            "updateAllValues": true,
+            "saveButtonLabel": "",
+            "resetButtonLabel": "",
+            "showGroupTitle": false,
+            "groupTitle": "${entityName}",
+            "fieldsAlignment": "row",
+            "fieldsInRow": 1,
+            "rowGap": 5,
+            "columnGap": 15
+          },
+          "title": "Update Multiple Attributes",
+          "dropShadow": true,
+          "enableFullscreen": false,
+          "enableDataExport": false,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "displayTimewindow": true
+        },
+        "row": 0,
+        "col": 0,
+        "id": "3e968964-db36-e5c1-bcbb-ec38e110a7d1"
+      },
+      "8f103539-a229-e558-333d-ef97e5e2c962": {
+        "typeFullFqn": "system.indoor_temperature_chart_card",
+        "type": "timeseries",
+        "sizeX": 4.5,
+        "sizeY": 3.5,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
+              "dataKeys": [
+                {
+                  "name": "TemperaturaPromedio",
+                  "type": "timeseries",
+                  "label": "TemperaturaPromedio",
+                  "color": "rgb(214, 30, 30)",
+                  "settings": {},
+                  "_hash": 0.4151035192139918,
+                  "units": "°C",
+                  "decimals": 0
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              },
+              "latestDataKeys": [
+                {
+                  "name": "TemperaturaPromedio",
+                  "type": "timeseries",
+                  "label": "Latest",
+                  "color": "#4caf50",
+                  "settings": {
+                    "position": "center",
+                    "font": {
+                      "size": 52,
+                      "sizeUnit": "px",
+                      "family": "Roboto",
+                      "weight": "500",
+                      "style": "normal",
+                      "lineHeight": "1"
+                    },
+                    "color": {
+                      "type": "range",
+                      "color": "rgba(255, 0, 0, 0.87)",
+                      "rangeList": [
+                        {
+                          "from": null,
+                          "to": 0,
+                          "color": "#79DFD8"
+                        },
+                        {
+                          "from": 0,
+                          "to": 5,
+                          "color": "#41D273"
+                        },
+                        {
+                          "from": 6,
+                          "to": 10,
+                          "color": "#DFD227"
+                        },
+                        {
+                          "from": 11,
+                          "to": 15,
+                          "color": "rgb(255, 137, 29)"
+                        },
+                        {
+                          "from": 16,
+                          "to": null,
+                          "color": "rgb(255, 0, 0)"
+                        }
+                      ],
+                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
+                    },
+                    "showArrow": false
+                  },
+                  "_hash": 0.6748650288786731,
+                  "units": "°C",
+                  "decimals": 0,
+                  "aggregationType": "NONE"
+                },
+                {
+                  "name": "TemperaturaPromedio",
+                  "type": "timeseries",
+                  "label": "Delta percent",
+                  "color": "#f44336",
+                  "settings": {
+                    "position": "rightTop",
+                    "font": {
+                      "size": 14,
+                      "sizeUnit": "px",
+                      "family": "Roboto",
+                      "weight": "500",
+                      "style": "normal",
+                      "lineHeight": "20px"
+                    },
+                    "color": {
+                      "type": "range",
+                      "color": "rgba(0, 0, 0, 0.38)",
+                      "rangeList": [
+                        {
+                          "from": 0,
+                          "to": 0,
+                          "color": "rgba(0, 0, 0, 0.87)"
+                        },
+                        {
+                          "from": null,
+                          "to": null,
+                          "color": "rgba(0,0,0,0.87)"
+                        }
+                      ],
+                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
+                    },
+                    "showArrow": true
+                  },
+                  "_hash": 0.26288985888774263,
+                  "units": "%",
+                  "decimals": 0,
+                  "aggregationType": "AVG",
+                  "comparisonEnabled": true,
+                  "timeForComparison": "previousInterval",
+                  "comparisonResultType": "DELTA_PERCENT"
+                },
+                {
+                  "name": "TemperaturaPromedio",
+                  "type": "timeseries",
+                  "label": "Delta absolute",
+                  "color": "#ffc107",
+                  "settings": {
+                    "position": "rightBottom",
+                    "font": {
+                      "size": 11,
+                      "sizeUnit": "px",
+                      "family": "Roboto",
+                      "weight": "400",
+                      "style": "normal",
+                      "lineHeight": "16px"
+                    },
+                    "color": {
+                      "type": "constant",
+                      "color": "rgba(0, 0, 0, 0.38)",
+                      "rangeList": [],
+                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
+                    },
+                    "showArrow": false
+                  },
+                  "_hash": 0.397844531245403,
+                  "units": "°C",
+                  "decimals": 1,
+                  "aggregationType": "AVG",
+                  "comparisonEnabled": true,
+                  "timeForComparison": "previousInterval",
+                  "comparisonResultType": "DELTA_ABSOLUTE"
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_MONTH_SO_FAR",
+              "interval": 7200000
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 5000
+            },
+            "timezone": null
+          },
+          "showTitle": true,
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "color": null,
+          "padding": "0",
+          "settings": {
+            "stack": false,
+            "fontSize": 10,
+            "fontColor": "#545454",
+            "showTooltip": true,
+            "tooltipIndividual": false,
+            "tooltipCumulative": false,
+            "hideZeros": false,
+            "grid": {
+              "verticalLines": true,
+              "horizontalLines": true,
+              "outlineWidth": 1,
+              "color": "#545454",
+              "backgroundColor": null,
+              "tickColor": "#DDDDDD"
+            },
+            "xaxis": {
+              "title": null,
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "yaxis": {
+              "min": null,
+              "max": null,
+              "title": null,
+              "showLabels": true,
+              "color": "#545454",
+              "tickSize": null,
+              "tickDecimals": 0,
+              "ticksFormatter": ""
+            },
+            "shadowSize": 4,
+            "smoothLines": false,
+            "comparisonEnabled": false,
+            "xaxisSecond": {
+              "axisPosition": "top",
+              "title": null,
+              "showLabels": true
+            },
+            "showLegend": true,
+            "legendConfig": {
+              "direction": "column",
+              "position": "bottom",
+              "sortDataKeys": false,
+              "showMin": false,
+              "showMax": false,
+              "showAvg": true,
+              "showTotal": false,
+              "showLatest": false
+            },
+            "customLegendEnabled": false,
+            "showSubtitle": false,
+            "subtitle": "${entityName}",
+            "subtitleFont": {
+              "family": "Roboto",
+              "size": 12,
+              "sizeUnit": "px",
+              "style": "normal",
+              "weight": "400",
+              "lineHeight": "16px"
+            },
+            "subtitleColor": "rgba(0, 0, 0, 0.38)",
+            "showDate": true,
+            "dateFormat": {
+              "format": null,
+              "lastUpdateAgo": true,
+              "custom": false
+            },
+            "dateFont": {
+              "family": "Roboto",
+              "size": 12,
+              "sizeUnit": "px",
+              "style": "normal",
+              "weight": "400",
+              "lineHeight": "16px"
+            },
+            "dateColor": "rgba(0, 0, 0, 0.38)",
+            "showChart": true,
+            "chartColor": "rgba(0, 0, 0, 0.87)",
+            "background": {
+              "type": "color",
+              "color": "#fff",
+              "overlay": {
+                "enabled": false,
+                "color": "rgba(255,255,255,0.72)",
+                "blur": 3
+              }
+            },
+            "autoScale": true
+          },
+          "title": "Temperatura",
+          "dropShadow": true,
+          "enableFullscreen": false,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "configMode": "basic",
+          "actions": {},
+          "showTitleIcon": true,
+          "titleIcon": "device_thermostat",
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "titleFont": {
+            "size": 16,
+            "sizeUnit": "px",
+            "family": "Roboto",
+            "weight": "500",
+            "style": "normal",
+            "lineHeight": "24px"
+          },
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "widgetCss": "",
+          "pageSize": 1024,
+          "noDataDisplayMessage": "",
+          "useDashboardTimewindow": false,
+          "displayTimewindow": true,
+          "decimals": 0,
+          "timewindowStyle": {
+            "showIcon": true,
+            "iconSize": "24px",
+            "icon": null,
+            "iconPosition": "left",
+            "font": {
+              "size": 12,
+              "sizeUnit": "px",
+              "family": "Roboto",
+              "weight": "400",
+              "style": "normal",
+              "lineHeight": "16px"
+            },
+            "color": "rgba(0, 0, 0, 0.38)",
+            "displayTypePrefix": false
+          },
+          "titleColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": null
+        },
+        "row": 0,
+        "col": 0,
+        "id": "8f103539-a229-e558-333d-ef97e5e2c962"
+      },
+      "4d3c55d0-5f01-6cec-a351-df16c3f64114": {
+        "typeFullFqn": "system.indoor_humidity_chart_card",
+        "type": "timeseries",
+        "sizeX": 4.5,
+        "sizeY": 3.5,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
+              "dataKeys": [
+                {
+                  "name": "HumedadPromedio",
+                  "type": "timeseries",
+                  "label": "HumedadPromedio",
+                  "color": "rgba(23, 50, 224, 0.87)",
+                  "settings": {},
+                  "_hash": 0.5663467097758572,
+                  "units": "%",
+                  "decimals": 0
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              },
+              "latestDataKeys": [
+                {
+                  "name": "HumedadPromedio",
+                  "type": "timeseries",
+                  "label": "Latest",
+                  "color": "#4caf50",
+                  "settings": {
+                    "position": "center",
+                    "font": {
+                      "size": 52,
+                      "sizeUnit": "px",
+                      "family": "Roboto",
+                      "weight": "500",
+                      "style": "normal",
+                      "lineHeight": "1"
+                    },
+                    "color": {
+                      "type": "range",
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "rangeList": [
+                        {
+                          "from": null,
+                          "to": 30,
+                          "color": "rgba(39, 208, 212, 0.87)"
+                        },
+                        {
+                          "from": 31,
+                          "to": 60,
+                          "color": "rgba(226, 182, 32, 0.87)"
+                        },
+                        {
+                          "from": 61,
+                          "to": 100,
+                          "color": "rgba(228, 73, 44, 0.87)"
+                        }
+                      ],
+                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
+                    },
+                    "showArrow": false
+                  },
+                  "_hash": 0.2597851810327506,
+                  "units": "%",
+                  "decimals": 0,
+                  "aggregationType": "NONE"
+                },
+                {
+                  "name": "HumedadPromedio",
+                  "type": "timeseries",
+                  "label": "Delta percent",
+                  "color": "#f44336",
+                  "settings": {
+                    "position": "rightTop",
+                    "font": {
+                      "size": 14,
+                      "sizeUnit": "px",
+                      "family": "Roboto",
+                      "weight": "500",
+                      "style": "normal",
+                      "lineHeight": "20px"
+                    },
+                    "color": {
+                      "type": "range",
+                      "color": "rgba(0, 0, 0, 0.38)",
+                      "rangeList": [
+                        {
+                          "from": null,
+                          "to": 0,
+                          "color": "#198038"
+                        },
+                        {
+                          "from": 0,
+                          "to": 0,
+                          "color": "rgba(0, 0, 0, 0.87)"
+                        },
+                        {
+                          "from": 0,
+                          "to": null,
+                          "color": "#D12730"
+                        }
+                      ],
+                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
+                    },
+                    "showArrow": true
+                  },
+                  "_hash": 0.8497188265626263,
+                  "units": "%",
+                  "decimals": 0,
+                  "aggregationType": "AVG",
+                  "comparisonEnabled": true,
+                  "timeForComparison": "previousInterval",
+                  "comparisonResultType": "DELTA_PERCENT"
+                },
+                {
+                  "name": "HumedadPromedio",
+                  "type": "timeseries",
+                  "label": "Delta absolute",
+                  "color": "#ffc107",
+                  "settings": {
+                    "position": "rightBottom",
+                    "font": {
+                      "size": 11,
+                      "sizeUnit": "px",
+                      "family": "Roboto",
+                      "weight": "400",
+                      "style": "normal",
+                      "lineHeight": "16px"
+                    },
+                    "color": {
+                      "type": "constant",
+                      "color": "rgba(0, 0, 0, 0.38)",
+                      "rangeList": [],
+                      "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
+                    },
+                    "showArrow": false
+                  },
+                  "_hash": 0.8581545976938547,
+                  "units": "%",
+                  "decimals": 1,
+                  "aggregationType": "AVG",
+                  "comparisonEnabled": true,
+                  "timeForComparison": "previousInterval",
+                  "comparisonResultType": "DELTA_ABSOLUTE"
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_MONTH_SO_FAR",
+              "interval": 7200000
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 5000
+            },
+            "timezone": null
+          },
+          "showTitle": true,
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "color": null,
+          "padding": "0",
+          "settings": {
+            "stack": false,
+            "fontSize": 10,
+            "fontColor": "#545454",
+            "showTooltip": true,
+            "tooltipIndividual": false,
+            "tooltipCumulative": false,
+            "hideZeros": false,
+            "grid": {
+              "verticalLines": true,
+              "horizontalLines": true,
+              "outlineWidth": 1,
+              "color": "#545454",
+              "backgroundColor": null,
+              "tickColor": "#DDDDDD"
+            },
+            "xaxis": {
+              "title": null,
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "yaxis": {
+              "min": null,
+              "max": null,
+              "title": null,
+              "showLabels": true,
+              "color": "#545454",
+              "tickSize": null,
+              "tickDecimals": 0,
+              "ticksFormatter": ""
+            },
+            "shadowSize": 4,
+            "smoothLines": false,
+            "comparisonEnabled": false,
+            "xaxisSecond": {
+              "axisPosition": "top",
+              "title": null,
+              "showLabels": true
+            },
+            "showLegend": true,
+            "legendConfig": {
+              "direction": "column",
+              "position": "bottom",
+              "sortDataKeys": false,
+              "showMin": false,
+              "showMax": false,
+              "showAvg": true,
+              "showTotal": false,
+              "showLatest": false
+            },
+            "customLegendEnabled": false,
+            "showSubtitle": false,
+            "subtitle": "${entityName}",
+            "subtitleFont": {
+              "family": "Roboto",
+              "size": 12,
+              "sizeUnit": "px",
+              "style": "normal",
+              "weight": "400",
+              "lineHeight": "16px"
+            },
+            "subtitleColor": "rgba(0, 0, 0, 0.38)",
+            "showDate": true,
+            "dateFormat": {
+              "format": null,
+              "lastUpdateAgo": true,
+              "custom": false
+            },
+            "dateFont": {
+              "family": "Roboto",
+              "size": 12,
+              "sizeUnit": "px",
+              "style": "normal",
+              "weight": "400",
+              "lineHeight": "16px"
+            },
+            "dateColor": "rgba(0, 0, 0, 0.38)",
+            "showChart": true,
+            "chartColor": "rgba(0, 0, 0, 0.87)",
+            "background": {
+              "type": "color",
+              "color": "#fff",
+              "overlay": {
+                "enabled": false,
+                "color": "rgba(255,255,255,0.72)",
+                "blur": 3
+              }
+            },
+            "autoScale": true
+          },
+          "title": "Humedad",
+          "dropShadow": true,
+          "enableFullscreen": false,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "configMode": "basic",
+          "actions": {},
+          "showTitleIcon": true,
+          "titleIcon": "mdi:water-percent",
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "titleFont": {
+            "size": 16,
+            "sizeUnit": "px",
+            "family": "Roboto",
+            "weight": "500",
+            "style": "normal",
+            "lineHeight": "24px"
+          },
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "widgetCss": "",
+          "pageSize": 1024,
+          "noDataDisplayMessage": "",
+          "useDashboardTimewindow": false,
+          "displayTimewindow": true,
+          "decimals": 0,
+          "timewindowStyle": {
+            "showIcon": true,
+            "iconSize": "24px",
+            "icon": null,
+            "iconPosition": "left",
+            "font": {
+              "size": 12,
+              "sizeUnit": "px",
+              "family": "Roboto",
+              "weight": "400",
+              "style": "normal",
+              "lineHeight": "16px"
+            },
+            "color": "rgba(0, 0, 0, 0.38)",
+            "displayTypePrefix": false
+          },
+          "titleColor": "rgba(0, 0, 0, 0.87)",
+          "borderRadius": null
+        },
+        "row": 0,
+        "col": 0,
+        "id": "4d3c55d0-5f01-6cec-a351-df16c3f64114"
+      },
+      "b65ff772-51f5-767d-2e02-3278c6d3b072": {
         "typeFullFqn": "tenant.mapa_de_calor2",
         "type": "timeseries",
         "sizeX": 8,
@@ -1618,7 +1788,7 @@
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
               "dataKeys": [
                 {
                   "name": "temperatura1",
@@ -1626,7 +1796,7 @@
                   "label": "Temperature",
                   "color": "#2196f3",
                   "settings": {},
-                  "_hash": 0.6137040750418215,
+                  "_hash": 0.8510480994983384,
                   "units": "°C",
                   "decimals": 0
                 },
@@ -1636,7 +1806,7 @@
                   "label": "temperatura2",
                   "color": "#4caf50",
                   "settings": {},
-                  "_hash": 0.48759095029028643,
+                  "_hash": 0.2834725827886495,
                   "decimals": 0
                 },
                 {
@@ -1645,7 +1815,7 @@
                   "label": "temperatura3",
                   "color": "#f44336",
                   "settings": {},
-                  "_hash": 0.884539837557353,
+                  "_hash": 0.6555876810926403,
                   "decimals": 0
                 },
                 {
@@ -1654,7 +1824,7 @@
                   "label": "temperatura4",
                   "color": "#ffc107",
                   "settings": {},
-                  "_hash": 0.7131712550316907,
+                  "_hash": 0.12274699058865102,
                   "decimals": 0
                 }
               ],
@@ -1745,74 +1915,128 @@
         },
         "row": 0,
         "col": 0,
-        "id": "93f5bc99-d7b7-25f1-6e6f-ee091a4fac2a"
+        "id": "b65ff772-51f5-767d-2e02-3278c6d3b072"
       },
-      "bb33f6ac-34fa-8a84-c0b9-f6b8ff1f30c7": {
-        "typeFullFqn": "system.cards.attributes_card",
-        "type": "latest",
-        "sizeX": 7.5,
-        "sizeY": 3,
+      "9b38660a-6463-0b46-c67c-9003db463f23": {
+        "typeFullFqn": "system.cards.timeseries_table",
+        "type": "timeseries",
+        "sizeX": 8,
+        "sizeY": 6.5,
         "config": {
           "datasources": [
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
+              "entityAliasId": null,
+              "filterId": null,
               "dataKeys": [
                 {
-                  "name": "inventario",
-                  "type": "attribute",
-                  "label": "inventario",
+                  "name": "temperatura1",
+                  "type": "timeseries",
+                  "label": "Temperatura 1",
                   "color": "#2196f3",
                   "settings": {},
-                  "_hash": 0.8706945010581825
+                  "_hash": 0.26106406257334314,
+                  "units": "°C",
+                  "decimals": 0
+                },
+                {
+                  "name": "temperatura2",
+                  "type": "timeseries",
+                  "label": "Temperatura 2",
+                  "color": "#4caf50",
+                  "settings": {},
+                  "_hash": 0.35624688121888737,
+                  "units": "°C",
+                  "decimals": 0
+                },
+                {
+                  "name": "temperatura3",
+                  "type": "timeseries",
+                  "label": "Temperatura 3",
+                  "color": "#f44336",
+                  "settings": {},
+                  "_hash": 0.3418933142842585,
+                  "units": "°C",
+                  "decimals": 0
+                },
+                {
+                  "name": "temperatura4",
+                  "type": "timeseries",
+                  "label": "Temperatura 4",
+                  "color": "#ffc107",
+                  "settings": {},
+                  "_hash": 0.3376705901618876,
+                  "units": "°C",
+                  "decimals": 0
                 }
               ],
               "alarmFilterConfig": {
                 "statusList": [
                   "ACTIVE"
                 ]
-              }
+              },
+              "latestDataKeys": []
             }
           ],
           "timewindow": {
-            "displayValue": "",
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
             "selectedTab": 0,
             "realtime": {
               "realtimeType": 1,
-              "interval": 1000,
               "timewindowMs": 60000,
-              "quickInterval": "CURRENT_DAY"
-            },
-            "history": {
-              "historyType": 0,
-              "interval": 1000,
-              "timewindowMs": 60000,
-              "fixedTimewindow": {
-                "startTimeMs": 1701546271475,
-                "endTimeMs": 1701632671475
-              },
-              "quickInterval": "CURRENT_DAY"
+              "quickInterval": "CURRENT_DAY",
+              "interval": 1000
             },
             "aggregation": {
-              "type": "AVG",
-              "limit": 2500
-            }
+              "type": "NONE",
+              "limit": 200
+            },
+            "timezone": null
           },
-          "showTitle": true,
-          "backgroundColor": "#fff",
+          "showTitle": false,
+          "backgroundColor": "rgb(255, 255, 255)",
           "color": "rgba(0, 0, 0, 0.87)",
           "padding": "8px",
-          "settings": {},
-          "title": "Attributes card",
-          "useDashboardTimewindow": true,
-          "displayTimewindow": true
+          "settings": {
+            "showTimestamp": true,
+            "displayPagination": true,
+            "defaultPageSize": 10,
+            "enableSearch": true,
+            "enableSelectColumnDisplay": true
+          },
+          "title": "Historial de temperaturas",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "widgetStyle": {},
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "displayTimewindow": true,
+          "configMode": "basic",
+          "titleFont": null,
+          "titleColor": null,
+          "titleIcon": null
         },
         "row": 0,
         "col": 0,
-        "id": "bb33f6ac-34fa-8a84-c0b9-f6b8ff1f30c7"
+        "id": "9b38660a-6463-0b46-c67c-9003db463f23"
       },
-      "22eced9c-cc5a-614c-5953-75a116728b5c": {
+      "85fd3649-20d8-f420-0d82-bce8f80f2dd8": {
         "typeFullFqn": "system.control_widgets.update_attributes",
         "type": "rpc",
         "sizeX": 4,
@@ -1826,7 +2050,7 @@
             "title": "",
             "buttonText": "Acualizar Inventario",
             "entityAttributeType": "SERVER_SCOPE",
-            "entityParameters": "{}",
+            "entityParameters": "{\"update\":\"inv\"}",
             "styleButton": {
               "isRaised": true,
               "isPrimary": false
@@ -1854,7 +2078,7 @@
         },
         "row": 0,
         "col": 0,
-        "id": "22eced9c-cc5a-614c-5953-75a116728b5c"
+        "id": "85fd3649-20d8-f420-0d82-bce8f80f2dd8"
       }
     },
     "states": {
@@ -1871,22 +2095,22 @@
                 "col": 0
               },
               "48f11d88-455a-f1fb-20f1-0e231c034e93": {
-                "sizeX": 6,
-                "sizeY": 5,
-                "row": 7,
-                "col": 3
-              },
-              "8a0bbb80-4156-50eb-30d9-2e1d2cfe7a16": {
-                "sizeX": 6,
-                "sizeY": 5,
-                "row": 7,
-                "col": 9
-              },
-              "9b7d6b6b-8741-f488-e660-fae554397bac": {
-                "sizeX": 6,
+                "sizeX": 5,
                 "sizeY": 5,
                 "row": 7,
                 "col": 15
+              },
+              "8a0bbb80-4156-50eb-30d9-2e1d2cfe7a16": {
+                "sizeX": 5,
+                "sizeY": 5,
+                "row": 7,
+                "col": 5
+              },
+              "9b7d6b6b-8741-f488-e660-fae554397bac": {
+                "sizeX": 5,
+                "sizeY": 5,
+                "row": 7,
+                "col": 10
               }
             },
             "gridSettings": {
@@ -1952,23 +2176,23 @@
                 "row": 0,
                 "col": 3
               },
-              "2d1b055c-2b48-577b-82b5-00777b75d5d8": {
-                "sizeX": 16,
-                "sizeY": 9,
-                "row": 3,
-                "col": 0
-              },
-              "0e1e36f3-ccb6-3aa4-d17c-43719e80ad3d": {
-                "sizeX": 16,
-                "sizeY": 9,
-                "row": 3,
-                "col": 16
-              },
               "39441cb4-fb38-a33a-a255-c2cb14db4a1d": {
                 "sizeX": 32,
                 "sizeY": 4,
                 "row": 12,
                 "col": 0
+              },
+              "8f103539-a229-e558-333d-ef97e5e2c962": {
+                "sizeX": 16,
+                "sizeY": 9,
+                "row": 3,
+                "col": 0
+              },
+              "4d3c55d0-5f01-6cec-a351-df16c3f64114": {
+                "sizeX": 16,
+                "sizeY": 9,
+                "row": 3,
+                "col": 16
               }
             },
             "gridSettings": {
@@ -1991,12 +2215,6 @@
         "layouts": {
           "main": {
             "widgets": {
-              "40ef0d36-0fa1-00af-582e-d3200cc529d6": {
-                "sizeX": 12,
-                "sizeY": 12,
-                "row": 3,
-                "col": 0
-              },
               "f673b51a-fb48-2107-f595-f6ad7eeba264": {
                 "sizeX": 3,
                 "sizeY": 3,
@@ -2009,11 +2227,17 @@
                 "row": 0,
                 "col": 3
               },
-              "93f5bc99-d7b7-25f1-6e6f-ee091a4fac2a": {
+              "b65ff772-51f5-767d-2e02-3278c6d3b072": {
                 "sizeX": 17,
                 "sizeY": 12,
                 "row": 3,
                 "col": 12
+              },
+              "9b38660a-6463-0b46-c67c-9003db463f23": {
+                "sizeX": 12,
+                "sizeY": 12,
+                "row": 3,
+                "col": 0
               }
             },
             "gridSettings": {
@@ -2044,13 +2268,19 @@
                 "row": 0,
                 "col": 3
               },
-              "bb33f6ac-34fa-8a84-c0b9-f6b8ff1f30c7": {
-                "sizeX": 28,
+              "b37f7ab1-7340-6415-0904-90648e2e6e5d": {
+                "sizeX": 21,
                 "sizeY": 9,
                 "row": 3,
                 "col": 0
               },
-              "22eced9c-cc5a-614c-5953-75a116728b5c": {
+              "3e968964-db36-e5c1-bcbb-ec38e110a7d1": {
+                "sizeX": 7,
+                "sizeY": 9,
+                "row": 3,
+                "col": 21
+              },
+              "85fd3649-20d8-f420-0d82-bce8f80f2dd8": {
                 "sizeX": 28,
                 "sizeY": 2,
                 "row": 12,

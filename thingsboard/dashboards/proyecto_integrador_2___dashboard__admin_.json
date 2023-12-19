@@ -97,8 +97,8 @@
           "color": "rgba(255,255,255,0.87)",
           "padding": "8px",
           "settings": {
-            "name": "Personal",
-            "icon": "people",
+            "name": "Registro",
+            "icon": "photo_camera",
             "path": "/dashboards/34f55d60-7ff3-11ee-b02b-cff4615e8c80?state=W3siaWQiOiJwZXJzb25hbCIsInBhcmFtcyI6e319XQ%253D%253D"
           },
           "title": "Navigation card",
@@ -404,7 +404,7 @@
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
               "dataKeys": [
                 {
                   "name": "tiempoChequeo",
@@ -577,49 +577,6 @@
                   "funcBody": null,
                   "usePostProcessing": null,
                   "postFuncBody": null
-                },
-                {
-                  "name": "añadirTarjeta",
-                  "type": "attribute",
-                  "label": "Registro de nueva tarjeta RFID",
-                  "color": "#2196f3",
-                  "settings": {
-                    "dataKeyHidden": false,
-                    "dataKeyType": "server",
-                    "dataKeyValueType": "booleanSwitch",
-                    "required": false,
-                    "isEditable": "editable",
-                    "disabledOnDataKey": "",
-                    "appearance": "outline",
-                    "subscriptSizing": "fixed",
-                    "slideToggleLabelPosition": "before",
-                    "selectOptions": [],
-                    "step": 1,
-                    "minValue": null,
-                    "maxValue": null,
-                    "requiredErrorMessage": "",
-                    "minValueErrorMessage": "",
-                    "maxValueErrorMessage": "",
-                    "invalidDateErrorMessage": "",
-                    "invalidJsonErrorMessage": "",
-                    "dialogTitle": "",
-                    "saveButtonLabel": "",
-                    "cancelButtonLabel": "",
-                    "useCustomIcon": false,
-                    "icon": "badge",
-                    "customIcon": "",
-                    "useGetValueFunction": false,
-                    "getValueFunctionBody": "",
-                    "useSetValueFunction": false,
-                    "setValueFunctionBody": ""
-                  },
-                  "_hash": 0.7167664148020081,
-                  "aggregationType": null,
-                  "units": "",
-                  "decimals": null,
-                  "funcBody": null,
-                  "usePostProcessing": null,
-                  "postFuncBody": null
                 }
               ],
               "alarmFilterConfig": {
@@ -653,7 +610,7 @@
               "limit": 2500
             }
           },
-          "showTitle": true,
+          "showTitle": false,
           "backgroundColor": "#fff",
           "color": "rgba(0, 0, 0, 0.87)",
           "padding": "8px",
@@ -979,13 +936,13 @@
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
               "dataKeys": [
                 {
                   "name": "TemperaturaPromedio",
                   "type": "timeseries",
                   "label": "TemperaturaPromedio",
-                  "color": "rgba(0, 0, 0, 0.87)",
+                  "color": "rgb(214, 30, 30)",
                   "settings": {},
                   "_hash": 0.4151035192139918,
                   "units": "°C",
@@ -1015,22 +972,32 @@
                     },
                     "color": {
                       "type": "range",
-                      "color": "rgba(0, 0, 0, 0.87)",
+                      "color": "rgba(255, 0, 0, 0.87)",
                       "rangeList": [
                         {
                           "from": null,
-                          "to": 18,
-                          "color": "#234CC7"
+                          "to": 0,
+                          "color": "#79DFD8"
                         },
                         {
-                          "from": 18,
-                          "to": 24,
-                          "color": "#3FA71A"
+                          "from": 0,
+                          "to": 5,
+                          "color": "#41D273"
                         },
                         {
-                          "from": 24,
+                          "from": 6,
+                          "to": 10,
+                          "color": "#DFD227"
+                        },
+                        {
+                          "from": 11,
+                          "to": 15,
+                          "color": "rgb(255, 137, 29)"
+                        },
+                        {
+                          "from": 16,
                           "to": null,
-                          "color": "#D81838"
+                          "color": "rgb(255, 0, 0)"
                         }
                       ],
                       "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
@@ -1062,19 +1029,14 @@
                       "color": "rgba(0, 0, 0, 0.38)",
                       "rangeList": [
                         {
-                          "from": null,
-                          "to": 0,
-                          "color": "#198038"
-                        },
-                        {
                           "from": 0,
                           "to": 0,
                           "color": "rgba(0, 0, 0, 0.87)"
                         },
                         {
-                          "from": 0,
+                          "from": null,
                           "to": null,
-                          "color": "#D12730"
+                          "color": "rgba(0,0,0,0.87)"
                         }
                       ],
                       "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
@@ -1124,16 +1086,24 @@
             }
           ],
           "timewindow": {
-            "selectedTab": 1,
-            "history": {
-              "historyType": 2,
-              "quickInterval": "CURRENT_MONTH_SO_FAR"
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_MONTH_SO_FAR",
+              "interval": 7200000
             },
             "aggregation": {
               "type": "AVG",
-              "interval": 43200000,
               "limit": 5000
-            }
+            },
+            "timezone": null
           },
           "showTitle": true,
           "backgroundColor": "rgba(0, 0, 0, 0)",
@@ -1291,13 +1261,13 @@
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
               "dataKeys": [
                 {
                   "name": "HumedadPromedio",
                   "type": "timeseries",
                   "label": "HumedadPromedio",
-                  "color": "rgba(0, 0, 0, 0.87)",
+                  "color": "rgba(23, 50, 224, 0.87)",
                   "settings": {},
                   "_hash": 0.5663467097758572,
                   "units": "%",
@@ -1332,17 +1302,17 @@
                         {
                           "from": null,
                           "to": 30,
-                          "color": "#FFA600"
+                          "color": "rgba(39, 208, 212, 0.87)"
                         },
                         {
-                          "from": 30,
+                          "from": 31,
                           "to": 60,
-                          "color": "#3FA71A"
+                          "color": "rgba(226, 182, 32, 0.87)"
                         },
                         {
-                          "from": 60,
-                          "to": null,
-                          "color": "#D81838"
+                          "from": 61,
+                          "to": 100,
+                          "color": "rgba(228, 73, 44, 0.87)"
                         }
                       ],
                       "colorFunction": "var temperature = value;\nif (typeof temperature !== undefined) {\n  var percent = (temperature + 60)/120 * 100;\n  return tinycolor.mix('blue', 'red', percent).toHexString();\n}\nreturn 'blue';"
@@ -1436,16 +1406,24 @@
             }
           ],
           "timewindow": {
-            "selectedTab": 1,
-            "history": {
-              "historyType": 2,
-              "quickInterval": "CURRENT_MONTH_SO_FAR"
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_MONTH_SO_FAR",
+              "interval": 7200000
             },
             "aggregation": {
               "type": "AVG",
-              "interval": 43200000,
               "limit": 5000
-            }
+            },
+            "timezone": null
           },
           "showTitle": true,
           "backgroundColor": "rgba(0, 0, 0, 0)",
@@ -1603,7 +1581,7 @@
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
               "entityAliasId": null,
               "filterId": null,
               "dataKeys": [
@@ -1657,16 +1635,26 @@
             }
           ],
           "timewindow": {
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
             "realtime": {
-              "interval": 1000,
-              "timewindowMs": 60000
+              "realtimeType": 1,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY",
+              "interval": 1000
             },
             "aggregation": {
               "type": "NONE",
               "limit": 200
-            }
+            },
+            "timezone": null
           },
-          "showTitle": true,
+          "showTitle": false,
           "backgroundColor": "rgb(255, 255, 255)",
           "color": "rgba(0, 0, 0, 0.87)",
           "padding": "8px",
@@ -2120,8 +2108,8 @@
           "color": "rgba(255,255,255,0.87)",
           "padding": "8px",
           "settings": {
-            "name": "Personal",
-            "icon": "people",
+            "name": "Registro",
+            "icon": "photo_camera",
             "path": "/dashboards/34f55d60-7ff3-11ee-b02b-cff4615e8c80?state=W3siaWQiOiJwZXJzb25hbCIsInBhcmFtcyI6e319XQ%253D%253D"
           },
           "title": "Navigation card",
@@ -2204,14 +2192,24 @@
         "sizeY": 6.5,
         "config": {
           "timewindow": {
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
             "realtime": {
-              "interval": 1000,
-              "timewindowMs": 86400000
+              "realtimeType": 1,
+              "timewindowMs": 86400000,
+              "quickInterval": "CURRENT_YEAR",
+              "interval": 1000
             },
             "aggregation": {
               "type": "NONE",
               "limit": 200
-            }
+            },
+            "timezone": null
           },
           "showTitle": false,
           "backgroundColor": "rgb(255, 255, 255)",
@@ -2247,7 +2245,7 @@
           "alarmSource": {
             "type": "device",
             "name": "",
-            "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+            "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
             "entityAliasId": null,
             "dataKeys": [
               {
@@ -2262,20 +2260,6 @@
                   "cellContentFunction": ""
                 },
                 "_hash": 0.021092237451093787,
-                "funcBody": null
-              },
-              {
-                "name": "originator",
-                "type": "alarm",
-                "label": "Originator",
-                "color": "#4caf50",
-                "settings": {
-                  "useCellStyleFunction": false,
-                  "cellStyleFunction": "",
-                  "useCellContentFunction": false,
-                  "cellContentFunction": ""
-                },
-                "_hash": 0.2780007688856758,
                 "funcBody": null
               },
               {
@@ -2317,15 +2301,6 @@
                 },
                 "_hash": 0.6588418951443418,
                 "funcBody": null
-              },
-              {
-                "name": "assignee",
-                "type": "alarm",
-                "label": "Assignee",
-                "color": "#9c27b0",
-                "settings": {},
-                "_hash": 0.5008441077416634,
-                "funcBody": null
               }
             ],
             "alarmFilterConfig": {
@@ -2345,10 +2320,21 @@
           "actions": {},
           "configMode": "basic",
           "alarmFilterConfig": {
-            "statusList": [],
-            "severityList": [],
-            "typeList": [],
-            "searchPropagatedAlarms": false
+            "statusList": [
+              "ACTIVE",
+              "CLEARED",
+              "ACK",
+              "UNACK"
+            ],
+            "severityList": [
+              "CRITICAL",
+              "MAJOR",
+              "MINOR",
+              "WARNING",
+              "INDETERMINATE"
+            ],
+            "assignedToCurrentUser": false,
+            "assigneeId": null
           },
           "datasources": [],
           "titleFont": null,
@@ -2454,14 +2440,15 @@
             "selectedTab": 0,
             "realtime": {
               "realtimeType": 0,
-              "timewindowMs": 2592000000,
+              "timewindowMs": 86400000,
               "quickInterval": "CURRENT_DAY",
-              "interval": 7200000
+              "interval": 300000
             },
             "aggregation": {
               "type": "AVG",
               "limit": 5000
-            }
+            },
+            "timezone": null
           },
           "showTitle": false,
           "backgroundColor": "#fff",
@@ -2584,14 +2571,28 @@
             }
           ],
           "timewindow": {
-            "realtime": {
+            "hideInterval": false,
+            "hideLastInterval": false,
+            "hideQuickInterval": false,
+            "hideAggregation": true,
+            "hideAggInterval": true,
+            "hideTimezone": true,
+            "selectedTab": 1,
+            "history": {
+              "historyType": 2,
+              "timewindowMs": 2937600000,
               "interval": 1000,
-              "timewindowMs": 60000
+              "fixedTimewindow": {
+                "startTimeMs": 1702334923097,
+                "endTimeMs": 1702421323097
+              },
+              "quickInterval": "CURRENT_YEAR_SO_FAR"
             },
             "aggregation": {
               "type": "NONE",
-              "limit": 200
-            }
+              "limit": 5000
+            },
+            "timezone": null
           },
           "showTitle": true,
           "backgroundColor": "rgb(255, 255, 255)",
@@ -2604,7 +2605,7 @@
             "enableSearch": true,
             "enableSelectColumnDisplay": true
           },
-          "title": "Timeseries table",
+          "title": "Historial de Consumo Segun Temperatura",
           "dropShadow": true,
           "enableFullscreen": true,
           "titleStyle": {
@@ -2629,7 +2630,347 @@
         "col": 0,
         "id": "697b301e-305d-f1c8-1093-c8854f2348d1"
       },
-      "93f5bc99-d7b7-25f1-6e6f-ee091a4fac2a": {
+      "22eced9c-cc5a-614c-5953-75a116728b5c": {
+        "typeFullFqn": "system.control_widgets.update_attributes",
+        "type": "rpc",
+        "sizeX": 4,
+        "sizeY": 2,
+        "config": {
+          "showTitle": false,
+          "backgroundColor": "#EAEAEA",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "-5px",
+          "settings": {
+            "title": "",
+            "buttonText": "Acualizar Inventario",
+            "entityAttributeType": "SERVER_SCOPE",
+            "entityParameters": "{\"update\":\"inv\"}",
+            "styleButton": {
+              "isRaised": true,
+              "isPrimary": false
+            }
+          },
+          "title": "Update device attribute",
+          "dropShadow": true,
+          "enableFullscreen": false,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "targetDeviceAliases": [],
+          "datasources": [],
+          "targetDeviceAliasIds": [
+            "3287b92d-fa40-5668-95a4-cb1cebc401fb"
+          ],
+          "widgetCss": "",
+          "pageSize": 1024,
+          "noDataDisplayMessage": ""
+        },
+        "row": 0,
+        "col": 0,
+        "id": "22eced9c-cc5a-614c-5953-75a116728b5c"
+      },
+      "abdc8e98-7ba8-9642-8525-f0abca297b87": {
+        "typeFullFqn": "tenant.inventario",
+        "type": "latest",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "dataKeys": [
+                {
+                  "name": "inventario",
+                  "type": "attribute",
+                  "label": "inventario",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.4580710358435699
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              }
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 1702240610306,
+                "endTimeMs": 1702327010306
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {},
+          "title": "Attributes card",
+          "useDashboardTimewindow": true,
+          "displayTimewindow": true
+        },
+        "row": 0,
+        "col": 0,
+        "id": "abdc8e98-7ba8-9642-8525-f0abca297b87"
+      },
+      "0fedf7dc-d2dc-a763-640a-6b556e27bc7e": {
+        "typeFullFqn": "system.input_widgets.update_multiple_attributes",
+        "type": "latest",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "dataKeys": [
+                {
+                  "name": "nombreProductoModificar",
+                  "type": "attribute",
+                  "label": "Nombre",
+                  "color": "#2196f3",
+                  "settings": {
+                    "dataKeyHidden": false,
+                    "dataKeyType": "server",
+                    "dataKeyValueType": "string",
+                    "required": true,
+                    "isEditable": "editable",
+                    "disabledOnDataKey": "",
+                    "appearance": "fill",
+                    "subscriptSizing": "fixed",
+                    "slideToggleLabelPosition": "after",
+                    "selectOptions": [],
+                    "step": 1,
+                    "minValue": null,
+                    "maxValue": null,
+                    "requiredErrorMessage": "Ingresar nombre del producto",
+                    "minValueErrorMessage": "",
+                    "maxValueErrorMessage": "",
+                    "invalidDateErrorMessage": "",
+                    "invalidJsonErrorMessage": "",
+                    "dialogTitle": "",
+                    "saveButtonLabel": "",
+                    "cancelButtonLabel": "",
+                    "useCustomIcon": false,
+                    "icon": "",
+                    "customIcon": "",
+                    "useGetValueFunction": false,
+                    "getValueFunctionBody": "",
+                    "useSetValueFunction": false,
+                    "setValueFunctionBody": ""
+                  },
+                  "_hash": 0.10188456848141725,
+                  "aggregationType": null,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "cantProductoModificar",
+                  "type": "attribute",
+                  "label": "Cantidad",
+                  "color": "#4caf50",
+                  "settings": {
+                    "dataKeyHidden": false,
+                    "dataKeyType": "server",
+                    "dataKeyValueType": "string",
+                    "required": true,
+                    "isEditable": "editable",
+                    "disabledOnDataKey": "",
+                    "appearance": "fill",
+                    "subscriptSizing": "fixed",
+                    "slideToggleLabelPosition": "after",
+                    "selectOptions": [],
+                    "step": 1,
+                    "minValue": null,
+                    "maxValue": null,
+                    "requiredErrorMessage": "Ingrese la cantidad del producto.",
+                    "minValueErrorMessage": "",
+                    "maxValueErrorMessage": "",
+                    "invalidDateErrorMessage": "",
+                    "invalidJsonErrorMessage": "",
+                    "dialogTitle": "",
+                    "saveButtonLabel": "",
+                    "cancelButtonLabel": "",
+                    "useCustomIcon": false,
+                    "icon": "",
+                    "customIcon": "",
+                    "useGetValueFunction": false,
+                    "getValueFunctionBody": "",
+                    "useSetValueFunction": false,
+                    "setValueFunctionBody": ""
+                  },
+                  "_hash": 0.6338649304499824,
+                  "aggregationType": null,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              }
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 1702259004937,
+                "endTimeMs": 1702345404937
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "widgetTitle": "Modificación de Inventario",
+            "showResultMessage": true,
+            "showActionButtons": true,
+            "updateAllValues": true,
+            "saveButtonLabel": "",
+            "resetButtonLabel": "",
+            "showGroupTitle": false,
+            "groupTitle": "${entityName}",
+            "fieldsAlignment": "row",
+            "fieldsInRow": 1,
+            "rowGap": 5,
+            "columnGap": 15
+          },
+          "title": "Update Multiple Attributes",
+          "dropShadow": true,
+          "enableFullscreen": false,
+          "enableDataExport": false,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "displayTimewindow": true
+        },
+        "row": 0,
+        "col": 0,
+        "id": "0fedf7dc-d2dc-a763-640a-6b556e27bc7e"
+      },
+      "b7ba75e4-26c4-0ebb-c239-e95b5f7876d6": {
+        "typeFullFqn": "tenant.registo_fotografico",
+        "type": "latest",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "",
+              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "dataKeys": [
+                {
+                  "name": "registroFotografico",
+                  "type": "attribute",
+                  "label": "registroFotografico",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.7436001990600195
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              }
+            }
+          ],
+          "timewindow": {
+            "displayValue": "",
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 1,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "quickInterval": "CURRENT_DAY"
+            },
+            "history": {
+              "historyType": 0,
+              "interval": 1000,
+              "timewindowMs": 60000,
+              "fixedTimewindow": {
+                "startTimeMs": 1702761479183,
+                "endTimeMs": 1702847879183
+              },
+              "quickInterval": "CURRENT_DAY"
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {},
+          "title": "Attributes card",
+          "useDashboardTimewindow": true,
+          "displayTimewindow": true
+        },
+        "row": 0,
+        "col": 0,
+        "id": "b7ba75e4-26c4-0ebb-c239-e95b5f7876d6"
+      },
+      "3053aaba-2126-8955-a41f-98c6e5388e40": {
         "typeFullFqn": "tenant.mapa_de_calor2",
         "type": "timeseries",
         "sizeX": 8,
@@ -2639,7 +2980,7 @@
             {
               "type": "device",
               "name": "",
-              "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
+              "deviceId": "28c84510-9d1d-11ee-9887-5bea4b75a3d4",
               "dataKeys": [
                 {
                   "name": "temperatura1",
@@ -2647,7 +2988,7 @@
                   "label": "Temperature",
                   "color": "#2196f3",
                   "settings": {},
-                  "_hash": 0.6137040750418215,
+                  "_hash": 0.8510480994983384,
                   "units": "°C",
                   "decimals": 0
                 },
@@ -2657,7 +2998,7 @@
                   "label": "temperatura2",
                   "color": "#4caf50",
                   "settings": {},
-                  "_hash": 0.48759095029028643,
+                  "_hash": 0.2834725827886495,
                   "decimals": 0
                 },
                 {
@@ -2666,7 +3007,7 @@
                   "label": "temperatura3",
                   "color": "#f44336",
                   "settings": {},
-                  "_hash": 0.884539837557353,
+                  "_hash": 0.6555876810926403,
                   "decimals": 0
                 },
                 {
@@ -2675,7 +3016,7 @@
                   "label": "temperatura4",
                   "color": "#ffc107",
                   "settings": {},
-                  "_hash": 0.7131712550316907,
+                  "_hash": 0.12274699058865102,
                   "decimals": 0
                 }
               ],
@@ -2766,10 +3107,10 @@
         },
         "row": 0,
         "col": 0,
-        "id": "93f5bc99-d7b7-25f1-6e6f-ee091a4fac2a"
+        "id": "3053aaba-2126-8955-a41f-98c6e5388e40"
       },
-      "bb33f6ac-34fa-8a84-c0b9-f6b8ff1f30c7": {
-        "typeFullFqn": "system.cards.attributes_card",
+      "50dd4e07-f2c2-7f38-808a-08c990acfb4c": {
+        "typeFullFqn": "system.input_widgets.update_multiple_attributes",
         "type": "latest",
         "sizeX": 7.5,
         "sizeY": 3,
@@ -2781,12 +3122,47 @@
               "deviceId": "b8436c40-7dd0-11ee-bc19-a533898c4c2a",
               "dataKeys": [
                 {
-                  "name": "inventario",
+                  "name": "añadirTarjeta",
                   "type": "attribute",
-                  "label": "inventario",
+                  "label": "Añadir Tarjeta",
                   "color": "#2196f3",
-                  "settings": {},
-                  "_hash": 0.8706945010581825
+                  "settings": {
+                    "dataKeyHidden": false,
+                    "dataKeyType": "server",
+                    "dataKeyValueType": "booleanSwitch",
+                    "required": false,
+                    "isEditable": "editable",
+                    "disabledOnDataKey": "",
+                    "appearance": "outline",
+                    "subscriptSizing": "fixed",
+                    "slideToggleLabelPosition": "before",
+                    "selectOptions": [],
+                    "step": 1,
+                    "minValue": null,
+                    "maxValue": null,
+                    "requiredErrorMessage": "",
+                    "minValueErrorMessage": "",
+                    "maxValueErrorMessage": "",
+                    "invalidDateErrorMessage": "",
+                    "invalidJsonErrorMessage": "",
+                    "dialogTitle": "",
+                    "saveButtonLabel": "",
+                    "cancelButtonLabel": "",
+                    "useCustomIcon": false,
+                    "icon": "badge",
+                    "customIcon": "",
+                    "useGetValueFunction": false,
+                    "getValueFunctionBody": "",
+                    "useSetValueFunction": false,
+                    "setValueFunctionBody": ""
+                  },
+                  "_hash": 0.05792157096685546,
+                  "aggregationType": null,
+                  "units": "",
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
                 }
               ],
               "alarmFilterConfig": {
@@ -2810,8 +3186,8 @@
               "interval": 1000,
               "timewindowMs": 60000,
               "fixedTimewindow": {
-                "startTimeMs": 1701546271475,
-                "endTimeMs": 1701632671475
+                "startTimeMs": 1698885318041,
+                "endTimeMs": 1698971718041
               },
               "quickInterval": "CURRENT_DAY"
             },
@@ -2820,42 +3196,28 @@
               "limit": 2500
             }
           },
-          "showTitle": true,
+          "showTitle": false,
           "backgroundColor": "#fff",
           "color": "rgba(0, 0, 0, 0.87)",
           "padding": "8px",
-          "settings": {},
-          "title": "Attributes card",
-          "useDashboardTimewindow": true,
-          "displayTimewindow": true
-        },
-        "row": 0,
-        "col": 0,
-        "id": "bb33f6ac-34fa-8a84-c0b9-f6b8ff1f30c7"
-      },
-      "22eced9c-cc5a-614c-5953-75a116728b5c": {
-        "typeFullFqn": "system.control_widgets.update_attributes",
-        "type": "rpc",
-        "sizeX": 4,
-        "sizeY": 2,
-        "config": {
-          "showTitle": false,
-          "backgroundColor": "#EAEAEA",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "padding": "-5px",
           "settings": {
-            "title": "",
-            "buttonText": "Acualizar Inventario",
-            "entityAttributeType": "SERVER_SCOPE",
-            "entityParameters": "{}",
-            "styleButton": {
-              "isRaised": true,
-              "isPrimary": false
-            }
+            "widgetTitle": "Parametros configurables",
+            "showResultMessage": true,
+            "showActionButtons": true,
+            "updateAllValues": false,
+            "saveButtonLabel": "Confirmar",
+            "resetButtonLabel": "Descartar",
+            "showGroupTitle": false,
+            "fieldsAlignment": "column",
+            "rowGap": 5,
+            "groupTitle": "${entityName}",
+            "fieldsInRow": 2,
+            "columnGap": 10
           },
-          "title": "Update device attribute",
+          "title": "",
           "dropShadow": true,
           "enableFullscreen": false,
+          "enableDataExport": false,
           "widgetStyle": {},
           "titleStyle": {
             "fontSize": "16px",
@@ -2864,18 +3226,16 @@
           "useDashboardTimewindow": true,
           "showLegend": false,
           "actions": {},
-          "targetDeviceAliases": [],
-          "datasources": [],
-          "targetDeviceAliasIds": [
-            "3287b92d-fa40-5668-95a4-cb1cebc401fb"
-          ],
+          "displayTimewindow": true,
           "widgetCss": "",
           "pageSize": 1024,
-          "noDataDisplayMessage": ""
+          "noDataDisplayMessage": "",
+          "showTitleIcon": false,
+          "titleTooltip": ""
         },
         "row": 0,
         "col": 0,
-        "id": "22eced9c-cc5a-614c-5953-75a116728b5c"
+        "id": "50dd4e07-f2c2-7f38-808a-08c990acfb4c"
       }
     },
     "states": {
@@ -2895,37 +3255,37 @@
                 "sizeX": 4,
                 "sizeY": 5,
                 "row": 7,
-                "col": 4
+                "col": 17
               },
               "48f11d88-455a-f1fb-20f1-0e231c034e93": {
                 "sizeX": 4,
                 "sizeY": 5,
                 "row": 7,
-                "col": 8
+                "col": 13
               },
               "e4622304-00e7-b0b2-d413-ffaea608473a": {
                 "sizeX": 4,
                 "sizeY": 5,
                 "row": 7,
-                "col": 0
+                "col": 21
               },
               "8a0bbb80-4156-50eb-30d9-2e1d2cfe7a16": {
                 "sizeX": 4,
                 "sizeY": 5,
                 "row": 7,
-                "col": 13
+                "col": 0
               },
               "1f513f43-0159-ee2d-29d6-0c468d265448": {
                 "sizeX": 4,
                 "sizeY": 5,
                 "row": 7,
-                "col": 17
+                "col": 4
               },
               "9b7d6b6b-8741-f488-e660-fae554397bac": {
                 "sizeX": 4,
                 "sizeY": 5,
                 "row": 7,
-                "col": 21
+                "col": 8
               }
             },
             "gridSettings": {
@@ -3025,14 +3385,14 @@
         }
       },
       "configuracion": {
-        "name": "configuracion",
+        "name": "Configuracion",
         "root": false,
         "layouts": {
           "main": {
             "widgets": {
               "f3451deb-2ff7-6df1-c540-8a27c986ed8c": {
                 "sizeX": 30,
-                "sizeY": 12,
+                "sizeY": 8,
                 "row": 3,
                 "col": 0
               },
@@ -3047,6 +3407,12 @@
                 "sizeY": 3,
                 "row": 0,
                 "col": 3
+              },
+              "50dd4e07-f2c2-7f38-808a-08c990acfb4c": {
+                "sizeX": 30,
+                "sizeY": 4,
+                "row": 11,
+                "col": 0
               }
             },
             "gridSettings": {
@@ -3064,7 +3430,7 @@
         }
       },
       "temperaturas": {
-        "name": "temperaturas",
+        "name": "Temperaturas",
         "root": false,
         "layouts": {
           "main": {
@@ -3087,7 +3453,7 @@
                 "row": 0,
                 "col": 3
               },
-              "93f5bc99-d7b7-25f1-6e6f-ee091a4fac2a": {
+              "3053aaba-2126-8955-a41f-98c6e5388e40": {
                 "sizeX": 17,
                 "sizeY": 12,
                 "row": 3,
@@ -3121,6 +3487,12 @@
                 "sizeY": 3,
                 "row": 0,
                 "col": 3
+              },
+              "b7ba75e4-26c4-0ebb-c239-e95b5f7876d6": {
+                "sizeX": 26,
+                "sizeY": 10,
+                "row": 3,
+                "col": 0
               }
             },
             "gridSettings": {
@@ -3192,17 +3564,23 @@
                 "row": 0,
                 "col": 3
               },
-              "bb33f6ac-34fa-8a84-c0b9-f6b8ff1f30c7": {
-                "sizeX": 28,
-                "sizeY": 9,
-                "row": 3,
-                "col": 0
-              },
               "22eced9c-cc5a-614c-5953-75a116728b5c": {
                 "sizeX": 28,
                 "sizeY": 2,
                 "row": 12,
                 "col": 0
+              },
+              "abdc8e98-7ba8-9642-8525-f0abca297b87": {
+                "sizeX": 21,
+                "sizeY": 9,
+                "row": 3,
+                "col": 0
+              },
+              "0fedf7dc-d2dc-a763-640a-6b556e27bc7e": {
+                "sizeX": 7,
+                "sizeY": 9,
+                "row": 3,
+                "col": 21
               }
             },
             "gridSettings": {
