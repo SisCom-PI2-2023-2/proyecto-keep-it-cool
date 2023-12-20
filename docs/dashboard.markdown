@@ -37,7 +37,9 @@ En este panel se muestra con más profundidad la temperatura de la cámara, se t
 
 ![Inventario](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Inventario.png)
 
-Aquí simplemente se muestra la lista de todos los productos en la cámara, estos deben ser registrados manualmente por el personal.
+Aquí simplemente se muestra la lista de todos los productos en la cámara, permite modificar el inventario desde Thingsboard pero si se modifica de forma externa
+es necesario pulsar el boton de actualizar. Al pulsar 'Productos' o 'Cantidad' cambia el ordenamiento del inventario, se pude ordenar de 2 formas por cada uno de estos. Por ejemplo
+el orden por cantidad puede ser de menor a mayor o cambiarse a de mayor a menor si se vuelve a pulsar 'Cantidad'.
 
 #### Configuracion (solo admin)
 
@@ -45,9 +47,9 @@ Aquí simplemente se muestra la lista de todos los productos en la cámara, esto
 
 Panel solamente habilitado para administradores, permite cambiar parámetros de la cámara, como las temperaturas threshold, el tiempo entre chequeos. También es el lugar desde el cual se le indica al sensor RFID que registre nuevas tarjetas.
 
-#### Personal (solo admin) (En desarrollo)
+#### Registro (solo admin)
 
-![Personal](img.png)
+![Registro](img.png)
 
 Panel solamente habilitado para administradores, contiene un registro fotográfico con todo el personal que entró a la cámara.
 
