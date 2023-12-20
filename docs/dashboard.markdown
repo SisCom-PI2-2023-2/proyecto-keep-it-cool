@@ -49,7 +49,7 @@ Panel solamente habilitado para administradores, permite cambiar parámetros de 
 
 #### Registro (solo admin)
 
-![Registro](img.png)
+![Registro](https://raw.githubusercontent.com/SisCom-PI2-2023-2/proyecto-keep-it-cool/main/docs/assets/Registro.png)
 
 Panel solamente habilitado para administradores, contiene un registro fotográfico con todo el personal que entró a la cámara.
 
